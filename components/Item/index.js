@@ -13,4 +13,4 @@ import QuickMessage from "./QuickMessage"
 import SellerInfo from "./SellerInfo"
 import SidebarMenu from "./SidebarMenu"
 
-export default {ActiveImage, ChangeImageButton, ExitItem, FavoriteButton, ImageContainer, InactiveImage, ItemCarousel, ItemDescription, ItemHeader, MessageButton, MoreOptionsButton, QuickMessage, SellerInfo, SidebarMenu}
+export { ActiveImage, ChangeImageButton, ExitItem, FavoriteButton, ImageContainer, InactiveImage, ItemCarousel, ItemDescription, ItemHeader, MessageButton, MoreOptionsButton, QuickMessage, SellerInfo, SidebarMenu }

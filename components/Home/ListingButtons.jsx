@@ -2,7 +2,10 @@ import React from 'react'
 
 const ListingButtons = () => {
   return (
-    <div>ListingButtons</div>
+    <div>
+      <div>Create a listing</div>
+      <div>Edit listings</div>
+    </div>
   )
 }
 

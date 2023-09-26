@@ -7,4 +7,4 @@ import RadioFieldLarge from "./RadioFieldLarge"
 import SubmitListingButton from "./SubmitListingButton"
 import TextFieldLarge from "./TextFieldLarge"
 
-export {DescriptionField, DropField, ImageDropper, ImagePreview, RadioField, RadioFieldLarge, SubmitListingButton, TextFieldLarge};
+export { DescriptionField, DropField, ImageDropper, ImagePreview, RadioField, RadioFieldLarge, SubmitListingButton, TextFieldLarge };

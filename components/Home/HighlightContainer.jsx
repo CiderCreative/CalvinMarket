@@ -1,8 +1,8 @@
 import React from 'react'
 
-const HighlightContainer = () => {
+const HighlightContainer = ({text}) => {
   return (
-    <div>HighlightContainer</div>
+    <div>{text}</div>
   )
 }
 

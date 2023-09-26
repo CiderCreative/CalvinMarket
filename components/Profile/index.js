@@ -5,4 +5,4 @@ import StarRating  from "./StarRating"
 import UserInfo  from "./UserInfo"
 import UserListingsContainer  from "./UserListingsContainer"
 
-export default { ActionButtons, CreateListingBox, EditItem, StarRating, UserInfo, UserListingsContainer }
+export { ActionButtons, CreateListingBox, EditItem, StarRating, UserInfo, UserListingsContainer }

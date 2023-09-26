@@ -7,4 +7,4 @@ import ReceivedMessage from "./ReceivedMessage"
 import SentMessage from "./SentMessage"
 import TypeMessage from "./TypeMessage"
 
-export default {ConversationTag, CurrentConversationContainer, CurrentConversationHeader, MessagesPopup, MessagesSidebar, ReceivedMessage, SentMessage, TypeMessage}
+export { ConversationTag, CurrentConversationContainer, CurrentConversationHeader, MessagesPopup, MessagesSidebar, ReceivedMessage, SentMessage, TypeMessage }

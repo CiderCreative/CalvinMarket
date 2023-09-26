@@ -6,5 +6,6 @@ import ItemHighlight from "./ItemHighlight"
 import ListingButtons from "./ListingButtons"
 import Searchbar from "./Searchbar"
 import Settings from "./Settings"
+import HomeSidebar from "./HomeSidebar"
 
-export default {AccountIndication, FilterButton, FilterContainer, HighlightContainer, ItemHighlight, ListingButtons, Searchbar, Settings}
+export { AccountIndication, FilterButton, FilterContainer, HighlightContainer, ItemHighlight, ListingButtons, Searchbar, Settings, HomeSidebar };
