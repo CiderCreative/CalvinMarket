@@ -1,8 +1,11 @@
 import React from 'react'
 
-const FilterButton = () => {
+const FilterButton = ({text, icon}) => {
   return (
-    <div>FilterButton</div>
+    <div>
+      <p>{text}</p>
+      {icon}
+    </div>
   )
 }
 

@@ -4,7 +4,7 @@ function Home({ signOut, user }) {
   return (
     <div>
       <HomeSidebar />
-      
+
       <div>
         <Searchbar />
         <>
