@@ -3,11 +3,10 @@ import { Logo } from "@/components/Global/index"
 
 const HomeSidebar = () => {
   return (
-    <div className="bg-primary fixed left-0 top-0 h-full w-[200px]">
-      HomeSidebar:
+    <div className="bg-primary fixed left-0 top-0 h-full w-[250px]">
       <Logo />
-      <ListingButtons />
-      <FilterContainer />
+      <ListingButtons />    {/* Create & Edit Listing */}
+      <FilterContainer />   {/* "School Supplies", "Electronics", etc. */}
     </div>
   )
 }
