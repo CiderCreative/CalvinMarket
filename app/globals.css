@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+::selection{
+  @apply bg-opposite text-opposite;
+}

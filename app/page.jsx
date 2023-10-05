@@ -1,9 +1,13 @@
+"use client"
 import { AccountIndication, FilterButton, FilterContainer, HighlightContainer, ItemHighlight, ListingButtons, Searchbar, Settings, HomeSidebar } from "@/components/Home/index"
+import { useState } from "react";
 
 function Home({ signOut, user }) {
+  const [sidebarClosed, setSidebarClosed] = useState(false);
+
   return (
-    <div>
-      <HomeSidebar />
+    <div className={`transition-all duration-300 pl-[300px] ${sidebarClosed ? "pl-[50px]" : "pl-[300px]"}`}>
+      <HomeSidebar sidebarClosed={sidebarClosed} setSidebarClosed={setSidebarClosed}/>
 
       <div>
         <Searchbar />
