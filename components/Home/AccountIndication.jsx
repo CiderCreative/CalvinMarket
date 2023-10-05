@@ -1,8 +1,8 @@
 import React from 'react'
 
-const AccountIndication = () => {
+const AccountIndication = ({userName = "???????"}) => {
   return (
-    <div>AccountIndication</div>
+    <div>You are logged in as {userName}</div>
   )
 }
 

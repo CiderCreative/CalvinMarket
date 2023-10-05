@@ -9,12 +9,12 @@ function Home({ signOut, user }) {
     <div className={`transition-all duration-300 pl-[300px] ${sidebarClosed ? "pl-[50px]" : "pl-[300px]"}`}>
       <HomeSidebar sidebarClosed={sidebarClosed} setSidebarClosed={setSidebarClosed}/>
 
-      <div>
+      <div className="flex justify-between mx-5 mt-2">
         <Searchbar />
-        <>
+        <div className="flex space-x-5">
           <AccountIndication />
           <Settings />
-        </>
+        </div>
       </div>
 
       <HighlightContainer text="Top 5"/>

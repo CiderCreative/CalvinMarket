@@ -21,16 +21,14 @@ module.exports = {
       "dark": "#202020",
       "light": "#EEEEEE",
       "light-gray": "#E2E2E2",
+      'primary': '#EEEEEE',
+      'opposite': '#202020',
     },
     backgroundColor: {
       'primary': '#EEEEEE',
       'opposite': '#202020',
       'yellow': '#E8CC16',
       'maroon': '#8C2232',
-    },
-    textColor: {
-      'primary': '#202020',
-      'opposite': '#EEEEEE'
     },
     extend: {
     },
