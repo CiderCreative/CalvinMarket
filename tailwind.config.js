@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './constants/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     fontSize: {
@@ -31,6 +34,12 @@ module.exports = {
       'maroon': '#8C2232',
     },
     extend: {
+    },
+    variants: {
+      extend: {
+        backgroundColor: ['dark'],
+        textColor: ['dark'],
+      },
     },
   },
   plugins: [],

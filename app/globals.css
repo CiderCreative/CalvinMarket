@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Dark mode's color overrides */
+.dark .bg-primary   { background-color: #202020; }
+.dark .bg-opposite  { background-color: #EEEEEE; }
+.dark .bg-accent    { background-color: #2BACCA; }
+.dark .bg-accent-transparent { background-color: #2BACCA50 }
+.dark .text-primary   {  color: #EEEEEE;  }
+.dark .text-secondary {  color: #202020;  }
