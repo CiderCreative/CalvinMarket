@@ -1,0 +1,13 @@
+{
+  "/page": "/",
+  "/favicon.ico/route": "/favicon.ico",
+  "/EditListing/page": "/EditListing",
+  "/Item/page": "/Item",
+  "/LogIn/page": "/LogIn",
+  "/Profile/page": "/Profile",
+  "/SignUp/page": "/SignUp",
+  "/EditListing/[ProfileId]/page": "/EditListing/[ProfileId]",
+  "/Item/[ItemId]/page": "/Item/[ItemId]",
+  "/Favorites/[ProfileId]/page": "/Favorites/[ProfileId]",
+  "/Profile/[ProfileId]/page": "/Profile/[ProfileId]"
+}

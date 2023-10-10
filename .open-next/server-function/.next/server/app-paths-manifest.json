@@ -1,0 +1,13 @@
+{
+  "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/EditListing/page": "app/EditListing/page.js",
+  "/Item/page": "app/Item/page.js",
+  "/LogIn/page": "app/LogIn/page.js",
+  "/Profile/page": "app/Profile/page.js",
+  "/SignUp/page": "app/SignUp/page.js",
+  "/EditListing/[ProfileId]/page": "app/EditListing/[ProfileId]/page.js",
+  "/Item/[ItemId]/page": "app/Item/[ItemId]/page.js",
+  "/Favorites/[ProfileId]/page": "app/Favorites/[ProfileId]/page.js",
+  "/Profile/[ProfileId]/page": "app/Profile/[ProfileId]/page.js"
+}
