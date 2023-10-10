@@ -35,6 +35,7 @@ module.exports = {
       textColor: {
         'primary':  '#202020',
         'opposite': '#EEEEEE',
+        'maroon': '#8C2232',
       }
     },
     variants: {
