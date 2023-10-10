@@ -8,17 +8,10 @@ export default function LightProvider({ children }) {
   useEffect(() => {
     // Check if the user has already set a preference for light/dark mode
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      // If a preference is saved, apply the corresponding theme
-      document.documentElement.classList.add(savedTheme);
-      setDarkMode(savedTheme === "dark");
-    } else {
-      // If no preference is saved, use the default theme
-      const defaultTheme = darkMode ? "dark" : "light";
-      localStorage.setItem("theme", defaultTheme);
-      document.documentElement.classList.add(defaultTheme);
-    }
-    console.log(darkMode);
+    // If no preference is saved, use the default theme
+    const defaultTheme = darkMode ? "dark" : "light";
+    localStorage.setItem("theme", defaultTheme);
+    document.documentElement.classList.add(defaultTheme);
   }, [darkMode]);
 
   const toggleDark = () => {

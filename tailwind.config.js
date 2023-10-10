@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
-  content: [
+    content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './app/*.{js,ts,jsx,tsx,mdx}',
@@ -20,20 +20,22 @@ module.exports = {
       '4xl': ['48px', { lineHeight: '56px', letterSpacing: '-0.01em' }],
       '5xl': ['64px', { lineHeight: '72px', letterSpacing: '-0.01em' }],
     },
-    colors:{
-      "dark": "#202020",
-      "light": "#EEEEEE",
-      "light-gray": "#E2E2E2",
-      'primary': '#EEEEEE',
-      'opposite': '#202020',
-    },
-    backgroundColor: {
-      'primary': '#EEEEEE',
-      'opposite': '#202020',
-      'yellow': '#E8CC16',
-      'maroon': '#8C2232',
-    },
     extend: {
+      colors:{
+        "dark": "#202020",
+        "light": "#EEEEEE",
+        "light-gray": "#E2E2E2",
+        'primary': '#EEEEEE',
+        'opposite': '#202020',
+      },
+      backgroundColor: {
+        'yellow': '#E8CC16',
+        'maroon': '#8C2232',
+      },
+      textColor: {
+        'primary':  '#202020',
+        'opposite': '#EEEEEE',
+      }
     },
     variants: {
       extend: {
