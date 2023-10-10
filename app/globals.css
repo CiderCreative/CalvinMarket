@@ -11,7 +11,8 @@ body {
 }
 
 /* Dark mode's color overrides */
-.dark .bg-primary   { background-color: #202020; }
-.dark .bg-opposite  { background-color: #EEEEEE; }
+.dark .bg-primary     { background-color: #202020; }
+.dark .bg-opposite    { background-color: #EEEEEE; }
 .dark .text-primary   {  color: #EEEEEE;  }
 .dark .text-secondary {  color: #202020;  }
+
