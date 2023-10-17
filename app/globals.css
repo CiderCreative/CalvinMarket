@@ -17,5 +17,5 @@ body {
 .dark .text-opposite  { color: #202020; }
 
 ::selection{
-  @apply bg-opposite bg-opacity-30 text-maroon;
+  @apply bg-[#30303050];
 }
