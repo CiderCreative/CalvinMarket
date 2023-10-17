@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^5.3.1",
+    "@next/font": "^13.5.5",
     "astro-sst": "^2.27.0",
     "autoprefixer": "10.4.15",
     "aws-amplify": "^5.3.11",

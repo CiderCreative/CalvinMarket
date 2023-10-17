@@ -1,20 +1,20 @@
-2023-10-17T13:33:38.672Z   +124ms [debug] Config loaded {"version":"2.27.0","cdkVersion":"2.95.1","constructsVersion":"10.2.69","config":{"name":"calvinmarket","region":"us-east-1","stage":"blint","ssmPrefix":"/sst/calvinmarket/blint/"},"metafile":{"inputs":{"sst.config.ts":{"bytes":216,"imports":[{"path":"sst","kind":"import-statement","external":true},{"path":"sst/constructs","kind":"import-statement","external":true}],"format":"esm"}},"outputs":{".sst.config.1697549618569.mjs":{"imports":[],"exports":["default"],"entryPoint":"sst.config.ts","inputs":{"sst.config.ts":{"bytesInOutput":127}},"bytes":309}}},"paths":{"config":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket\\sst.config.ts","root":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket","out":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket\\.sst","artifacts":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket\\.sst\\artifacts"}}
-2023-10-17T13:33:44.249Z  +5577ms [debug] Using AWS profile 
-2023-10-17T13:33:44.301Z    +52ms [debug] Created AWS client IoTClient
-2023-10-17T13:33:44.301Z     +0ms [debug] Getting IoT endpoint
-2023-10-17T13:33:44.365Z    +64ms [debug] Synthesizing stacks...
-2023-10-17T13:33:44.386Z    +21ms [debug] Created AWS client STSClient
-2023-10-17T13:33:44.504Z   +118ms [debug] Using IoT endpoint: a1jzvzbgza6d2r-ats.iot.us-east-1.amazonaws.com
-2023-10-17T13:33:44.504Z     +0ms [debug] Initializing bootstrap context
-2023-10-17T13:33:44.511Z     +7ms [debug] Created AWS client CloudFormationClient
-2023-10-17T13:33:44.573Z    +62ms [debug] Using identity Account: 857197001789 User: AIDA4PFHMHQ62DAKPSUJD
-2023-10-17T13:33:44.591Z    +18ms [debug] Generating types in C:\Users\lhump\Desktop\Cider\Sites\CalvinMarket\.sst\types
-2023-10-17T13:33:44.792Z   +201ms [debug] Running 1 deferred tasks with concurrency: 15
-2023-10-17T13:33:45.119Z   +327ms [debug] Loaded bootstrap status
-2023-10-17T13:33:45.119Z     +0ms [debug] Bootstrap context initialized {"status":"ready","version":"7.2","bucket":"sstbootstrap-useast124d14e4b-1mhxdkup1i5ni"}
-2023-10-17T13:33:45.125Z     +6ms [debug] Created AWS client S3Client
-2023-10-17T13:33:45.255Z   +130ms [debug] 
-2023-10-17T13:33:45.256Z     +1ms [debug] Loading v2 AWS SDK
-2023-10-17T13:33:45.256Z     +0ms [debug] Finished synthesizing
-2023-10-17T13:33:45.459Z   +203ms [debug] IoT connected
-2023-10-17T13:33:45.551Z    +92ms [debug] Created AWS client LambdaClient
+2023-10-17T14:00:27.837Z   +116ms [debug] Config loaded {"version":"2.27.0","cdkVersion":"2.95.1","constructsVersion":"10.2.69","config":{"name":"calvinmarket","region":"us-east-1","stage":"blint","ssmPrefix":"/sst/calvinmarket/blint/"},"metafile":{"inputs":{"sst.config.ts":{"bytes":216,"imports":[{"path":"sst","kind":"import-statement","external":true},{"path":"sst/constructs","kind":"import-statement","external":true}],"format":"esm"}},"outputs":{".sst.config.1697551227739.mjs":{"imports":[],"exports":["default"],"entryPoint":"sst.config.ts","inputs":{"sst.config.ts":{"bytesInOutput":127}},"bytes":309}}},"paths":{"config":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket\\sst.config.ts","root":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket","out":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket\\.sst","artifacts":"C:\\Users\\lhump\\Desktop\\Cider\\Sites\\CalvinMarket\\.sst\\artifacts"}}
+2023-10-17T14:00:33.576Z  +5739ms [debug] Using AWS profile 
+2023-10-17T14:00:33.624Z    +48ms [debug] Created AWS client IoTClient
+2023-10-17T14:00:33.624Z     +0ms [debug] Getting IoT endpoint
+2023-10-17T14:00:33.680Z    +56ms [debug] Synthesizing stacks...
+2023-10-17T14:00:33.693Z    +13ms [debug] Created AWS client STSClient
+2023-10-17T14:00:33.802Z   +109ms [debug] Using IoT endpoint: a1jzvzbgza6d2r-ats.iot.us-east-1.amazonaws.com
+2023-10-17T14:00:33.803Z     +1ms [debug] Initializing bootstrap context
+2023-10-17T14:00:33.809Z     +6ms [debug] Created AWS client CloudFormationClient
+2023-10-17T14:00:33.863Z    +54ms [debug] Using identity Account: 857197001789 User: AIDA4PFHMHQ62DAKPSUJD
+2023-10-17T14:00:33.871Z     +8ms [debug] Generating types in C:\Users\lhump\Desktop\Cider\Sites\CalvinMarket\.sst\types
+2023-10-17T14:00:34.001Z   +130ms [debug] Running 1 deferred tasks with concurrency: 15
+2023-10-17T14:00:34.396Z   +395ms [debug] Loaded bootstrap status
+2023-10-17T14:00:34.396Z     +0ms [debug] Bootstrap context initialized {"status":"ready","version":"7.2","bucket":"sstbootstrap-useast124d14e4b-1mhxdkup1i5ni"}
+2023-10-17T14:00:34.399Z     +3ms [debug] Created AWS client S3Client
+2023-10-17T14:00:34.538Z   +139ms [debug] 
+2023-10-17T14:00:34.538Z     +0ms [debug] Loading v2 AWS SDK
+2023-10-17T14:00:34.538Z     +0ms [debug] Finished synthesizing
+2023-10-17T14:00:34.718Z   +180ms [debug] IoT connected
+2023-10-17T14:00:34.787Z    +69ms [debug] Created AWS client LambdaClient
