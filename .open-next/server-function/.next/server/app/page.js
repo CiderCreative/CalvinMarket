@@ -405,9 +405,9 @@ const filterButtonInfo = [
             viewBox: "0 0 21 21",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round",
-                "stroke-width": "2",
+                "strokeLinecap": "round",
+                "strokeLinejoin": "round",
+                "strokeWidth": "2",
                 d: "M7.418 17.861 1 20l2.139-6.418m4.279 4.279 10.7-10.7a3.027 3.027 0 0 0-2.14-5.165c-.802 0-1.571.319-2.139.886l-10.7 10.7m4.279 4.279-4.279-4.279m2.139 2.14 7.844-7.844m-1.426-2.853 4.279 4.279"
             })
         })
@@ -422,9 +422,9 @@ const filterButtonInfo = [
             viewBox: "0 0 16 20",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round",
-                "stroke-width": "2",
+                "strokeLinecap": "round",
+                "strokeLinejoin": "round",
+                "strokeWidth": "2",
                 d: "M1 17V2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M5 15V1m8 18v-4"
             })
         })
@@ -439,9 +439,9 @@ const filterButtonInfo = [
             viewBox: "0 0 18 18",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round",
-                "stroke-width": "2",
+                "strokeLinecap": "round",
+                "strokeLinejoin": "round",
+                "strokeWidth": "2",
                 d: "M3 1h12M3 1v16M3 1H2m13 0v16m0-16h1m-1 16H3m12 0h2M3 17H1M6 4h1v1H6V4Zm5 0h1v1h-1V4ZM6 8h1v1H6V8Zm5 0h1v1h-1V8Zm-3 4h2a1 1 0 0 1 1 1v4H7v-4a1 1 0 0 1 1-1Z"
             })
         })
@@ -456,9 +456,9 @@ const filterButtonInfo = [
             viewBox: "0 0 20 20",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "stroke-linecap": "round",
-                "stroke-linejoin": "round",
-                "stroke-width": "2",
+                "strokeLinecap": "round",
+                "strokeLinejoin": "round",
+                "strokeWidth": "2",
                 d: "M6 14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v1M5 19h5m-9-9h5m4-4h8a1 1 0 0 1 1 1v12H9V7a1 1 0 0 1 1-1Zm6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
             })
         })
@@ -594,9 +594,9 @@ const Searchbar = ()=>{
         viewBox: "0 0 20 20",
         children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
             stroke: "currentColor",
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round",
-            "stroke-width": "2",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "2",
             d: "m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
         })
     });
@@ -632,9 +632,9 @@ const Settings = ()=>{
         viewBox: "0 0 20 20",
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("g", {
             stroke: "currentColor",
-            "stroke-linecap": "round",
-            "stroke-linejoin": "round",
-            "stroke-width": "1.5",
+            "strokeLinecap": "round",
+            "strokeLinejoin": "round",
+            "strokeWidth": "1.5",
             children: [
                 /*#__PURE__*/ jsx_runtime_.jsx("path", {
                     d: "M19 11V9a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L12 2.757V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L2.929 4.343a1 1 0 0 0 0 1.414l.536.536L2.757 8H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535L8 17.243V18a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H18a1 1 0 0 0 1-1Z"
@@ -667,9 +667,9 @@ const Settings = ()=>{
                         viewBox: "0 0 18 20",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                             stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
+                            "strokeLinecap": "round",
+                            "strokeLinejoin": "round",
+                            "strokeWidth": "2",
                             d: "M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"
                         })
                     }) : /*#__PURE__*/ jsx_runtime_.jsx("svg", {
@@ -683,9 +683,9 @@ const Settings = ()=>{
                         viewBox: "0 0 20 20",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                             stroke: "currentColor",
-                            "stroke-linecap": "round",
-                            "stroke-linejoin": "round",
-                            "stroke-width": "2",
+                            "strokeLinecap": "round",
+                            "strokeLinejoin": "round",
+                            "strokeWidth": "2",
                             d: "M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
                         })
                     }),
@@ -733,7 +733,7 @@ const Logo = ()=>{
 
 
 ;// CONCATENATED MODULE: ./components/Home/HomeSidebar.jsx
-/* __next_internal_client_entry_do_not_use__ default auto */ 
+/* __next_internal_client_entry_do_not_use__ default auto */
 
 
 const HomeSidebar = ({ sidebarClosed, setSidebarClosed })=>{
@@ -808,7 +808,7 @@ const ButtonLink = ({ text, link, styles })=>{
 
 
 ;// CONCATENATED MODULE: ./app/page.jsx
-/* __next_internal_client_entry_do_not_use__ default auto */ 
+/* __next_internal_client_entry_do_not_use__ default auto */
 
 
 function Home({ signOut, user }) {
