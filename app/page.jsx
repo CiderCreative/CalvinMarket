@@ -6,18 +6,17 @@ function Home({ signOut, user }) {
   const [sidebarClosed, setSidebarClosed] = useState(false);
 
   return (
-    <div className={`transition-all duration-300 pl-[300px] ${sidebarClosed ? "pl-[50px]" : "pl-[300px]"}`}>
+    <div className={`transition-all duration-300 pl-[300px] ${sidebarClosed ? "pl-[50px]" : ""}`}>
       <HomeSidebar sidebarClosed={sidebarClosed} setSidebarClosed={setSidebarClosed}/>
 
       <div className="flex justify-between mx-5 mt-2">
         <Searchbar />
         <div className="flex space-x-5">
-          <AccountIndication />
+          <AccountIndication userName={user}/>
           <Settings />
         </div>
       </div>
 
-      <HighlightContainer text="Top 5"/>
       <HighlightContainer text="Newly Added"/>
       <HighlightContainer text="Textbooks"/>
       <HighlightContainer text="Free Items"/>

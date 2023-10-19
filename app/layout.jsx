@@ -1,7 +1,6 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import LightProvider from './Context';
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Calvin Market',
@@ -11,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <LightProvider>
+          <body suppressHydrationWarning={true}>
+            {children}
+          </body>
+      </LightProvider>
     </html>
   )
 }
