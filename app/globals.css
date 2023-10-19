@@ -17,3 +17,9 @@ body {
 ::selection{
   @apply bg-[#30303050];
 }
+
+.input-clear {
+  border-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
