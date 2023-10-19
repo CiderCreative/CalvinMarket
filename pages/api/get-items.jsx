@@ -1,16 +1,18 @@
 import { Table } from "sst/node/table";
-import { DynamoDBClient, GetItemCommand, BatchGetItemCommand } from "@aws-sdk/client-dynamodb";
-import {ScanCommand, UpdateCommand, PutCommand,  DynamoDBDocumentClient} from "@aws-sdk/lib-dynamodb";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import {ScanCommand, DynamoDBDocumentClient} from "@aws-sdk/lib-dynamodb";
 
 export default async function handler(req, res) {
     const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
+    const{ExpressionAttributeValues, FilterExpression} = toScanCommand(req.body.filter)
+    
     const input = {
         TableName: Table.items.tableName,
-        ExpressionAttributeValues: {":val": "Bible"},
-        FilterExpression: "title = :val",
+        ExpressionAttributeNames: {"#STATUS": "status"}, //status is a reserved word for dynamodb
+        ExpressionAttributeValues,
+        FilterExpression,
       };
     try {
-        console.log(input);
         const scan = new ScanCommand(input);
 
         const resp = await db.send(scan);
@@ -23,3 +25,31 @@ export default async function handler(req, res) {
         console.error("Error:", error);
     }
   }
+
+// something like "title = Title OR title = Bible" gets turned into correct Expression Attribute and filter for scan command
+function toScanCommand(expression){
+    let ExpressionAttributeValues = {}
+    let FilterExpression = ""
+    const cutExpression = expression.trim().split(/\s*(=|OR|AND)\s*/)
+    
+    cutExpression.forEach((item, index) => {
+        if (cutExpression[index - 1] === "="){
+            let attributeLength = Object.keys(ExpressionAttributeValues).length +1
+
+            //take out the item from the expression
+            ExpressionAttributeValues = {
+                ...ExpressionAttributeValues, 
+                [`:var${attributeLength}`]: item, }
+
+            //add the variable for the item back into the filter expression
+            FilterExpression += `:var${attributeLength} `
+        }
+        else if (cutExpression[index + 1] === "="){
+            FilterExpression += item.toLowerCase() === "status" ? "#STATUS " : time+' '
+        }
+        else{
+            FilterExpression += item + " "
+        }
+    })
+    return {ExpressionAttributeValues, FilterExpression}
+}
