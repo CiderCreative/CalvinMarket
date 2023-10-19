@@ -1,5 +1,11 @@
 import './globals.css'
 import LightProvider from './Context';
+import { Lato } from "@next/font/google"
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '700', '900']
+});
 
 
 export const metadata = {
@@ -9,7 +15,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={lato.className}>
       <LightProvider>
           <body suppressHydrationWarning={true}>
             {children}
