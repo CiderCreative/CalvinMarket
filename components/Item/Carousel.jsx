@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 
-const Reviews = () => {
+const Carousel = () => {
   var count = 0;
 
   const handleLeft = () => {
@@ -57,4 +57,4 @@ const Reviews = () => {
   )
 }
 
-export default Reviews
+export default Carousel
