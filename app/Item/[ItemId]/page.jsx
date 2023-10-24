@@ -1,10 +1,11 @@
 import React from 'react'
-import { SidebarMenu } from '@/components/Item/index'
+import { ItemCarousel, SidebarMenu } from '@/components/Item/index'
 
 const page = ({params: {ItemId}}) => {
   return (
     <div>
-      <SidebarMenu />
+      <ItemCarousel />
+      {/* <SidebarMenu /> */}
     </div>
   )
 }

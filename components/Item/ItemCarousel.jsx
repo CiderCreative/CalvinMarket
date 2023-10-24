@@ -1,8 +1,17 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
+import {Carousel} from "@/components/Item/index"
 
 const ItemCarousel = () => {
+  const [index, setIndex] = useState(0)
+  const colors = ['bg-[#553322]', 'bg-[#226699]', 'bg-[#990033]', 'bg-[#669922]', 'bg-[#CC4400]'];
+
   return (
-    <div>ItemCarousel</div>
+    <div>
+      <Carousel index={index}>
+        {colors.map((style, idx) => (<div key={idx} className={`aspect-square w-[500px] ${style}`} />))}
+      </Carousel>
+    </div>
   )
 }
 
