@@ -5,7 +5,7 @@ const page = ({params: {ItemId}}) => {
   return (
     <div>
       <ItemCarousel />
-      {/* <SidebarMenu /> */}
+      <SidebarMenu />
     </div>
   )
 }

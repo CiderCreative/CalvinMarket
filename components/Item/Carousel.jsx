@@ -8,43 +8,46 @@ const Carousel = () => {
   const handleLeft = () => {
     count = (count - 1 + colors.length) % colors.length;
     const container = document.getElementById("container");
-    const rightPosition = count * 100 + "vw";
+    const rightPosition = count * 100 + "%";
     container.style.right = rightPosition;
   };
 
   const handleRight = () => {
     count = (count + 1) % colors.length;
     const container = document.getElementById("container");
-    const rightPosition = count * 100 + "vw";
+    const rightPosition = count * 100 + "%";
     container.style.right = rightPosition;
   };
 
-  // Scroll on keypress
-  useEffect(() => {
-		const handleKeyDown = (e) => {
-			switch (e.keyCode) {
-				case 37: //left arrow keypress
+// Scroll on keypress
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    switch (e.key) {
+      case "ArrowLeft":
         handleLeft();
         break;
 
-				case 39: //right arrow keypress
+      case "ArrowRight":
         handleRight();
-					break;
+        break;
 
-				default:
-					break
-			}
-		}
-		window.addEventListener('keydown', handleKeyDown);
-		return () => {window.removeEventListener('keydown', handleKeyDown);}
-	},[])
+      default:
+        break;
+    }
+  };
 
-  const colors = [ "bg-[#123456]", "bg-[#AABBCC]", "bg-[#FF9900]", "bg-[#00FF00]", "bg-[#FF0000]", "bg-[#6600CC]", "bg-[#0099FF]", "bg-[#992233]", "bg-[#00CC99]",
-  ];
+  window.addEventListener('keydown', handleKeyDown);
+
+  return () => {
+    window.removeEventListener('keydown', handleKeyDown);
+  };
+}, []);
+
+  const colors = [ "bg-[#123456]", "bg-[#AABBCC]", "bg-[#FF9900]", "bg-[#00FF00]", "bg-[#FF0000]", "bg-[#6600CC]", "bg-[#0099FF]", "bg-[#992233]", "bg-[#00CC99]" ];
 
   return (
 
-    <div className='bg-dark relative w-[100vw] h-full'>
+    <div className='bg-dark relative w-[100%] h-full'>
 
       <div className="flex overflow-visible [&>*]:flex-shrink-0 relative transition-all duration-200 right-0" id='container'>
         {/* Create review block for each review */}

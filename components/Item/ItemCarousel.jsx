@@ -8,9 +8,11 @@ const ItemCarousel = () => {
 
   return (
     <div>
-      <Carousel index={index}>
-        {colors.map((style, idx) => (<div key={idx} className={`aspect-square w-[500px] ${style}`} />))}
-      </Carousel>
+      <div className="overflow-x-hidden w-[calc(100vw-400px)]">
+        <Carousel index={index}>
+          {colors.map((style, idx) => (<div key={idx} className={`aspect-square w-[500px] ${style}`} />))}
+        </Carousel>
+      </div>
     </div>
   )
 }
