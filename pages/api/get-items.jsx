@@ -2,9 +2,10 @@ import { Table } from "sst/node/table";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {ScanCommand, DynamoDBDocumentClient} from "@aws-sdk/lib-dynamodb";
 
+const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
+
 export default async function handler(req, res) {
-    const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
-    const{ExpressionAttributeValues, FilterExpression} = toScanCommand(req.body.filter)
+    const{ExpressionAttributeValues, FilterExpression} = toScanCommand(JSON.parse(req.body).filter)
     
     const input = {
         TableName: Table.items.tableName,
@@ -12,9 +13,9 @@ export default async function handler(req, res) {
         ExpressionAttributeValues,
         FilterExpression,
       };
+
     try {
         const scan = new ScanCommand(input);
-
         const resp = await db.send(scan);
 
         res.status(200).json({ ...resp });
@@ -25,6 +26,8 @@ export default async function handler(req, res) {
         console.error("Error:", error);
     }
   }
+
+
 
 // something like "title = Title OR title = Bible" gets turned into correct Expression Attribute and filter for scan command
 function toScanCommand(expression){

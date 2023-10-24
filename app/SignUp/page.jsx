@@ -2,7 +2,7 @@
 "use client"
 
 
-function Page) {
+function Page() {
   return (
     <>
       <h1>Hello</h1>
@@ -11,4 +11,4 @@ function Page) {
   );
 }
 
-export default withAuthenticator(Page);
+export default Page;

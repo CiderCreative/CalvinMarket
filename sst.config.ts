@@ -26,22 +26,14 @@ export default {
           preferredMeetup: "string", //preferred meetup location
           profileId: "string",       //profile id of seller
           type: "string",            //type of item (textbook, furniture, etc)
+          imageKeys: "string",       //stringified list of image names eg "[textbook.png, textbook2.png, textbook3.png]"
           tags: "string",            //stringified JSON of tags eg "{type: textbook}"
         },
         primaryIndex: { partitionKey: "itemId", sortKey: "title"},
       });
 
-      const imagesTable = new Table(stack, "images", {
-        fields: {
-          imgId: "number",           //id of image (UNIX timestamp)
-          imgKey: "string",          //url of image in s3 bucket
-          itemId: "number",          //id of item image is for
-        },
-        primaryIndex: { partitionKey: "imgId", sortKey: "itemId"}
-      });
-
       const site = new NextjsSite(stack, "site", {
-        bind: [imagesBucket, itemsTable, imagesTable]
+        bind: [imagesBucket, itemsTable]
       });
 
       stack.addOutputs({

@@ -1,13 +1,12 @@
 {
   "/page": "/",
   "/favicon.ico/route": "/favicon.ico",
-  "/EditListing/page": "/EditListing",
-  "/Item/page": "/Item",
   "/LogIn/page": "/LogIn",
-  "/Profile/page": "/Profile",
+  "/EditListing/page": "/EditListing",
   "/SignUp/page": "/SignUp",
+  "/Profile/page": "/Profile",
   "/EditListing/[ProfileId]/page": "/EditListing/[ProfileId]",
-  "/Item/[ItemId]/page": "/Item/[ItemId]",
   "/Favorites/[ProfileId]/page": "/Favorites/[ProfileId]",
+  "/Item/[ItemId]/page": "/Item/[ItemId]",
   "/Profile/[ProfileId]/page": "/Profile/[ProfileId]"
 }
