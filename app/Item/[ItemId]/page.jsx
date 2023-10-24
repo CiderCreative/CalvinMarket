@@ -1,8 +1,11 @@
 import React from 'react'
+import { SidebarMenu } from '@/components/Item/index'
 
 const page = ({params: {ItemId}}) => {
   return (
-    <div>page</div>
+    <div>
+      <SidebarMenu />
+    </div>
   )
 }
 
