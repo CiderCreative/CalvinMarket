@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useCallback } from 'react'
+import {CarouselArrow} from "./index"
 
 const Carousel = ({colors}) => {
   const [count, setCount] = useState(0)                  // index of carousel
@@ -44,8 +45,8 @@ const Carousel = ({colors}) => {
         </div>)}
       </div>
 
-      <button className="absolute top-[50%] left-3 sm:left-[3vw] xl:left-[15vw] text-sm sm:text-lg lg:text-2xl aspect-square w-8 sm:w-[50px] rounded-full text-primary hover:border-2 border-opposite active:scale-90" onClick={() => handleLeft()}>←</button>
-      <button className="absolute top-[50%] right-3 sm:right-[3vw] xl:right-[15vw] text-sm sm:text-lg lg:text-2xl aspect-square w-8 sm:w-[50px] rounded-full text-primary hover:border-2 border-opposite active:scale-90" onClick={() => handleRight()}>→</button>
+      <CarouselArrow direction="left" func={handleLeft}/>
+      <CarouselArrow direction="right" func={handleRight}/>
     </div>
   )
 }

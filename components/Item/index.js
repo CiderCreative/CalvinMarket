@@ -13,5 +13,11 @@ import QuickMessage from "./QuickMessage"
 import SellerInfo from "./SellerInfo"
 import SidebarMenu from "./SidebarMenu"
 import Carousel from "./Carousel"
+import CarouselArrow from "./CarouselArrow"
 
-export { ActiveImage, ChangeImageButton, ExitItem, FavoriteButton, ImageContainer, InactiveImage, ItemCarousel, ItemDescription, ItemHeader, MessageButton, MoreOptionsButton, QuickMessage, SellerInfo, SidebarMenu, Carousel }
+export {
+        ActiveImage, ChangeImageButton, ExitItem, FavoriteButton, ImageContainer,
+        InactiveImage, ItemCarousel, ItemDescription, ItemHeader, MessageButton,
+        MoreOptionsButton, QuickMessage, SellerInfo, SidebarMenu, Carousel,
+        CarouselArrow
+        }
