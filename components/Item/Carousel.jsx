@@ -40,8 +40,8 @@ const Carousel = ({colors}) => {
       {/* The Carousel */}
       <div className="flex overflow-visible [&>*]:flex-shrink-0 relative transition-all duration-200 right-0" style={{right: distanceRight}}>
         {/* Create block for each review */}
-        {colors.map((style, idx) => <div key={idx} className={`flex items-center justify-center w-full h-[500px] bg-primary`}>
-          <div className={`h-full w-[300px] ${style}`}></div>
+        {colors.map((style, idx) => <div key={idx} className={`flex items-center justify-center w-full h-[70vh] bg-primary`}>
+          <div className={`h-full w-[700px] ${style}`}></div>
         </div>)}
       </div>
 
