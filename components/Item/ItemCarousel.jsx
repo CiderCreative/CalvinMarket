@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
-import {Carousel} from "@/components/Item/index"
-import { JacketItem } from "@/public/FakeItem/index"
+import {Carousel} from "./index"
+import { JacketItem } from "../../public/FakeItem/index"
 
 const ItemCarousel = () => {
 
