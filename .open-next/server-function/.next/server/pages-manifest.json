@@ -1,6 +1,11 @@
 {
   "/_app": "pages/_app.js",
+  "/api/delete-item": "pages/api/delete-item.js",
+  "/api/get-items": "pages/api/get-items.js",
   "/_error": "pages/_error.js",
+  "/api/imageURL": "pages/api/imageURL.js",
+  "/api/put-images-table": "pages/api/put-images-table.js",
+  "/api/put-items-table": "pages/api/put-items-table.js",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html"
 }

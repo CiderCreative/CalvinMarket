@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonLink } from "@/components/Home/index"
+import { ButtonLink } from "./index"
 
 const ListingButtons = () => {
   return (

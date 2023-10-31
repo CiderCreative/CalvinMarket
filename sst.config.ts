@@ -14,6 +14,19 @@ export default {
     app.stack(function Site({ stack }) {
       const imagesBucket = new Bucket(stack, "itemImgs");
 
+      const profileTable = new Table(stack, "profiles", {
+        fields: {
+          email: "string",           //email of user
+          firstName: "string",       //first name of user
+          lastName: "string",        //last name of user
+          rating: "number",          //profile id of user
+          dateJoined: "string",      //date user joined
+          profileImg: "string",      //profile image of user
+          favoriteItems: "string",   //stringified list of item ids eg "[1, 2, 3]"
+        },
+        primaryIndex: { partitionKey: "email"},
+      });
+
       const itemsTable = new Table(stack, "items", {
         fields: {
           itemId: "number",          //going to be UNIX timestamp
@@ -26,22 +39,24 @@ export default {
           preferredMeetup: "string", //preferred meetup location
           profileId: "string",       //profile id of seller
           type: "string",            //type of item (textbook, furniture, etc)
+          imageKeys: "string",       //stringified list of image names eg "[textbook.png, textbook2.png, textbook3.png]"
           tags: "string",            //stringified JSON of tags eg "{type: textbook}"
         },
         primaryIndex: { partitionKey: "itemId", sortKey: "title"},
       });
 
-      const imagesTable = new Table(stack, "images", {
+      const messagesTable = new Table(stack, "messages", {
         fields: {
-          imgId: "number",           //id of image (UNIX timestamp)
-          imgKey: "string",          //url of image in s3 bucket
-          itemId: "number",          //id of item image is for
+          senderId: "string",        //id of sender
+          receiverId: "string",      //id of receiver
+          message: "string",         //message content
+          dateSent: "number",        //date message was sent
         },
-        primaryIndex: { partitionKey: "imgId", sortKey: "itemId"}
+        primaryIndex: { partitionKey: "senderId", sortKey: "dateSent"},
       });
 
       const site = new NextjsSite(stack, "site", {
-        bind: [imagesBucket, itemsTable, imagesTable]
+        bind: [imagesBucket, profileTable, itemsTable, messagesTable],
       });
 
       stack.addOutputs({

@@ -1,6 +1,9 @@
 import './globals.css'
 import LightProvider from './Context';
 import { Lato } from "@next/font/google"
+import { getServerSession } from "next-auth";
+import SessionProvider from "../components/SessionProvider.jsx"
+
 
 const lato = Lato({
   subsets: ['latin'],
@@ -13,12 +16,18 @@ export const metadata = {
   description: 'A spot to buy and sell items in the Calvin Market!',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
+  const session = await getServerSession();
+
   return (
     <html lang="en" className={lato.className}>
+
       <LightProvider>
           <body suppressHydrationWarning={true}>
-            {children}
+            <SessionProvider session={session}>
+              {children}
+            </SessionProvider>
           </body>
       </LightProvider>
     </html>

@@ -4,7 +4,7 @@ exports.id = 931;
 exports.ids = [931];
 exports.modules = {
 
-/***/ 18038:
+/***/ 8038:
 /***/ ((module) => {
 
 "use strict";
@@ -12,7 +12,7 @@ module.exports = require("next/dist/compiled/react");
 
 /***/ }),
 
-/***/ 98704:
+/***/ 8704:
 /***/ ((module) => {
 
 "use strict";
@@ -20,7 +20,7 @@ module.exports = require("next/dist/compiled/react-dom/server-rendering-stub");
 
 /***/ }),
 
-/***/ 97897:
+/***/ 7897:
 /***/ ((module) => {
 
 "use strict";
@@ -28,7 +28,7 @@ module.exports = require("next/dist/compiled/react-server-dom-webpack/client");
 
 /***/ }),
 
-/***/ 56786:
+/***/ 6786:
 /***/ ((module) => {
 
 "use strict";
@@ -44,7 +44,7 @@ module.exports = require("next/dist/server/app-render/app-render");
 
 /***/ }),
 
-/***/ 41844:
+/***/ 1844:
 /***/ ((module) => {
 
 "use strict";
@@ -52,7 +52,7 @@ module.exports = require("next/dist/server/app-render/get-segment-param");
 
 /***/ }),
 
-/***/ 96624:
+/***/ 6624:
 /***/ ((module) => {
 
 "use strict";
@@ -60,7 +60,7 @@ module.exports = require("next/dist/server/future/helpers/interception-routes");
 
 /***/ }),
 
-/***/ 75281:
+/***/ 5281:
 /***/ ((module) => {
 
 "use strict";
@@ -68,7 +68,7 @@ module.exports = require("next/dist/server/future/route-modules/route-module");
 
 /***/ }),
 
-/***/ 57085:
+/***/ 7085:
 /***/ ((module) => {
 
 "use strict";
@@ -84,7 +84,7 @@ module.exports = require("next/dist/shared/lib/get-img-props");
 
 /***/ }),
 
-/***/ 20199:
+/***/ 199:
 /***/ ((module) => {
 
 "use strict";
@@ -92,7 +92,7 @@ module.exports = require("next/dist/shared/lib/hash");
 
 /***/ }),
 
-/***/ 66864:
+/***/ 6864:
 /***/ ((module) => {
 
 "use strict";
@@ -100,7 +100,7 @@ module.exports = require("next/dist/shared/lib/head");
 
 /***/ }),
 
-/***/ 39569:
+/***/ 9569:
 /***/ ((module) => {
 
 "use strict";
@@ -108,7 +108,7 @@ module.exports = require("next/dist/shared/lib/hooks-client-context");
 
 /***/ }),
 
-/***/ 52210:
+/***/ 2210:
 /***/ ((module) => {
 
 "use strict";
@@ -116,7 +116,7 @@ module.exports = require("next/dist/shared/lib/image-config");
 
 /***/ }),
 
-/***/ 35359:
+/***/ 5359:
 /***/ ((module) => {
 
 "use strict";
@@ -124,7 +124,7 @@ module.exports = require("next/dist/shared/lib/image-config-context");
 
 /***/ }),
 
-/***/ 17160:
+/***/ 7160:
 /***/ ((module) => {
 
 "use strict";
@@ -132,7 +132,7 @@ module.exports = require("next/dist/shared/lib/router-context");
 
 /***/ }),
 
-/***/ 30893:
+/***/ 893:
 /***/ ((module) => {
 
 "use strict";
@@ -140,7 +140,7 @@ module.exports = require("next/dist/shared/lib/router/utils/add-path-prefix");
 
 /***/ }),
 
-/***/ 12336:
+/***/ 2336:
 /***/ ((module) => {
 
 "use strict";
@@ -148,7 +148,7 @@ module.exports = require("next/dist/shared/lib/router/utils/format-url");
 
 /***/ }),
 
-/***/ 17887:
+/***/ 7887:
 /***/ ((module) => {
 
 "use strict";
@@ -156,7 +156,7 @@ module.exports = require("next/dist/shared/lib/router/utils/handle-smooth-scroll
 
 /***/ }),
 
-/***/ 98735:
+/***/ 8735:
 /***/ ((module) => {
 
 "use strict";
@@ -164,7 +164,7 @@ module.exports = require("next/dist/shared/lib/router/utils/is-bot");
 
 /***/ }),
 
-/***/ 60120:
+/***/ 120:
 /***/ ((module) => {
 
 "use strict";
@@ -172,7 +172,7 @@ module.exports = require("next/dist/shared/lib/router/utils/is-local-url");
 
 /***/ }),
 
-/***/ 68231:
+/***/ 8231:
 /***/ ((module) => {
 
 "use strict";
@@ -180,7 +180,7 @@ module.exports = require("next/dist/shared/lib/router/utils/parse-path");
 
 /***/ }),
 
-/***/ 54614:
+/***/ 4614:
 /***/ ((module) => {
 
 "use strict";
@@ -188,7 +188,7 @@ module.exports = require("next/dist/shared/lib/router/utils/path-has-prefix");
 
 /***/ }),
 
-/***/ 53750:
+/***/ 3750:
 /***/ ((module) => {
 
 "use strict";
@@ -196,7 +196,7 @@ module.exports = require("next/dist/shared/lib/router/utils/remove-trailing-slas
 
 /***/ }),
 
-/***/ 70982:
+/***/ 982:
 /***/ ((module) => {
 
 "use strict";
@@ -204,7 +204,7 @@ module.exports = require("next/dist/shared/lib/router/utils/resolve-href");
 
 /***/ }),
 
-/***/ 79618:
+/***/ 9618:
 /***/ ((module) => {
 
 "use strict";
@@ -212,7 +212,7 @@ module.exports = require("next/dist/shared/lib/server-inserted-html");
 
 /***/ }),
 
-/***/ 78423:
+/***/ 8423:
 /***/ ((module) => {
 
 "use strict";
@@ -220,7 +220,7 @@ module.exports = require("next/dist/shared/lib/utils");
 
 /***/ }),
 
-/***/ 98658:
+/***/ 8658:
 /***/ ((module) => {
 
 "use strict";
@@ -228,7 +228,7 @@ module.exports = require("next/dist/shared/lib/utils/warn-once");
 
 /***/ }),
 
-/***/ 71017:
+/***/ 1017:
 /***/ ((module) => {
 
 "use strict";
@@ -236,7 +236,7 @@ module.exports = require("path");
 
 /***/ }),
 
-/***/ 57310:
+/***/ 7310:
 /***/ ((module) => {
 
 "use strict";
@@ -259,10 +259,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var next_dist_server_future_route_modules_app_page_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7262);
 /* harmony import */ var next_dist_server_future_route_modules_app_page_module__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_future_route_modules_app_page_module__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(19513);
-/* harmony import */ var next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(31823);
+/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9513);
+/* harmony import */ var next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1823);
 /* harmony import */ var next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_client_components_error_boundary__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12502);
+/* harmony import */ var next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2502);
 /* harmony import */ var next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__) if(["default","tree","pages","GlobalError","originalPathname","__next_app__","routeModule"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => next_dist_server_app_render_entry_base__WEBPACK_IMPORTED_MODULE_3__[__WEBPACK_IMPORT_KEY__]
@@ -278,9 +278,9 @@ const tree = {
         '',
         {
         children: ['__PAGE__', {}, {
-          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 87395)), "/Users/blint/GitProj/calvinmarket/app/page.jsx"],
+          page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7395)), "/Users/blint/GitProj/calvinmarket/app/page.jsx"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 57481))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7481))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -289,10 +289,10 @@ const tree = {
         }]
       },
         {
-        'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 18481)), "/Users/blint/GitProj/calvinmarket/app/layout.jsx"],
-'not-found': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 95493, 23)), "next/dist/client/components/not-found-error"],
+        'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2899)), "/Users/blint/GitProj/calvinmarket/app/layout.jsx"],
+'not-found': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.t.bind(__webpack_require__, 5493, 23)), "next/dist/client/components/not-found-error"],
         metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 57481))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 7481))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -333,14 +333,14 @@ const routeModule = new AppPageRouteModule({
 
 /***/ }),
 
-/***/ 67021:
+/***/ 7021:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 32278))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 2278))
 
 /***/ }),
 
-/***/ 32278:
+/***/ 2278:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -353,9 +353,9 @@ __webpack_require__.d(__webpack_exports__, {
 });
 
 // EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(56786);
+var jsx_runtime_ = __webpack_require__(6786);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
-var react_ = __webpack_require__(18038);
+var react_ = __webpack_require__(8038);
 ;// CONCATENATED MODULE: ./components/Home/AccountIndication.jsx
 
 
@@ -377,7 +377,7 @@ const FilterButton = ({ text, icon })=>{
         className: "flex items-center space-x-5 hover:cursor-pointer hover:opacity-70 transition-opacity duration-100",
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: " bg-yellow rounded-full p-1",
+                className: " bg-yellow text-dark rounded-full p-1",
                 children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
                     className: "aspect-square w-5 flex items-center justify-center",
                     children: icon
@@ -405,9 +405,9 @@ const filterButtonInfo = [
             viewBox: "0 0 21 21",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "strokeLinecap": "round",
-                "strokeLinejoin": "round",
-                "strokeWidth": "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: "2",
                 d: "M7.418 17.861 1 20l2.139-6.418m4.279 4.279 10.7-10.7a3.027 3.027 0 0 0-2.14-5.165c-.802 0-1.571.319-2.139.886l-10.7 10.7m4.279 4.279-4.279-4.279m2.139 2.14 7.844-7.844m-1.426-2.853 4.279 4.279"
             })
         })
@@ -422,9 +422,9 @@ const filterButtonInfo = [
             viewBox: "0 0 16 20",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "strokeLinecap": "round",
-                "strokeLinejoin": "round",
-                "strokeWidth": "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: "2",
                 d: "M1 17V2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h12M5 15V1m8 18v-4"
             })
         })
@@ -439,9 +439,9 @@ const filterButtonInfo = [
             viewBox: "0 0 18 18",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "strokeLinecap": "round",
-                "strokeLinejoin": "round",
-                "strokeWidth": "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: "2",
                 d: "M3 1h12M3 1v16M3 1H2m13 0v16m0-16h1m-1 16H3m12 0h2M3 17H1M6 4h1v1H6V4Zm5 0h1v1h-1V4ZM6 8h1v1H6V8Zm5 0h1v1h-1V8Zm-3 4h2a1 1 0 0 1 1 1v4H7v-4a1 1 0 0 1 1-1Z"
             })
         })
@@ -456,9 +456,9 @@ const filterButtonInfo = [
             viewBox: "0 0 20 20",
             children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                 stroke: "currentColor",
-                "strokeLinecap": "round",
-                "strokeLinejoin": "round",
-                "strokeWidth": "2",
+                strokeLinecap: "round",
+                strokeLinejoin: "round",
+                strokeWidth: "2",
                 d: "M6 14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v1M5 19h5m-9-9h5m4-4h8a1 1 0 0 1 1 1v12H9V7a1 1 0 0 1 1-1Zm6 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
             })
         })
@@ -542,22 +542,81 @@ const FilterContainer = ()=>{
 ;// CONCATENATED MODULE: ./components/Home/HighlightContainer.jsx
 
 
+
 const HighlightContainer = ({ text })=>{
-    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-        children: text
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: "px-0 sm:p-10 py-10",
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("h3", {
+                className: "text-2xl font-bold mb-5",
+                children: text
+            }),
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "flex flex-wrap",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx(Home_ItemHighlight, {
+                        price: "33",
+                        title: "Math 251 Textbook",
+                        detail: "978-1234567890"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(Home_ItemHighlight, {
+                        price: "72",
+                        title: "Vintage Watch",
+                        detail: "9/22/2023"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(Home_ItemHighlight, {
+                        price: "0",
+                        title: "House Plant",
+                        detail: "5/12/2022"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(Home_ItemHighlight, {
+                        price: "49",
+                        title: "Gaming Laptop",
+                        detail: "7/18/2022"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx(Home_ItemHighlight, {
+                        price: "25",
+                        title: "Physics 133 Book - USED",
+                        detail: "561678279"
+                    })
+                ]
+            })
+        ]
     });
 };
 /* harmony default export */ const Home_HighlightContainer = (HighlightContainer);
 
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1440);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 ;// CONCATENATED MODULE: ./components/Home/ItemHighlight.jsx
 
 
-const ItemHighlight = ()=>{
-    return /*#__PURE__*/ _jsx("div", {
-        children: "ItemHighlight"
+
+const ItemHighlight = ({ price, title, detail })=>{
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)((link_default()), {
+        href: "/Item/1",
+        className: "flex flex-col hover:scale-[102%] w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0 transition-transform duration-200 ease-in-out hover:cursor-pointer mr-10 mb-5",
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: "bg-maroon aspect-square w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0"
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                className: "text-md leading-5 pt-1",
+                children: price > 0 ? `$${price}` : "Free"
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                className: "text-md font-bold",
+                children: title
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                className: "text-xs font-light",
+                children: detail
+            })
+        ]
     });
 };
-/* harmony default export */ const Home_ItemHighlight = ((/* unused pure expression or super */ null && (ItemHighlight)));
+/* harmony default export */ const Home_ItemHighlight = (ItemHighlight);
 
 ;// CONCATENATED MODULE: ./components/Home/ListingButtons.jsx
 
@@ -570,7 +629,7 @@ const ListingButtons = ()=>{
             /*#__PURE__*/ jsx_runtime_.jsx(Home_ButtonLink, {
                 text: "Create a listing",
                 link: "/EditListing",
-                styles: "bg-[#20202030] font-semibold"
+                styles: "bg-opposite text-opposite font-semibold"
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Home_ButtonLink, {
                 text: "Edit listings",
@@ -587,22 +646,22 @@ const ListingButtons = ()=>{
 
 const Searchbar = ()=>{
     const searchIcon = /*#__PURE__*/ jsx_runtime_.jsx("svg", {
-        class: "w-4 text-gray-800 dark:text-white",
+        className: "w-4 bg-primary",
         "aria-hidden": "true",
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
         viewBox: "0 0 20 20",
         children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
             stroke: "currentColor",
-            "strokeLinecap": "round",
-            "strokeLinejoin": "round",
-            "strokeWidth": "2",
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeWidth: "2",
             d: "m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
         })
     });
     const placeholder = "Search";
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: "flex items-center border-2 border-opposite rounded-xl w-[500px] px-5 py-2 space-x-3",
+        className: "flex items-center border-[1.5px] border-dark dark:border-light border-opacity-50 rounded-xl w-[500px] px-5 py-2 space-x-3",
         children: [
             searchIcon,
             /*#__PURE__*/ jsx_runtime_.jsx("input", {
@@ -617,24 +676,27 @@ const Searchbar = ()=>{
 };
 /* harmony default export */ const Home_Searchbar = (Searchbar);
 
+// EXTERNAL MODULE: ./app/Context.js
+var Context = __webpack_require__(3661);
 ;// CONCATENATED MODULE: ./components/Home/Settings.jsx
+
 
 
 
 const Settings = ()=>{
     const [settingsOpen, setSettingsOpen] = (0,react_.useState)(false);
-    const [darkMode, setDarkMode] = (0,react_.useState)(false);
+    const { darkMode, toggleDark } = (0,react_.useContext)(Context.Context);
     const settingsIcon = /*#__PURE__*/ jsx_runtime_.jsx("svg", {
-        class: "w-6 h-6 text-opposite hover:fill-[#cccccc] hover:cursor-pointer",
+        className: "w-6 h-6 hover:scale-105 hover:cursor-pointer",
         "aria-hidden": "true",
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
         viewBox: "0 0 20 20",
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("g", {
             stroke: "currentColor",
-            "strokeLinecap": "round",
-            "strokeLinejoin": "round",
-            "strokeWidth": "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeWidth: "1.5",
             children: [
                 /*#__PURE__*/ jsx_runtime_.jsx("path", {
                     d: "M19 11V9a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L12 2.757V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L2.929 4.343a1 1 0 0 0 0 1.414l.536.536L2.757 8H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535L8 17.243V18a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H18a1 1 0 0 0 1-1Z"
@@ -645,7 +707,19 @@ const Settings = ()=>{
             ]
         })
     });
+    (0,react_.useEffect)(()=>{
+        const clickAway = (event)=>{
+            if (settingsOpen && !event.target.closest(".click-away")) setSettingsOpen(false);
+        };
+        document.addEventListener("mousedown", clickAway);
+        return ()=>{
+            document.removeEventListener("mousedown", clickAway);
+        };
+    }, [
+        settingsOpen
+    ]);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: "click-away",
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 onClick: ()=>{
@@ -654,46 +728,41 @@ const Settings = ()=>{
                 children: settingsIcon
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: `absolute space-y-5 p-5 top-10 right-20 border-2 border-opposite rounded-xl ${settingsOpen ? "visible" : "hidden"}`,
+                className: `absolute space-y-5 p-5 top-10 right-20 border-2 bg-primary border-opposite rounded-xl ${settingsOpen ? "visible" : "hidden"}`,
                 children: [
                     darkMode ? /*#__PURE__*/ jsx_runtime_.jsx("svg", {
-                        onClick: ()=>{
-                            setDarkMode(!darkMode);
-                        },
-                        className: "w-6 h-6 text-opposite hover:cursor-pointer hover:scale-105",
+                        onClick: toggleDark,
+                        className: "w-6 h-6 text-primary hover:cursor-pointer hover:scale-105",
                         "aria-hidden": "true",
                         xmlns: "http://www.w3.org/2000/svg",
                         fill: "none",
                         viewBox: "0 0 18 20",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                             stroke: "currentColor",
-                            "strokeLinecap": "round",
-                            "strokeLinejoin": "round",
-                            "strokeWidth": "2",
+                            strokeLinecap: "round",
+                            strokeLinejoin: "round",
+                            strokeWidth: "2",
                             d: "M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"
                         })
                     }) : /*#__PURE__*/ jsx_runtime_.jsx("svg", {
-                        onClick: ()=>{
-                            setDarkMode(!darkMode);
-                        },
-                        className: "w-6 h-6 text-opposite hover:cursor-pointer hover:scale-105",
+                        onClick: toggleDark,
+                        className: "w-6 h-6 text-primary hover:cursor-pointer hover:scale-105",
                         "aria-hidden": "true",
                         xmlns: "http://www.w3.org/2000/svg",
                         fill: "none",
                         viewBox: "0 0 20 20",
                         children: /*#__PURE__*/ jsx_runtime_.jsx("path", {
                             stroke: "currentColor",
-                            "strokeLinecap": "round",
-                            "strokeLinejoin": "round",
-                            "strokeWidth": "2",
+                            strokeLinecap: "round",
+                            strokeLinejoin: "round",
+                            strokeWidth: "2",
                             d: "M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
                         })
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("button", {
                         className: "inline-block bg-maroon text-light px-5 py-2 rounded-md hover:cursor-pointer hover:scale-[102%] transition-transform duration-100",
                         children: "Log out"
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx("div", {})
+                    })
                 ]
             })
         ]
@@ -704,7 +773,7 @@ const Settings = ()=>{
 ;// CONCATENATED MODULE: ./public/wayfinder.svg
 /* harmony default export */ const wayfinder = ({"src":"/_next/static/media/wayfinder.0a481dd9.svg","height":795,"width":600,"blurWidth":0,"blurHeight":0});
 // EXTERNAL MODULE: ./node_modules/next/image.js
-var next_image = __webpack_require__(52451);
+var next_image = __webpack_require__(2451);
 var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 ;// CONCATENATED MODULE: ./components/Global/Logo.jsx
 
@@ -733,12 +802,12 @@ const Logo = ()=>{
 
 
 ;// CONCATENATED MODULE: ./components/Home/HomeSidebar.jsx
-/* __next_internal_client_entry_do_not_use__ default auto */
+/* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
 const HomeSidebar = ({ sidebarClosed, setSidebarClosed })=>{
     const arrow = /*#__PURE__*/ jsx_runtime_.jsx("svg", {
-        className: `w-5 text-opposite flex-shrink-0 ${sidebarClosed ? "rotate-0" : "rotate-180"}`,
+        className: `flex-shrink-0 transition-all duration-200 ${sidebarClosed ? "w-4 rotate-0" : "w-5 rotate-180"}`,
         "aria-hidden": "true",
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
@@ -752,10 +821,10 @@ const HomeSidebar = ({ sidebarClosed, setSidebarClosed })=>{
         })
     });
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: `fixed top-0 left-0 bg-primary w-[300px] h-full ${sidebarClosed ? "w-[50px]" : ""} transition-all duration-300 overflow-hidden`,
+        className: `max-sm:hidden fixed top-0 left-0 text-primary bg-primary w-[300px] drop-shadow-xl h-full ${sidebarClosed ? "w-[30px]" : ""} transition-all duration-300 overflow-hidden`,
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: "flex justify-end m-3 hover:cursor-pointer",
+                className: "flex text-primary mt-3 mr-2 justify-end hover:cursor-pointer",
                 onClick: ()=>{
                     setSidebarClosed(!sidebarClosed);
                 },
@@ -776,16 +845,13 @@ const HomeSidebar = ({ sidebarClosed, setSidebarClosed })=>{
 };
 /* harmony default export */ const Home_HomeSidebar = (HomeSidebar);
 
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(11440);
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 ;// CONCATENATED MODULE: ./components/Home/ButtonLink.jsx
 
 
 
 const ButtonLink = ({ text, link, styles })=>{
     return /*#__PURE__*/ jsx_runtime_.jsx("button", {
-        className: `py-2 rounded-xl hover:scale-[103%] transition-all duration-100 text-sm ${styles}`,
+        className: `py-2 rounded-md hover:scale-[103%] transition-all duration-100 text-sm ${styles}`,
         children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
             href: link,
             children: text
@@ -808,33 +874,32 @@ const ButtonLink = ({ text, link, styles })=>{
 
 
 ;// CONCATENATED MODULE: ./app/page.jsx
-/* __next_internal_client_entry_do_not_use__ default auto */
+/* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
 function Home({ signOut, user }) {
     const [sidebarClosed, setSidebarClosed] = (0,react_.useState)(false);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: `transition-all duration-300 pl-[300px] ${sidebarClosed ? "pl-[50px]" : "pl-[300px]"}`,
+        className: `transition-all duration-300 overflow-x-hidden m-auto sm:pl-[300px] ${sidebarClosed ? "sm:pl-[50px]" : ""}`,
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx(Home_HomeSidebar, {
                 sidebarClosed: sidebarClosed,
                 setSidebarClosed: setSidebarClosed
             }),
             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                className: "flex justify-between mx-5 mt-2",
+                className: "flex justify-between mx-10 mt-3",
                 children: [
                     /*#__PURE__*/ jsx_runtime_.jsx(Home_Searchbar, {}),
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                         className: "flex space-x-5",
                         children: [
-                            /*#__PURE__*/ jsx_runtime_.jsx(Home_AccountIndication, {}),
+                            /*#__PURE__*/ jsx_runtime_.jsx(Home_AccountIndication, {
+                                userName: user
+                            }),
                             /*#__PURE__*/ jsx_runtime_.jsx(Home_Settings, {})
                         ]
                     })
                 ]
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(Home_HighlightContainer, {
-                text: "Top 5"
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Home_HighlightContainer, {
                 text: "Newly Added"
@@ -853,7 +918,7 @@ function Home({ signOut, user }) {
 
 /***/ }),
 
-/***/ 87395:
+/***/ 7395:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -863,7 +928,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   __esModule: () => (/* binding */ __esModule),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(61363);
+/* harmony import */ var next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1363);
 
 const proxy = (0,next_dist_build_webpack_loaders_next_flight_loader_module_proxy__WEBPACK_IMPORTED_MODULE_0__.createProxy)(String.raw`/Users/blint/GitProj/calvinmarket/app/page.jsx`)
 
@@ -886,7 +951,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [587,609,775,86], () => (__webpack_exec__(6638)));
+var __webpack_exports__ = __webpack_require__.X(0, [587,48,775,1], () => (__webpack_exec__(6638)));
 module.exports = __webpack_exports__;
 
 })();

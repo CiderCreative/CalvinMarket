@@ -1,6 +1,6 @@
 import React from 'react'
-import { filterButtonInfo } from '@/constants/filterButtonInfo'
-import {FilterButton} from "@/components/Home/index"
+import { filterButtonInfo } from '../../constants/filterButtonInfo'
+import {FilterButton} from "./index"
 
 const FilterContainer = () => {
   return (

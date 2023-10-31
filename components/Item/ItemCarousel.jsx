@@ -1,8 +1,16 @@
+"use client"
 import React from 'react'
+import {Carousel} from "@/components/Item/index"
+import { JacketItem } from "@/public/FakeItem/index"
 
 const ItemCarousel = () => {
+
   return (
-    <div>ItemCarousel</div>
+    <div>
+      <div className="overflow-x-hidden w-[calc(100vw-400px)]">
+        <Carousel item={JacketItem} />
+      </div>
+    </div>
   )
 }
 

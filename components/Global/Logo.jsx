@@ -1,4 +1,4 @@
-import wayfinder from "@/public/wayfinder.svg"
+import wayfinder from "../../public/wayfinder.svg"
 import Image from "next/image"
 
 const Logo = () => {

@@ -3,7 +3,7 @@ exports.id = 218;
 exports.ids = [218];
 exports.modules = {
 
-/***/ 27057:
+/***/ 7057:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -93,7 +93,7 @@ function warnOnce(...message) {
 
 /***/ }),
 
-/***/ 93641:
+/***/ 3641:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -106,7 +106,7 @@ Object.defineProperty(exports, "DraftMode", ({
         return DraftMode;
     }
 }));
-const _staticgenerationbailout = __webpack_require__(46164);
+const _staticgenerationbailout = __webpack_require__(6164);
 class DraftMode {
     get isEnabled() {
         return this._provider.isEnabled;
@@ -138,7 +138,7 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 74937:
+/***/ 4937:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -163,13 +163,13 @@ _export(exports, {
         return draftMode;
     }
 });
-const _requestcookies = __webpack_require__(89934);
-const _headers = __webpack_require__(83423);
-const _cookies = __webpack_require__(81220);
+const _requestcookies = __webpack_require__(9934);
+const _headers = __webpack_require__(3423);
+const _cookies = __webpack_require__(1220);
 const _requestasyncstorage = __webpack_require__(1715);
-const _actionasyncstorage = __webpack_require__(34876);
-const _staticgenerationbailout = __webpack_require__(46164);
-const _draftmode = __webpack_require__(93641);
+const _actionasyncstorage = __webpack_require__(4876);
+const _staticgenerationbailout = __webpack_require__(6164);
+const _draftmode = __webpack_require__(3641);
 function headers() {
     if ((0, _staticgenerationbailout.staticGenerationBailout)("headers", {
         link: "https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering"
@@ -218,7 +218,7 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 92241:
+/***/ 2241:
 /***/ ((module, exports) => {
 
 
@@ -261,7 +261,7 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 75287:
+/***/ 5287:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -343,7 +343,7 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 26528:
+/***/ 6528:
 /***/ ((module) => {
 
 
@@ -697,7 +697,7 @@ function normalizeCookie(cookie = {
 
 /***/ }),
 
-/***/ 41749:
+/***/ 1749:
 /***/ ((module) => {
 
 
@@ -1051,7 +1051,7 @@ function normalizeCookie(cookie = {
 
 /***/ }),
 
-/***/ 41149:
+/***/ 1149:
 /***/ ((module) => {
 
 
@@ -2541,7 +2541,7 @@ function normalizeCookie(cookie = {
 
 /***/ }),
 
-/***/ 32312:
+/***/ 2312:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 
@@ -5074,7 +5074,7 @@ function normalizeCookie(cookie = {
         },
         37: (r)=>{
             "use strict";
-            r.exports = __webpack_require__(22037);
+            r.exports = __webpack_require__(2037);
         }
     };
     var e = {};
@@ -5113,7 +5113,7 @@ function normalizeCookie(cookie = {
 
 /***/ }),
 
-/***/ 12250:
+/***/ 2250:
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;
@@ -7328,14 +7328,14 @@ Object.defineProperty(exports, "default", ({
 }));
 let chalk;
 if (false) {} else {
-    chalk = __webpack_require__(32312);
+    chalk = __webpack_require__(2312);
 }
 const _default = chalk; //# sourceMappingURL=chalk.js.map
 
 
 /***/ }),
 
-/***/ 44561:
+/***/ 4561:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -7390,15 +7390,15 @@ _export(exports, {
         return setLazyProp;
     }
 });
-const _headers = __webpack_require__(83423);
-const _constants = __webpack_require__(62078);
+const _headers = __webpack_require__(3423);
+const _constants = __webpack_require__(2078);
 function getCookieParser(headers) {
     return function parseCookie() {
         const { cookie } = headers;
         if (!cookie) {
             return {};
         }
-        const { parse: parseCookieFn } = __webpack_require__(52184);
+        const { parse: parseCookieFn } = __webpack_require__(2184);
         return parseCookieFn(Array.isArray(cookie) ? cookie.join("; ") : cookie);
     };
 }
@@ -7440,7 +7440,7 @@ function clearPreviewData(res, options = {}) {
     if (SYMBOL_CLEARED_COOKIES in res) {
         return res;
     }
-    const { serialize } = __webpack_require__(52184);
+    const { serialize } = __webpack_require__(2184);
     const previous = res.getHeader("Set-Cookie");
     res.setHeader(`Set-Cookie`, [
         ...typeof previous === "string" ? [
@@ -7522,7 +7522,7 @@ function setLazyProp({ req }, prop, getter) {
 
 /***/ }),
 
-/***/ 12146:
+/***/ 2146:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -7535,7 +7535,7 @@ Object.defineProperty(exports, "DraftModeProvider", ({
         return DraftModeProvider;
     }
 }));
-const _apiutils = __webpack_require__(44561);
+const _apiutils = __webpack_require__(4561);
 class DraftModeProvider {
     constructor(previewProps, req, cookies, mutableCookies){
         var _cookies_get;
@@ -7579,7 +7579,7 @@ class DraftModeProvider {
 
 /***/ }),
 
-/***/ 45208:
+/***/ 5208:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -7592,11 +7592,11 @@ Object.defineProperty(exports, "RequestAsyncStorageWrapper", ({
         return RequestAsyncStorageWrapper;
     }
 }));
-const _approuterheaders = __webpack_require__(43909);
-const _headers = __webpack_require__(83423);
-const _requestcookies = __webpack_require__(89934);
-const _cookies = __webpack_require__(81220);
-const _draftmodeprovider = __webpack_require__(12146);
+const _approuterheaders = __webpack_require__(3909);
+const _headers = __webpack_require__(3423);
+const _requestcookies = __webpack_require__(9934);
+const _cookies = __webpack_require__(1220);
+const _draftmodeprovider = __webpack_require__(2146);
 function getHeaders(headers) {
     const cleaned = _headers.HeadersAdapter.from(headers);
     for (const param of _approuterheaders.FLIGHT_PARAMETERS){
@@ -7670,7 +7670,7 @@ const RequestAsyncStorageWrapper = {
 
 /***/ }),
 
-/***/ 53204:
+/***/ 3204:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -7721,7 +7721,7 @@ const StaticGenerationAsyncStorageWrapper = {
 
 /***/ }),
 
-/***/ 55298:
+/***/ 5298:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -7735,7 +7735,7 @@ Object.defineProperty(exports, "autoImplementMethods", ({
     }
 }));
 const _http = __webpack_require__(7961);
-const _responsehandlers = __webpack_require__(51332);
+const _responsehandlers = __webpack_require__(1332);
 const AUTOMATIC_ROUTE_METHODS = [
     "HEAD",
     "OPTIONS"
@@ -7833,7 +7833,7 @@ function cleanURL(urlString) {
 
 /***/ }),
 
-/***/ 63884:
+/***/ 3884:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -7864,7 +7864,7 @@ function getNonStaticMethods(handlers) {
 
 /***/ }),
 
-/***/ 98636:
+/***/ 8636:
 /***/ ((__unused_webpack_module, exports) => {
 
 /**
@@ -7898,7 +7898,7 @@ function getPathnameFromAbsolutePath(absolutePath) {
 
 /***/ }),
 
-/***/ 38657:
+/***/ 8657:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -7923,7 +7923,7 @@ function parsedUrlQueryToParams(query) {
 
 /***/ }),
 
-/***/ 15807:
+/***/ 5807:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -7936,8 +7936,8 @@ Object.defineProperty(exports, "proxyRequest", ({
         return proxyRequest;
     }
 }));
-const _cookies = __webpack_require__(41749);
-const _nexturl = __webpack_require__(12284);
+const _cookies = __webpack_require__(1749);
+const _nexturl = __webpack_require__(2284);
 const _cleanurl = __webpack_require__(6341);
 function proxyRequest(request, { dynamic }, hooks) {
     function handleNextUrlBailout(prop) {
@@ -8064,9 +8064,9 @@ Object.defineProperty(exports, "resolveHandlerError", ({
         return resolveHandlerError;
     }
 }));
-const _notfound = __webpack_require__(92241);
-const _redirect = __webpack_require__(75287);
-const _responsehandlers = __webpack_require__(51332);
+const _notfound = __webpack_require__(2241);
+const _redirect = __webpack_require__(5287);
+const _responsehandlers = __webpack_require__(1332);
 function resolveHandlerError(err) {
     if ((0, _redirect.isRedirectError)(err)) {
         const redirect = (0, _redirect.getURLFromRedirectError)(err);
@@ -8087,7 +8087,7 @@ function resolveHandlerError(err) {
 
 /***/ }),
 
-/***/ 69692:
+/***/ 9692:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -8109,23 +8109,23 @@ _export(exports, {
         return _default;
     }
 });
-const _routemodule = __webpack_require__(96649);
-const _requestasyncstoragewrapper = __webpack_require__(45208);
-const _staticgenerationasyncstoragewrapper = __webpack_require__(53204);
-const _responsehandlers = __webpack_require__(51332);
+const _routemodule = __webpack_require__(6649);
+const _requestasyncstoragewrapper = __webpack_require__(5208);
+const _staticgenerationasyncstoragewrapper = __webpack_require__(3204);
+const _responsehandlers = __webpack_require__(1332);
 const _http = __webpack_require__(7961);
-const _patchfetch = __webpack_require__(12181);
-const _tracer = __webpack_require__(99553);
-const _constants = __webpack_require__(90845);
-const _getpathnamefromabsolutepath = __webpack_require__(98636);
-const _proxyrequest = __webpack_require__(15807);
+const _patchfetch = __webpack_require__(2181);
+const _tracer = __webpack_require__(9553);
+const _constants = __webpack_require__(845);
+const _getpathnamefromabsolutepath = __webpack_require__(8636);
+const _proxyrequest = __webpack_require__(5807);
 const _resolvehandlererror = __webpack_require__(7864);
-const _log = /*#__PURE__*/ _interop_require_wildcard(__webpack_require__(27057));
-const _autoimplementmethods = __webpack_require__(55298);
-const _getnonstaticmethods = __webpack_require__(63884);
-const _requestcookies = __webpack_require__(89934);
-const _routekind = __webpack_require__(19513);
-const _parsedurlquerytoparams = __webpack_require__(38657);
+const _log = /*#__PURE__*/ _interop_require_wildcard(__webpack_require__(7057));
+const _autoimplementmethods = __webpack_require__(5298);
+const _getnonstaticmethods = __webpack_require__(3884);
+const _requestcookies = __webpack_require__(9934);
+const _routekind = __webpack_require__(9513);
+const _parsedurlquerytoparams = __webpack_require__(8657);
 function _getRequireWildcardCache(nodeInterop) {
     if (typeof WeakMap !== "function") return null;
     var cacheBabelInterop = new WeakMap();
@@ -8170,11 +8170,11 @@ function _interop_require_wildcard(obj, nodeInterop) {
 // can't do that directly because we need types from the source files. So we
 // import the types from the source files and then import the built files.
 const { requestAsyncStorage } = __webpack_require__(1715);
-const { staticGenerationAsyncStorage } = __webpack_require__(13539);
-const serverHooks = __webpack_require__(81651);
-const headerHooks = __webpack_require__(74937);
-const { staticGenerationBailout } = __webpack_require__(46164);
-const { actionAsyncStorage } = __webpack_require__(34876);
+const { staticGenerationAsyncStorage } = __webpack_require__(3539);
+const serverHooks = __webpack_require__(1651);
+const headerHooks = __webpack_require__(4937);
+const { staticGenerationBailout } = __webpack_require__(6164);
+const { actionAsyncStorage } = __webpack_require__(4876);
 class AppRouteRouteModule extends _routemodule.RouteModule {
     static is(route) {
         return route.definition.kind === _routekind.RouteKind.APP_ROUTE;
@@ -8402,7 +8402,7 @@ const _default = AppRouteRouteModule; //# sourceMappingURL=module.js.map
 
 /***/ }),
 
-/***/ 51332:
+/***/ 1332:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -8433,7 +8433,7 @@ _export(exports, {
         return handleInternalServerErrorResponse;
     }
 });
-const _requestcookies = __webpack_require__(89934);
+const _requestcookies = __webpack_require__(9934);
 function handleTemporaryRedirectResponse(url, mutableCookies) {
     const headers = new Headers({
         location: url
@@ -8468,7 +8468,7 @@ function handleInternalServerErrorResponse() {
 
 /***/ }),
 
-/***/ 96649:
+/***/ 6649:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -8491,7 +8491,7 @@ class RouteModule {
 
 /***/ }),
 
-/***/ 12181:
+/***/ 2181:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -8513,9 +8513,9 @@ _export(exports, {
         return patchFetch;
     }
 });
-const _constants = __webpack_require__(90845);
-const _tracer = __webpack_require__(99553);
-const _constants1 = __webpack_require__(62078);
+const _constants = __webpack_require__(845);
+const _tracer = __webpack_require__(9553);
+const _constants1 = __webpack_require__(2078);
 const isEdgeRuntime = "nodejs" === "edge";
 function addImplicitTags(staticGenerationStore) {
     const newTags = [];
@@ -8913,7 +8913,7 @@ function patchFetch({ serverHooks, staticGenerationAsyncStorage }) {
 
 /***/ }),
 
-/***/ 90845:
+/***/ 845:
 /***/ ((__unused_webpack_module, exports) => {
 
 /**
@@ -9078,7 +9078,7 @@ const NextVanillaSpanAllowlist = [
 
 /***/ }),
 
-/***/ 99553:
+/***/ 9553:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -9103,7 +9103,7 @@ _export(exports, {
         return SpanKind;
     }
 });
-const _constants = __webpack_require__(90845);
+const _constants = __webpack_require__(845);
 let api;
 // we want to allow users to use their own version of @opentelemetry/api if they
 // want to, so we try to require it first, and if it fails we fall back to the
@@ -9114,9 +9114,9 @@ let api;
 // the API is ~stable, so this should be fine
 if (false) {} else {
     try {
-        api = __webpack_require__(41149);
+        api = __webpack_require__(1149);
     } catch (err) {
-        api = __webpack_require__(41149);
+        api = __webpack_require__(1149);
     }
 }
 const { context, trace, SpanStatusCode, SpanKind } = api;
@@ -9259,7 +9259,7 @@ const getTracer = (()=>{
 
 /***/ }),
 
-/***/ 42394:
+/***/ 2394:
 /***/ (() => {
 
 /**
@@ -9281,7 +9281,7 @@ if (!("getAll" in Headers.prototype)) {
 
 /***/ }),
 
-/***/ 25737:
+/***/ 5737:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -9377,7 +9377,7 @@ function isHTTPMethod(maybeMethod) {
 
 /***/ }),
 
-/***/ 52419:
+/***/ 2419:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -9390,10 +9390,10 @@ Object.defineProperty(exports, "NextURL", ({
         return NextURL;
     }
 }));
-const _detectdomainlocale = __webpack_require__(86688);
-const _formatnextpathnameinfo = __webpack_require__(74826);
+const _detectdomainlocale = __webpack_require__(6688);
+const _formatnextpathnameinfo = __webpack_require__(4826);
 const _gethostname = __webpack_require__(8363);
-const _getnextpathnameinfo = __webpack_require__(52642);
+const _getnextpathnameinfo = __webpack_require__(1614);
 const REGEX_LOCALHOST_HOSTNAME = /(?!^https?:\/\/)(127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}|\[::1\]|localhost)/;
 function parseURL(url, base) {
     return new URL(String(url).replace(REGEX_LOCALHOST_HOSTNAME, "localhost"), base && String(base).replace(REGEX_LOCALHOST_HOSTNAME, "localhost"));
@@ -9573,7 +9573,7 @@ class NextURL {
 
 /***/ }),
 
-/***/ 12284:
+/***/ 2284:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -9586,10 +9586,10 @@ Object.defineProperty(exports, "NextURL", ({
         return NextURL;
     }
 }));
-const _detectdomainlocale = __webpack_require__(22080);
-const _formatnextpathnameinfo = __webpack_require__(44714);
-const _gethostname = __webpack_require__(82661);
-const _getnextpathnameinfo = __webpack_require__(62669);
+const _detectdomainlocale = __webpack_require__(2080);
+const _formatnextpathnameinfo = __webpack_require__(4714);
+const _gethostname = __webpack_require__(2661);
+const _getnextpathnameinfo = __webpack_require__(2669);
 const REGEX_LOCALHOST_HOSTNAME = /(?!^https?:\/\/)(127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}|\[::1\]|localhost)/;
 function parseURL(url, base) {
     return new URL(String(url).replace(REGEX_LOCALHOST_HOSTNAME, "localhost"), base && String(base).replace(REGEX_LOCALHOST_HOSTNAME, "localhost"));
@@ -9769,7 +9769,7 @@ class NextURL {
 
 /***/ }),
 
-/***/ 83423:
+/***/ 3423:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -9791,7 +9791,7 @@ _export(exports, {
         return HeadersAdapter;
     }
 });
-const _reflect = __webpack_require__(90794);
+const _reflect = __webpack_require__(794);
 class ReadonlyHeadersError extends Error {
     constructor(){
         super("Headers cannot be modified. Read more: https://nextjs.org/docs/app/api-reference/functions/headers");
@@ -9963,7 +9963,7 @@ class HeadersAdapter extends Headers {
 
 /***/ }),
 
-/***/ 90794:
+/***/ 794:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -9998,7 +9998,7 @@ class ReflectAdapter {
 
 /***/ }),
 
-/***/ 89934:
+/***/ 9934:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10029,8 +10029,8 @@ _export(exports, {
         return MutableRequestCookiesAdapter;
     }
 });
-const _cookies = __webpack_require__(81220);
-const _reflect = __webpack_require__(90794);
+const _cookies = __webpack_require__(1220);
+const _reflect = __webpack_require__(794);
 class ReadonlyRequestCookiesError extends Error {
     constructor(){
         super("Cookies can only be modified in a Server Action or Route Handler. Read more: https://nextjs.org/docs/app/api-reference/functions/cookies#cookiessetname-value-options");
@@ -10147,7 +10147,7 @@ class MutableRequestCookiesAdapter {
 
 /***/ }),
 
-/***/ 33425:
+/***/ 3425:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10169,12 +10169,12 @@ _export(exports, {
         return _cookies.ResponseCookies;
     }
 });
-const _cookies = __webpack_require__(26528); //# sourceMappingURL=cookies.js.map
+const _cookies = __webpack_require__(6528); //# sourceMappingURL=cookies.js.map
 
 
 /***/ }),
 
-/***/ 81220:
+/***/ 1220:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10196,7 +10196,7 @@ _export(exports, {
         return _cookies.ResponseCookies;
     }
 });
-const _cookies = __webpack_require__(41749); //# sourceMappingURL=cookies.js.map
+const _cookies = __webpack_require__(1749); //# sourceMappingURL=cookies.js.map
 
 
 /***/ }),
@@ -10223,7 +10223,7 @@ class ImageResponse {
         const readable = new ReadableStream({
             async start (controller) {
                 const OGImageResponse = // as the auto resolving is not working
-                (await Promise.resolve(/* import() */).then(__webpack_require__.bind(__webpack_require__, 73850))).ImageResponse;
+                (await Promise.resolve(/* import() */).then(__webpack_require__.bind(__webpack_require__, 4021))).ImageResponse;
                 const imageResponse = new OGImageResponse(...args);
                 if (!imageResponse.body) {
                     return controller.close();
@@ -10254,7 +10254,7 @@ class ImageResponse {
 
 /***/ }),
 
-/***/ 47336:
+/***/ 7336:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10276,10 +10276,10 @@ _export(exports, {
         return NextRequest;
     }
 });
-const _nexturl = __webpack_require__(52419);
-const _utils = __webpack_require__(59537);
-const _error = __webpack_require__(25737);
-const _cookies = __webpack_require__(33425);
+const _nexturl = __webpack_require__(2419);
+const _utils = __webpack_require__(9537);
+const _error = __webpack_require__(5737);
+const _cookies = __webpack_require__(3425);
 const INTERNALS = Symbol("internal request");
 class NextRequest extends Request {
     constructor(input, init = {}){
@@ -10356,7 +10356,7 @@ class NextRequest extends Request {
 
 /***/ }),
 
-/***/ 34415:
+/***/ 4415:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 var __webpack_unused_export__;
@@ -10370,9 +10370,9 @@ Object.defineProperty(exports, "x", ({
         return NextResponse;
     }
 }));
-const _nexturl = __webpack_require__(52419);
-const _utils = __webpack_require__(59537);
-const _cookies = __webpack_require__(33425);
+const _nexturl = __webpack_require__(2419);
+const _utils = __webpack_require__(9537);
+const _cookies = __webpack_require__(3425);
 const INTERNALS = Symbol("internal response");
 const REDIRECTS = new Set([
     301,
@@ -10466,7 +10466,7 @@ class NextResponse extends Response {
 
 /***/ }),
 
-/***/ 43889:
+/***/ 3889:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10491,7 +10491,7 @@ _export(exports, {
         return userAgent;
     }
 });
-const _uaparserjs = /*#__PURE__*/ _interop_require_default(__webpack_require__(12250));
+const _uaparserjs = /*#__PURE__*/ _interop_require_default(__webpack_require__(2250));
 function _interop_require_default(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
@@ -10513,7 +10513,7 @@ function userAgent({ headers }) {
 
 /***/ }),
 
-/***/ 59537:
+/***/ 9537:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -10671,7 +10671,7 @@ function getHostname(parsed, headers) {
 
 /***/ }),
 
-/***/ 82661:
+/***/ 2661:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -10699,7 +10699,7 @@ function getHostname(parsed, headers) {
 
 /***/ }),
 
-/***/ 86688:
+/***/ 6688:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -10730,7 +10730,7 @@ function detectDomainLocale(domainItems, hostname, detectedLocale) {
 
 /***/ }),
 
-/***/ 21103:
+/***/ 1103:
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -10765,7 +10765,7 @@ function normalizeLocalePath(pathname, locales) {
 
 /***/ }),
 
-/***/ 98625:
+/***/ 8625:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10778,8 +10778,8 @@ Object.defineProperty(exports, "addLocale", ({
         return addLocale;
     }
 }));
-const _addpathprefix = __webpack_require__(52595);
-const _pathhasprefix = __webpack_require__(17454);
+const _addpathprefix = __webpack_require__(2595);
+const _pathhasprefix = __webpack_require__(7454);
 function addLocale(path, locale, defaultLocale, ignorePrefix) {
     // If no locale was given or the locale is the default locale, we don't need
     // to prefix the path.
@@ -10798,7 +10798,7 @@ function addLocale(path, locale, defaultLocale, ignorePrefix) {
 
 /***/ }),
 
-/***/ 34022:
+/***/ 4022:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10811,8 +10811,8 @@ Object.defineProperty(exports, "addLocale", ({
         return addLocale;
     }
 }));
-const _addpathprefix = __webpack_require__(39970);
-const _pathhasprefix = __webpack_require__(33676);
+const _addpathprefix = __webpack_require__(9970);
+const _pathhasprefix = __webpack_require__(3676);
 function addLocale(path, locale, defaultLocale, ignorePrefix) {
     // If no locale was given or the locale is the default locale, we don't need
     // to prefix the path.
@@ -10831,7 +10831,7 @@ function addLocale(path, locale, defaultLocale, ignorePrefix) {
 
 /***/ }),
 
-/***/ 52595:
+/***/ 2595:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10844,7 +10844,7 @@ Object.defineProperty(exports, "addPathPrefix", ({
         return addPathPrefix;
     }
 }));
-const _parsepath = __webpack_require__(39956);
+const _parsepath = __webpack_require__(9956);
 function addPathPrefix(path, prefix) {
     if (!path.startsWith("/") || !prefix) {
         return path;
@@ -10856,7 +10856,7 @@ function addPathPrefix(path, prefix) {
 
 /***/ }),
 
-/***/ 39970:
+/***/ 9970:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10869,7 +10869,7 @@ Object.defineProperty(exports, "addPathPrefix", ({
         return addPathPrefix;
     }
 }));
-const _parsepath = __webpack_require__(74640);
+const _parsepath = __webpack_require__(4640);
 function addPathPrefix(path, prefix) {
     if (!path.startsWith("/") || !prefix) {
         return path;
@@ -10881,7 +10881,7 @@ function addPathPrefix(path, prefix) {
 
 /***/ }),
 
-/***/ 58225:
+/***/ 6660:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10894,7 +10894,7 @@ Object.defineProperty(exports, "addPathSuffix", ({
         return addPathSuffix;
     }
 }));
-const _parsepath = __webpack_require__(39956);
+const _parsepath = __webpack_require__(9956);
 function addPathSuffix(path, suffix) {
     if (!path.startsWith("/") || !suffix) {
         return path;
@@ -10906,7 +10906,7 @@ function addPathSuffix(path, suffix) {
 
 /***/ }),
 
-/***/ 36995:
+/***/ 6995:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10919,7 +10919,7 @@ Object.defineProperty(exports, "addPathSuffix", ({
         return addPathSuffix;
     }
 }));
-const _parsepath = __webpack_require__(74640);
+const _parsepath = __webpack_require__(4640);
 function addPathSuffix(path, suffix) {
     if (!path.startsWith("/") || !suffix) {
         return path;
@@ -10931,7 +10931,7 @@ function addPathSuffix(path, suffix) {
 
 /***/ }),
 
-/***/ 74826:
+/***/ 4826:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10944,10 +10944,10 @@ Object.defineProperty(exports, "formatNextPathnameInfo", ({
         return formatNextPathnameInfo;
     }
 }));
-const _removetrailingslash = __webpack_require__(75105);
-const _addpathprefix = __webpack_require__(52595);
-const _addpathsuffix = __webpack_require__(58225);
-const _addlocale = __webpack_require__(98625);
+const _removetrailingslash = __webpack_require__(5105);
+const _addpathprefix = __webpack_require__(2595);
+const _addpathsuffix = __webpack_require__(6660);
+const _addlocale = __webpack_require__(8625);
 function formatNextPathnameInfo(info) {
     let pathname = (0, _addlocale.addLocale)(info.pathname, info.locale, info.buildId ? undefined : info.defaultLocale, info.ignorePrefix);
     if (info.buildId || !info.trailingSlash) {
@@ -10963,7 +10963,7 @@ function formatNextPathnameInfo(info) {
 
 /***/ }),
 
-/***/ 44714:
+/***/ 4714:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -10976,10 +10976,10 @@ Object.defineProperty(exports, "formatNextPathnameInfo", ({
         return formatNextPathnameInfo;
     }
 }));
-const _removetrailingslash = __webpack_require__(70468);
-const _addpathprefix = __webpack_require__(39970);
-const _addpathsuffix = __webpack_require__(36995);
-const _addlocale = __webpack_require__(34022);
+const _removetrailingslash = __webpack_require__(468);
+const _addpathprefix = __webpack_require__(9970);
+const _addpathsuffix = __webpack_require__(6995);
+const _addlocale = __webpack_require__(4022);
 function formatNextPathnameInfo(info) {
     let pathname = (0, _addlocale.addLocale)(info.pathname, info.locale, info.buildId ? undefined : info.defaultLocale, info.ignorePrefix);
     if (info.buildId || !info.trailingSlash) {
@@ -10995,7 +10995,7 @@ function formatNextPathnameInfo(info) {
 
 /***/ }),
 
-/***/ 52642:
+/***/ 1614:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -11008,9 +11008,9 @@ Object.defineProperty(exports, "getNextPathnameInfo", ({
         return getNextPathnameInfo;
     }
 }));
-const _normalizelocalepath = __webpack_require__(21103);
-const _removepathprefix = __webpack_require__(71147);
-const _pathhasprefix = __webpack_require__(17454);
+const _normalizelocalepath = __webpack_require__(1103);
+const _removepathprefix = __webpack_require__(1147);
+const _pathhasprefix = __webpack_require__(7454);
 function getNextPathnameInfo(pathname, options) {
     var _options_nextConfig;
     const { basePath, i18n, trailingSlash } = (_options_nextConfig = options.nextConfig) != null ? _options_nextConfig : {};
@@ -11047,7 +11047,7 @@ function getNextPathnameInfo(pathname, options) {
 
 /***/ }),
 
-/***/ 62669:
+/***/ 2669:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -11060,9 +11060,9 @@ Object.defineProperty(exports, "getNextPathnameInfo", ({
         return getNextPathnameInfo;
     }
 }));
-const _normalizelocalepath = __webpack_require__(87415);
-const _removepathprefix = __webpack_require__(47656);
-const _pathhasprefix = __webpack_require__(33676);
+const _normalizelocalepath = __webpack_require__(7415);
+const _removepathprefix = __webpack_require__(7656);
+const _pathhasprefix = __webpack_require__(3676);
 function getNextPathnameInfo(pathname, options) {
     var _options_nextConfig;
     const { basePath, i18n, trailingSlash } = (_options_nextConfig = options.nextConfig) != null ? _options_nextConfig : {};
@@ -11099,7 +11099,7 @@ function getNextPathnameInfo(pathname, options) {
 
 /***/ }),
 
-/***/ 39956:
+/***/ 9956:
 /***/ ((__unused_webpack_module, exports) => {
 
 /**
@@ -11137,7 +11137,7 @@ function parsePath(path) {
 
 /***/ }),
 
-/***/ 74640:
+/***/ 4640:
 /***/ ((__unused_webpack_module, exports) => {
 
 /**
@@ -11175,7 +11175,7 @@ function parsePath(path) {
 
 /***/ }),
 
-/***/ 17454:
+/***/ 7454:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -11188,7 +11188,7 @@ Object.defineProperty(exports, "pathHasPrefix", ({
         return pathHasPrefix;
     }
 }));
-const _parsepath = __webpack_require__(39956);
+const _parsepath = __webpack_require__(9956);
 function pathHasPrefix(path, prefix) {
     if (typeof path !== "string") {
         return false;
@@ -11200,7 +11200,7 @@ function pathHasPrefix(path, prefix) {
 
 /***/ }),
 
-/***/ 33676:
+/***/ 3676:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -11213,7 +11213,7 @@ Object.defineProperty(exports, "pathHasPrefix", ({
         return pathHasPrefix;
     }
 }));
-const _parsepath = __webpack_require__(74640);
+const _parsepath = __webpack_require__(4640);
 function pathHasPrefix(path, prefix) {
     if (typeof path !== "string") {
         return false;
@@ -11225,7 +11225,7 @@ function pathHasPrefix(path, prefix) {
 
 /***/ }),
 
-/***/ 71147:
+/***/ 1147:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -11238,7 +11238,7 @@ Object.defineProperty(exports, "removePathPrefix", ({
         return removePathPrefix;
     }
 }));
-const _pathhasprefix = __webpack_require__(17454);
+const _pathhasprefix = __webpack_require__(7454);
 function removePathPrefix(path, prefix) {
     // If the path doesn't start with the prefix we can return it as is. This
     // protects us from situations where the prefix is a substring of the path
@@ -11269,7 +11269,7 @@ function removePathPrefix(path, prefix) {
 
 /***/ }),
 
-/***/ 47656:
+/***/ 7656:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -11282,7 +11282,7 @@ Object.defineProperty(exports, "removePathPrefix", ({
         return removePathPrefix;
     }
 }));
-const _pathhasprefix = __webpack_require__(33676);
+const _pathhasprefix = __webpack_require__(3676);
 function removePathPrefix(path, prefix) {
     // If the path doesn't start with the prefix we can return it as is. This
     // protects us from situations where the prefix is a substring of the path
@@ -11313,7 +11313,7 @@ function removePathPrefix(path, prefix) {
 
 /***/ }),
 
-/***/ 75105:
+/***/ 5105:
 /***/ ((__unused_webpack_module, exports) => {
 
 /**
@@ -11339,16 +11339,16 @@ function removeTrailingSlash(route) {
 
 /***/ }),
 
-/***/ 20514:
+/***/ 514:
 /***/ ((module, exports, __webpack_require__) => {
 
 
 const serverExports = {
-    NextRequest: (__webpack_require__(47336).NextRequest),
-    NextResponse: (__webpack_require__(34415)/* .NextResponse */ .x),
+    NextRequest: (__webpack_require__(7336).NextRequest),
+    NextResponse: (__webpack_require__(4415)/* .NextResponse */ .x),
     ImageResponse: (__webpack_require__(9374)/* .ImageResponse */ .E),
-    userAgentFromString: (__webpack_require__(43889).userAgentFromString),
-    userAgent: (__webpack_require__(43889).userAgent)
+    userAgentFromString: (__webpack_require__(3889).userAgentFromString),
+    userAgent: (__webpack_require__(3889).userAgent)
 };
 if (typeof URLPattern !== "undefined") {
     // eslint-disable-next-line no-undef

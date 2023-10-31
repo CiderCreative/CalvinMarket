@@ -24,13 +24,13 @@ module.exports = {
       colors:{
         "dark": "#202020",
         "light": "#EEEEEE",
-        "light-gray": "#E2E2E2",
         'primary': '#EEEEEE',
         'opposite': '#202020',
       },
       backgroundColor: {
         'yellow': '#E8CC16',
         'maroon': '#8C2232',
+        "gray-accent": "#D5D5D5",
       },
       textColor: {
         'primary':  '#202020',
