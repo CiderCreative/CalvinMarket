@@ -5,9 +5,10 @@ import loadingImg from '../../constants/loadingImage.png'
 import {apiLimiter} from '../../utils/rateLimiter'
 
 const ItemHighlight = ({item}) => {
-  const {price, title, detail, imageKeys:imageKeysString} = item
+  const {price, title, detail, itemId, imageKeys:imageKeysString} = item
   const [urls, setUrls] = useState([loadingImg]);   //list of urls for images
-  const imageKeyList = imageKeysString.slice(1,-1).split(",") 
+  const imageKeyList = imageKeysString.slice(1,-1).split(",")
+  console.log(itemId)
 
   useEffect(() => {
     const fetchImageURLs = async () => {
@@ -26,9 +27,9 @@ const ItemHighlight = ({item}) => {
   }, []);
 
   return (
-    <Link href="/Item/1" className="flex flex-col hover:scale-[102%] w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0 transition-transform duration-200 ease-in-out hover:cursor-pointer mr-10 mb-5">
-      <Image src={urls[0]} 
-      className="aspect-square w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0" 
+    <Link href={`/Item/${itemId}}`} className="flex flex-col hover:scale-[102%] w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0 transition-transform duration-200 ease-in-out hover:cursor-pointer mr-10 mb-5">
+      <Image src={urls[0]}
+      className="aspect-square w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0"
       alt="" width={200} height={200}/>
 
       <p className="text-md leading-5 pt-1">{price > 0 ? `$${price}` : "Free"}</p>
