@@ -10,12 +10,6 @@ const HighlightContainer = ({text, data}) => {
         {data.map((item, index) => {
           return <ItemHighlight key={index} item={item}/>
         })}
-
-        {/* <ItemHighlight price="33" title="Math 251 Textbook" detail="978-1234567890" />
-        <ItemHighlight price="72" title="Vintage Watch" detail="9/22/2023" />
-        <ItemHighlight price="0" title="House Plant" detail="5/12/2022" />
-        <ItemHighlight price="49" title="Gaming Laptop" detail="7/18/2022" />
-        <ItemHighlight price="25" title="Physics 133 Book - USED" detail="561678279" /> */}
       </div>
     </div>
   )

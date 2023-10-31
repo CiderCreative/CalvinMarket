@@ -1,5 +1,5 @@
 import React from 'react'
-import { ItemHeader, ItemDescription, SellerInfo, QuickMessage } from '.'
+import { ItemHeader, ItemDescription, SellerInfo, QuickMessage } from './index'
 
 const SidebarMenu = () => {
   return (

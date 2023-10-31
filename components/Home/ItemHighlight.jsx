@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import loadingImg from '@/constants/loadingImage.png'
-import {apiLimiter} from '@/utils/rateLimiter'
+import loadingImg from '../../constants/loadingImage.png'
+import {apiLimiter} from '../../utils/rateLimiter'
 
 const ItemHighlight = ({item}) => {
   const {price, title, detail, imageKeys:imageKeysString} = item

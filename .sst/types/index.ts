@@ -18,7 +18,25 @@ declare module "sst/node/bucket" {
 import "sst/node/table";
 declare module "sst/node/table" {
   export interface TableResources {
+    "profiles": {
+      tableName: string;
+    }
+  }
+}
+
+import "sst/node/table";
+declare module "sst/node/table" {
+  export interface TableResources {
     "items": {
+      tableName: string;
+    }
+  }
+}
+
+import "sst/node/table";
+declare module "sst/node/table" {
+  export interface TableResources {
+    "messages": {
       tableName: string;
     }
   }

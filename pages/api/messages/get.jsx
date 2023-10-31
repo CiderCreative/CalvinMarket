@@ -3,13 +3,19 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {ScanCommand, DynamoDBDocumentClient} from "@aws-sdk/lib-dynamodb";
 
 const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
-
+/**
+ * example request body:
+ * {
+ *      "person1": "someEmail@calvin.edu",
+ *      "person2": "someOtherEmail@calvin.edu"
+ * }
+ */
 export default async function handler(req, res) {
-    const{ExpressionAttributeValues, FilterExpression} = toScanCommand(JSON.parse(req.body).filter)
-    
+    const body = JSON.parse(req.body)
+    const{ExpressionAttributeValues, FilterExpression} = toScanCommand(`(senderId = ${body.person1} AND receiverId = ${body.person2}) OR (senderId = ${body.person2} AND receiverId = ${body.person1})`)
+
     const input = {
-        TableName: Table.items.tableName,
-        ExpressionAttributeNames: {"#STATUS": "status"}, //status is a reserved word for dynamodb
+        TableName: Table.messages.tableName,
         ExpressionAttributeValues,
         FilterExpression,
       };
@@ -29,11 +35,12 @@ export default async function handler(req, res) {
 
 
 
+
 // something like "title = Title OR title = Bible" gets turned into correct Expression Attribute and filter for scan command
 function toScanCommand(expression){
     let ExpressionAttributeValues = {}
     let FilterExpression = ""
-    const cutExpression = expression.trim().split(/\s*(=|OR|AND)\s*/)
+    const cutExpression = expression.trim().split(/\s*(=|OR|AND|\(|\))\s*/)
     
     cutExpression.forEach((item, index) => {
         if (cutExpression[index - 1] === "="){
@@ -48,7 +55,7 @@ function toScanCommand(expression){
             FilterExpression += `:var${attributeLength} `
         }
         else if (cutExpression[index + 1] === "="){
-            FilterExpression += item.toLowerCase() === "status" ? "#STATUS " : time+' '
+            FilterExpression += item.toLowerCase() === "status" ? "#STATUS " : item+' '
         }
         else{
             FilterExpression += item + " "

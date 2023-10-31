@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState, useContext } from 'react'
-import { Context } from '@/app/Context'
+import { Context } from '../../app/Context'
 
 const Settings = () => {
   const [settingsOpen, setSettingsOpen] = useState(false);

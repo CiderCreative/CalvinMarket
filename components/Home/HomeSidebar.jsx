@@ -1,6 +1,6 @@
 "use client"
-import { FilterContainer, ListingButtons} from "@/components/Home/index"
-import { Logo } from "@/components/Global/index"
+import { FilterContainer, ListingButtons} from "./index"
+import { Logo } from "../Global/index"
 
 const HomeSidebar = ({sidebarClosed, setSidebarClosed}) => {
   const arrow = <svg className={`flex-shrink-0 transition-all duration-200 ${sidebarClosed ? "w-4 rotate-0" : "w-5 rotate-180"}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/></svg>

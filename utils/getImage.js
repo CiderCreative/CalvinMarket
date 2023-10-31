@@ -1,4 +1,4 @@
-import loadingImg from '@/constants/loadingImage.png'
+import loadingImg from '../constants/loadingImage.png'
 
 export const getImageURL = async (keyName) => {
 
@@ -6,7 +6,7 @@ export const getImageURL = async (keyName) => {
       method: "POST",
       body: JSON.stringify(
         {
-          type: "image/png",
+          type: "image/*",
           file_key: keyName
         })
       })

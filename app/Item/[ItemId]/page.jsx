@@ -1,5 +1,7 @@
+"use client"
+
 import React from 'react'
-import { SidebarMenu } from '@/components/Item/index'
+import { SidebarMenu } from '../../../components/Item/index'
 
 const page = ({params: {ItemId}}) => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StarRating } from "@/components/Profile/index"
+import { StarRating } from "../Profile/index"
 
 const SellerInfo = () => {
   const user = <svg className="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 18"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 8a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-2 3h4a4 4 0 0 1 4 4v2H1v-2a4 4 0 0 1 4-4Z"/></svg>
