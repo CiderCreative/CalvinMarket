@@ -4,19 +4,18 @@ import React, { useState, useEffect, useCallback } from 'react'
 import {CarouselArrow} from "./index"
 import Image from 'next/image'
 
-const Carousel = ({item}) => {
-  const [count, setCount] = useState(0)                  // index of carousel
+const Carousel = ({item, index, setIndex}) => {
   const [distanceRight, setDistanceRight] = useState(0); //pos carousel is shifted from right
 
   // Funcs to handle left & right arrow clicks -> sliding the carousel
-  const handleLeft = useCallback(() => { setCount((count - 1 + item.length) % item.length); }, [count, item]);
-  const handleRight = useCallback(() => { setCount((count + 1) % item.length); }, [count, item]);
+  const handleLeft = useCallback(() => { setIndex((index - 1 + item.length) % item.length); }, [index, item]);
+  const handleRight = useCallback(() => { setIndex((index + 1) % item.length); }, [index, item]);
 
-  // Calculate right position when 'count' changes
+  // Calculate right position when 'index' changes
   useEffect(() => {
-    const rightPosition = count * 100 + "%";
+    const rightPosition = index * 100 + "%";
     setDistanceRight(rightPosition);
-  }, [count]);
+  }, [index]);
 
 
   // Listen for ArrowLeft and ArrowRight key presses
