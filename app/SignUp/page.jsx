@@ -5,15 +5,16 @@ import React from 'react';
 import { useState } from "react";
 
 const SignInPage = () => {
-  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [psswd, setPsswd] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await signIn("credentials", {
-      username: userName.current,
-      password: psswd.current,
-      //redirect: true,
-      callbackUrl: "/",
+    const result = await fetch("/api/auth/signup", {
+      method: "POST",
+      body:{
+        email,
+        password: psswd,
+      }
     });
   };
 
@@ -24,9 +25,9 @@ const SignInPage = () => {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
-            <input type="email" id="email" name="email" value={userName}
+            <input type="email" id="email" name="email" value={email}
             required className="w-full border rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" 
-            onChange={(e)=>{setUserName(e.target.value)}}/>
+            onChange={(e)=>{setEmail(e.target.value)}}/>
           </div>
           <div className="mb-6">
             <label htmlFor="password" className="block text-gray-700 font-medium mb-1">Password</label>

@@ -5,14 +5,14 @@ export const authOptions = {
   // Configure one or more authentication providers
   providers: [
     CognitoProvider({
-      clientId: process.env.COGNITO_CLIENT_ID,
-      clientSecret: process.env.COGNITO_CLIENT_SECRET,
+      clientId: process.env.COGNITO_CLIENT_ID!,
+      clientSecret: process.env.COGNITO_CLIENT_SECRET!,
       issuer: process.env.COGNITO_ISSUER,
     })
   ],
-//   pages: {
-//     signIn: '/SignUp',
-//   }
+  pages: {
+    signIn: '/SignUp',
+  }
 }
 
 export default NextAuth(authOptions)

@@ -14,7 +14,7 @@ export default async function handler (req, res) {
                 senderId,                    //id of sender
                 receiverId,                  //id of receiver
                 message,                     //message content
-                dateSent: Date.now() /1000,  //date message was sent
+                dateSent: Date.now(),  //date message was sent
             }
         });
         await db.send(put);
