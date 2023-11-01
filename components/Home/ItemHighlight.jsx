@@ -7,15 +7,11 @@ import {apiLimiter} from '../../utils/rateLimiter'
 const ItemHighlight = ({item}) => {
   const {price, title, detail, itemId, imageKeys:imageKeysString} = item
   const [urls, setUrls] = useState([loadingImg]);   //list of urls for images
-  const imageKeyList = imageKeysString.slice(1,-1).split(",")
-  console.log(itemId)
-
+  let imageKeyList = imageKeysString.slice(1,-1).split(",")
   useEffect(() => {
     const fetchImageURLs = async () => {
       try {
-        const imgPromises = imageKeyList.map(async(imageName)=>
-          await apiLimiter.getImage(imageName)
-        )
+        const imgPromises = await apiLimiter.getImage(imageKeyList)
         const imageURLs = await Promise.all(imgPromises);
         setUrls(imageURLs);
       } catch (error) {

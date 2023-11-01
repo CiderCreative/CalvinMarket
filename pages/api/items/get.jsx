@@ -10,11 +10,12 @@ const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
  * }
  */
 export default async function handler(req, res) {
-    console.log(JSON.parse(req.body).filter)
     const{ExpressionAttributeValues, FilterExpression} = toScanCommand(JSON.parse(req.body).filter)
 
+    const ExpressionAttributeNames = FilterExpression.includes("#STATUS") ? {"#STATUS": "status"} : null; 
     const input = {
         TableName: Table.items.tableName,
+        ExpressionAttributeNames, 
         //ExpressionAttributeNames: {"#STATUS": "status"}, //status is a reserved word for dynamodb
         ExpressionAttributeValues,
         FilterExpression,
@@ -45,11 +46,11 @@ function toScanCommand(expression){
     cutExpression.forEach((item, index) => {
         if (cutExpression[index - 1] === "="){
             let attributeLength = Object.keys(ExpressionAttributeValues).length +1
-
+            const isNumber = !isNaN(item) && !isNaN(parseFloat(item));
             //take out the item from the expression
             ExpressionAttributeValues = {
                 ...ExpressionAttributeValues,
-                [`:var${attributeLength}`]: item, }
+                [`:var${attributeLength}`]: isNumber ? parseInt(item): item, }
 
             //add the variable for the item back into the filter expression
             FilterExpression += `:var${attributeLength} `
