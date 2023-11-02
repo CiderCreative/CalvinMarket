@@ -3,15 +3,14 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
 
 export default async function handler(req, res) {
-    const {file_key, type} = JSON.parse(req.body);
-    
+    const {file_key} = JSON.parse(req.body);
     switch (req.method) {
       case "POST":
 
         try {
             const command = new GetObjectCommand({
             ACL: "public-read",
-            Key: file_key,
+            Key: file_key.trim(),
             Bucket: Bucket.itemImgs.bucketName,
             });
 
