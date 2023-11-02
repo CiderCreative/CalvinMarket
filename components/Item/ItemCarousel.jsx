@@ -26,7 +26,7 @@ const ItemCarousel = ({imageKeys}) => {
 
   return (
     <div>
-      <div className="overflow-x-hidden w-[calc(100vw-400px)]">
+      <div className="overflow-x-hidden lg:w-[calc(100vw-400px)]">
 
         {/* Display a single image -- with cycling functionality */}
         <Carousel

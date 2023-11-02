@@ -24,7 +24,7 @@ const Page = ({params: {ItemId}}) => {
     <div>
       <ExitItem />
 
-      <div className="flex-col">
+      <div className="flex-col mt-20">
         {/* Contains carousel & image container (for quick selection) */}
         <ItemCarousel imageKeys={item[0].imageKeys}/>
         <SidebarMenu item={item[0]}/>

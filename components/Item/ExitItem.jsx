@@ -9,8 +9,8 @@ const ExitItem = () => {
 
   return (
     // Goes to previous link on click
-    <div onClick={() => Router.back()} className="mt-5 ml-5 flex items-center justify-center aspect-square w-10 bg-gray-accent rounded-full hover:border-2 border-opposite hover:cursor-pointer">
-      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+    <div onClick={() => Router.back()} className="absolute top-5 left-5 z-10 flex items-center justify-center aspect-square w-11 bg-gray-accent rounded-full hover:border-2 border-opposite hover:cursor-pointer">
+      <XMarkIcon className="h-7 w-7" aria-hidden="true" />
     </div>
   )
 }

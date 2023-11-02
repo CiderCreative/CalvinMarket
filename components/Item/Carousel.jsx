@@ -43,8 +43,8 @@ const Carousel = ({index, setIndex, urls}) => {
         {/* Create block for each photo */}
         {urls.map((image, idx) =>{
           return(
-          <div key={idx} className={`flex item-center justify-center w-full h-[70vh] bg-primary`}>
-            <Image className={`h-full w-auto`} src={image} draggable="false" alt="" width={600} height={600}/>
+          <div key={idx} className={`flex item-center justify-center w-full  bg-primary`}>
+            <Image className={`h-full w-3/5 object-cover`} loading="eager" src={image} draggable="false" alt="" width={600} height={600}/>
           </div>
           )})}
       </div>
