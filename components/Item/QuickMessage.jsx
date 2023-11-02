@@ -15,7 +15,7 @@ const QuickMessage = () => {
   }
 
   return (
-    <div className="fixed w-full bottom-3">
+    <div className="lg:fixed w-full bottom-3">
 
       <div className="flex items-center space-x-2">
         {messageIcon}

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { ExitItem, ItemCarousel, SidebarMenu } from '../../../components/Item/index'
+import { ExitItem, ImageContainer, ItemCarousel, SidebarMenu } from '../../../components/Item/index'
 
 const Page = ({params: {ItemId}}) => {
   const [item, setItem] = useState([{imageKeys:"[]"}]);
@@ -17,15 +17,19 @@ const Page = ({params: {ItemId}}) => {
       .then((res) => res.json())
       .then((data) => setItem(data.Items))
     }
-
     getItems();
 }, [ItemId])
-  return (
 
+  return (
     <div>
       <ExitItem />
-      <ItemCarousel item={item[0].imageKeys}/>
-      <SidebarMenu item={item[0]}/>
+
+      <div className="flex-col">
+        {/* Contains carousel & image container (for quick selection) */}
+        <ItemCarousel imageKeys={item[0].imageKeys}/>
+        <SidebarMenu item={item[0]}/>
+      </div>
+
     </div>
   )
 }
