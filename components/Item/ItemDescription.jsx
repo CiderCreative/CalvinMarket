@@ -11,7 +11,7 @@ const ItemDescription = ({tags, description}) => {
     }
 
   return (
-    <div className="mt-5 text-sm">
+    <div className="pt-10 md:pt-5 text-sm">
       <h4 className="text-xl font-bold">Item Details</h4>
 
       <div className="grid grid-cols-2 mt-3 mr-[100px] gap-y-2">
@@ -25,7 +25,7 @@ const ItemDescription = ({tags, description}) => {
       ))}
     </div>
 
-      <p className="mt-4 h-[200px] overflow-y-scroll">{description}</p>
+      <p className="mt-10 lg:h-[200px] lg:overflow-y-scroll overflow-x-hidden">{description}</p>
     </div>
   )
 }

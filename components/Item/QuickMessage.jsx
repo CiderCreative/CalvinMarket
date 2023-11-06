@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 const QuickMessage = () => {
   const [messageText, setMessageText] = useState("");
@@ -15,7 +15,7 @@ const QuickMessage = () => {
   }
 
   return (
-    <div className="lg:fixed w-full bottom-3">
+    <div className="lg:fixed bottom-3 w-[350px] flex flex-col max-lg:pt-10 bg-primary">
 
       <div className="flex items-center space-x-2">
         {messageIcon}
@@ -23,14 +23,14 @@ const QuickMessage = () => {
       </div>
 
       <input
-      value={messageText}
-      onKeyDown={handleKeyPress}
-      onChange={(event) => setMessageText(event.target.value)}
-      placeholder="Hello is this available?"
-      className="p-2 w-1/4 mt-1 mb-2 input-clear bg-opposite bg-opacity-10 border-2 border-opposite border-opacity-50 rounded-lg"
+        value={messageText}
+        onKeyDown={handleKeyPress}
+        onChange={(event) => setMessageText(event.target.value)}
+        placeholder="Hello is this available?"
+        className="p-2 mt-1 mb-2 input-clear bg-opposite bg-opacity-10 border-2 border-opposite border-opacity-50 rounded-lg"
       />
 
-      <button className="flex justify-center w-1/4 py-1 bg-yellow text-dark text-sm font-semibold rounded-lg">Send</button>
+      <button className="justify-center py-1 bg-yellow text-dark text-sm font-semibold rounded-lg">Send</button>
 
     </div>
   )

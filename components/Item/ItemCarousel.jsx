@@ -25,24 +25,22 @@ const ItemCarousel = ({imageKeys}) => {
   }, [imageKeys]);
 
   return (
-    <div>
-      <div className="overflow-x-hidden lg:w-[calc(100vw-400px)]">
+    <div className="overflow-x-hidden w-full h-full">
 
-        {/* Display a single image -- with cycling functionality */}
-        <Carousel
-          index={carouselIndex}
-          setIndex={setCarouselIndex}
-          urls={urls}
-        />
+      {/* Display a single image -- with cycling functionality */}
+      <Carousel
+        index={carouselIndex}
+        setIndex={setCarouselIndex}
+        urls={urls}
+      />
 
-        {/* Display small previews of images */}
-        <ImageContainer
-          index={carouselIndex}
-          setIndex={setCarouselIndex}
-          urls={urls}
-        />
+      {/* Display small previews of images */}
+      <ImageContainer
+        index={carouselIndex}
+        setIndex={setCarouselIndex}
+        urls={urls}
+      />
 
-      </div>
     </div>
   )
 }

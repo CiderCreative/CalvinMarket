@@ -25,7 +25,7 @@ const ItemHeader = ({title, price, dateAdded, preferredMeetup}) => {
   return (
     <div>
       <h3 className="text-lg sm:text-xl xl:text-2xl font-black">{title}</h3>
-      <p className="text-xl font-semibold">{price > 0 ? `$${price}` : 'Free'}</p>
+      <p className="text-xl dark:opacity-70">{price > 0 ? `$${price}` : 'Free'}</p>
       <p className="text-sm font-normal">{timeAgo}</p>
       <div className="flex items-center space-x-2 text-lg font-normal mt-3">
         {pickupIcon}

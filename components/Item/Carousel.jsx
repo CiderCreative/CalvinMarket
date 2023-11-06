@@ -36,15 +36,16 @@ const Carousel = ({index, setIndex, urls}) => {
 
 
   return (
-    <div className='bg-dark relative w-[100%] h-full'>
+    <div className='bg-dark relative lg:w-full lg:h-[80vh] flex justify-between'>
+
 
       {/* The Carousel */}
       <div className="flex overflow-visible [&>*]:flex-shrink-0 relative transition-all duration-200 right-0" style={{right: distanceRight}}>
         {/* Create block for each photo */}
         {urls.map((image, idx) =>{
           return(
-          <div key={idx} className={`flex item-center justify-center w-full  bg-primary`}>
-            <Image className={`h-full w-3/5 object-cover`} loading="eager" src={image} draggable="false" alt="" width={600} height={600}/>
+            <div key={idx} className={`flex item-center justify-center w-full bg-primary`}>
+            <Image className={`h-full object-cover`} loading="eager" src={image} draggable="false" alt="" width={600} height={600}/>
           </div>
           )})}
       </div>

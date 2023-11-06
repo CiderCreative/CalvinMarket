@@ -26,8 +26,14 @@ const Page = ({params: {ItemId}}) => {
 
       <div className="max-lg:flex-col mt-20">
         {/* Contains carousel & image container (for quick selection) */}
-        <ItemCarousel imageKeys={item[0].imageKeys}/>
-        <SidebarMenu item={item[0]}/>
+        <div className="h-full max-lg:m-auto lg:w-[calc(100vw-400px)] lg:max-w-[1800px]">
+          <ItemCarousel imageKeys={item[0].imageKeys}/>
+        </div>
+
+        <div className="lg:fixed right-0 inset-y-0 lg:w-[400px]">
+          <SidebarMenu item={item[0]}/>
+        </div>
+
       </div>
 
     </div>
