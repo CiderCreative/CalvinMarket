@@ -10,7 +10,7 @@ export default {
     };
   },
   stacks(app) {
-    
+
     app.stack(function Site({ stack }) {
       const imagesBucket = new Bucket(stack, "itemImgs");
 
@@ -32,7 +32,6 @@ export default {
           itemId: "number",          //going to be UNIX timestamp
           title: "string",           //title of item
           price: "number",           //price of item (in dollars)
-          dateAdded: "string",       //date item was added (not updated when sold or edited)
           dateSold: "string",        //date sold (if sold, "" if not)
           status: "string",          //status of item (deleted, sold, not_shown, for_sale)
           description: "string",     //desc of item

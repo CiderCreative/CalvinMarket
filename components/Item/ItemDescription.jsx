@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ItemDescription = () => {
+const ItemDescription = ({tags}) => {
   return (
     <div className="mt-5 text-sm">
       <h4 className="text-xl font-bold">Item Details</h4>
