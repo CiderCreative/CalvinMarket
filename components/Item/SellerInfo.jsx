@@ -11,7 +11,7 @@ const SellerInfo = ({profileId}) => {
         <p className="p-5 bg-gray-300 aspect-square  rounded-full">{user}</p>
 
         <div className="flex flex-col">
-          <p className="text-md font-bold">Diane Sorrento (des3)</p>
+          <p className="text-md font-bold">{profileId}</p>
           <StarRating />
         </div>
 
