@@ -1,6 +1,6 @@
 import './globals.css'
 import LightProvider from './Context';
-import { Lato } from "@next/font/google"
+import { Lato } from "next/font/google"
 import { getServerSession } from "next-auth";
 import SessionProvider from "../components/SessionProvider.jsx"
 

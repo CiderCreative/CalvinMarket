@@ -20,9 +20,9 @@ dependencies:
   '@aws-sdk/s3-request-presigner':
     specifier: ^3.430.0
     version: 3.438.0
-  '@next/font':
-    specifier: ^13.5.5
-    version: 13.5.6
+  '@heroicons/react':
+    specifier: ^2.0.18
+    version: 2.0.18(react@18.2.0)
   astro-sst:
     specifier: ^2.27.0
     version: 2.32.2
@@ -57,8 +57,8 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   tailwindcss:
-    specifier: 3.3.3
-    version: 3.3.3
+    specifier: ^3.3.5
+    version: 3.3.5
 
 devDependencies:
   '@types/react':
@@ -5449,6 +5449,14 @@ packages:
       '@hapi/hoek': 9.3.0
     dev: false
 
+  /@heroicons/react@2.0.18(react@18.2.0):
+    resolution: {integrity: sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@httptoolkit/websocket-stream@6.0.1:
     resolution: {integrity: sha512-A0NOZI+Glp3Xgcz6Na7i7o09+/+xm2m0UCU8gdtM2nIv6/cjLmhMZMqehSpTlgbx9omtLmV8LVqOskPEyWnmZQ==}
     dependencies:
@@ -5600,10 +5608,6 @@ packages:
     resolution: {integrity: sha512-N/O+zGb6wZQdwu6atMZHbR7T9Np5SUFUjZqCbj0sXm+MwQO35M8TazVB4otm87GkXYs2l6OPwARd3/PUWhZBVQ==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font@13.5.6:
-    resolution: {integrity: sha512-urmUq05uCVJsBqAAJEV+xK5OTTodrSxdiG+351SOSjlWctywdBM6qX+K9pIe3K48RxjfnxlBbXjGyOJAji+pfw==}
     dev: false
 
   /@next/swc-darwin-arm64@13.4.19:
@@ -13294,8 +13298,8 @@ packages:
       strip-ansi: 6.0.1
     dev: true
 
-  /tailwindcss@3.3.3:
-    resolution: {integrity: sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==}
+  /tailwindcss@3.3.5:
+    resolution: {integrity: sha512-5SEZU4J7pxZgSkv7FP1zY8i2TIAOooNZ1e/OGtxIEv6GltpoiXUqWvLy89+a10qYTB1N5Ifkuw9lqQkN9sscvA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
