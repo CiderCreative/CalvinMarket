@@ -25,7 +25,7 @@ const ItemHighlight = ({item}) => {
   return (
     <Link href={`/Item/${itemId}}`} className="flex flex-col hover:scale-[102%] w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0 transition-transform duration-200 ease-in-out hover:cursor-pointer mr-10 mb-5">
       <Image src={urls[0]}
-      className="aspect-square w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0"
+      className="object-cover aspect-square w-[120px] md:w-[150px] xl:w-[200px] flex-shrink-0"
       alt="" width={200} height={200}/>
 
       <p className="text-md leading-5 pt-1">{price > 0 ? `$${price}` : "Free"}</p>
