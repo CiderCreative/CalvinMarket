@@ -13,7 +13,7 @@ body {
 .dark .bg-primary         { background-color: #202020; }
 .dark .bg-opposite        { background-color: #EEEEEE; }
 .dark .bg-gray-accent     { background-color: #464646; }
-.dark .text-primary       { color: #EEEEEE; }
+.dark .text-primary       { color: #AAAAAA; }
 .dark .text-opposite      { color: #202020; }
 
 ::selection{
