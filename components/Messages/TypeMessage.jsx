@@ -17,7 +17,7 @@ const TypeMessage = ({sidebarOpen}) => {
   }
 
   return (
-    <div className={`fixed bottom-5 flex items-center pt-4  ${widthVal} `}>
+    <div className={`fixed bottom-0 flex items-center py-4 bg-primary ${widthVal} `}>
 
       <div className="w-full border-2 border-opposite z-10 rounded-lg flex justify-between mx-10">
         <input
