@@ -7,7 +7,7 @@ import Image from 'next/image'
   const Router = useRouter(); //Router objec
 
   return (
-    <div className={`fixed left-0 h-screen py-5 shadow-xl transition-all duration-200 text-primary ${sidebarOpen ? "w-[300px]" : "w-[100px]"}`}>
+    <div className={`fixed left-0 top-0 h-screen py-5 shadow-xl transition-all duration-200 text-primary ${sidebarOpen ? "w-[300px]" : "w-[100px]"}`}>
 
       {/* Button menu -- top  */}
       <div className="flex justify-between mb-10 px-5">

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import { CurrentConversationContainer, CurrentConversationHeader, MessagesSidebar } from "../../components/Messages/index.js"
+import { CurrentConversationContainer, CurrentConversationHeader, MessagesSidebar, TypeMessage } from "../../components/Messages/index.js"
 import wayfinder from "../../public/wayfinder.svg"
 
 const peopleList = [
@@ -69,8 +69,9 @@ const Messages = () => {
 
       {/* Main messages content */}
       <div className={`transition-all duration-200 ${sidebarOpen ? "pl-[300px]" : "pl-[100px]" }`}>
-        <CurrentConversationHeader activePerson={activePerson} />
-        <CurrentConversationContainer messagesArray={messages}/>
+        <CurrentConversationHeader      activePerson={activePerson} />
+        <CurrentConversationContainer   messagesArray={messages}    />
+        <TypeMessage                    sidebarOpen={sidebarOpen}   />
       </div>
 
     </div>
