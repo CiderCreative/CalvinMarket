@@ -10,7 +10,7 @@ export default {
     };
   },
   stacks(app) {
-    
+
     app.stack(function Site({ stack }) {
       const imagesBucket = new Bucket(stack, "itemImgs");
 

@@ -23,7 +23,8 @@ function Home({ user}) {
 
     getItems();
   },[])
-  if(session){
+
+  if( session?.user?.email ){
     return (
       <div className={`transition-all duration-300 overflow-x-hidden m-auto sm:pl-[300px] ${sidebarClosed ? "sm:pl-[50px]" : ""}`}>
         <HomeSidebar sidebarClosed={sidebarClosed} setSidebarClosed={setSidebarClosed}/>
