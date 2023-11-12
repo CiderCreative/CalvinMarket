@@ -2,7 +2,7 @@ import './globals.css'
 import LightProvider from './Context';
 import { Lato } from "@next/font/google"
 import { getServerSession } from "next-auth";
-import SessionProvider from "../components/SessionProvider.jsx"
+import SessionProvider from "../components/Backend/SessionProvider.jsx"
 
 
 const lato = Lato({
@@ -19,7 +19,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
 
   const session = await getServerSession();
-
+  console.log(session)
   return (
     <html lang="en" className={lato.className}>
 

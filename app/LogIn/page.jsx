@@ -10,7 +10,7 @@ const SignInPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const result = await signIn("credentials", {
-      email,
+      username: email,
       password: psswd,
       redirect: true,
       callbackUrl: "/",

@@ -23,12 +23,7 @@ function Home({ user}) {
 
     getItems();
   },[])
-
-  useEffect(()=>{
-    console.log(session)
-  
-  },[session])
-  if(session?.user?.email){
+  if(session){
     return (
       <div className={`transition-all duration-300 overflow-x-hidden m-auto sm:pl-[300px] ${sidebarClosed ? "sm:pl-[50px]" : ""}`}>
         <HomeSidebar sidebarClosed={sidebarClosed} setSidebarClosed={setSidebarClosed}/>
@@ -47,13 +42,7 @@ function Home({ user}) {
       </div>
     )
   }
-  else{
-    return(
-      <div>
-        <button onClick={() => signIn()}>Sign In</button>
-      </div>
-    )
-  }
+  else{ signIn(); return <div></div>}
 }
 
 export default Home;

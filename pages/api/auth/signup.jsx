@@ -1,37 +1,32 @@
 import { CognitoIdentityProviderClient, SignUpCommand } from '@aws-sdk/client-cognito-identity-provider'
 
-const { COGNITO_REGION, COGNITO_CLIENT_ID, COGNITO_CLIENT_SECRET } = process.env
 
 export default async function handler(req, res) {
-    if (req.method !== 'POST') return res.status(405).send()
+    //if (req.method !== 'POST') return res.status(405).send()
 
     const crypto = require('crypto');
+    const  body = JSON.parse(req.body)
 
-
-    const secretKey = COGNITO_CLIENT_SECRET; // Replace with your client secret
-    const username = req.body.email; // Replace with the username
-    const clientId = COGNITO_CLIENT_ID; // Replace with your client ID
+    const hmac = crypto.createHmac('sha256', process.env.COGNITO_CLIENT_SECRET);
     
-    const hmac = crypto.createHmac('sha256', secretKey);
-    
-    hmac.update(username + clientId);
+    hmac.update(body.email + process.env.COGNITO_CLIENT_ID);
     
     const hmacDigest = hmac.digest('base64');
     const params = {
-        ClientId: COGNITO_CLIENT_ID,
+        ClientId: process.env.COGNITO_CLIENT_ID,
         SecretHash: hmacDigest,
-        Password: req.body.password,
-        Username: req.body.email,
+        Password: body.password,
+        Username: body.email,
         UserAttributes: [
             {
                 Name: 'email',
-                Value: req.body.email
+                Value: body.email
             }
         ],
     }
 
     const cognitoClient = new CognitoIdentityProviderClient({
-        region: COGNITO_REGION
+        region: process.env.COGNITO_REGION
     })
     const signUpCommand = new SignUpCommand(params)
 
@@ -40,7 +35,13 @@ export default async function handler(req, res) {
         return res.status(response['$metadata'].httpStatusCode).send()
     } catch (err) {
         console.log(err)
-        return res.status(err['$metadata'].httpStatusCode).json({ message: err.toString() })
+        if(err['__type'] === 'UsernameExistsException'){
+            return res.status(err['$metadata'].httpStatusCode).json({msg: "Username already exists"});
+        }
+        else if(err['__type'] === 'InvalidPasswordException'){
+            return res.status(err['$metadata'].httpStatusCode).json({msg: err.message});
+        }
+        return res.status(err['$metadata'].httpStatusCode).send();
     }
 }
 
