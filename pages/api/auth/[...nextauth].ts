@@ -80,7 +80,6 @@ export const authOptions = {
           session.error = token.error;
         }
       }
-      console.log("AFTER RUNNING SESSION:", session);
       return session;
     },
   },
