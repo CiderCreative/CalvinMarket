@@ -43,13 +43,7 @@ function Home({ user}) {
       </div>
     )
   }
-  else{
-    return(
-      <div>
-        <button onClick={() => signIn()}>Sign In</button>
-      </div>
-    )
-  }
+  else{ signIn(); return <div></div>}
 }
 
 export default Home;

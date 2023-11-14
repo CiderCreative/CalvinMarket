@@ -1,8 +1,16 @@
-import React from 'react'
+"use client"
 
-const page = () => {
+import React from 'react'
+import { ExitItem, ItemCarousel, SidebarMenu } from '../../components/Item/index'
+import EditSidebarMenu from '../../components/Item/EditItem/EditSidebarMenu'
+
+const page = ({params: {ItemId}}) => {
   return (
-    <div>page</div>
+    <div>
+      {/* <ExitItem />
+      <ItemCarousel /> */}
+      <EditSidebarMenu/>
+    </div>
   )
 }
 

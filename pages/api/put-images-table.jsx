@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         const put = new PutCommand({
             TableName: Table.images.tableName,
             Item: {
-                imgId: Date.now() /1000,  //UNIX timestamp
+                imgId: Date.now(),  //UNIX timestamp
                 imgKey: req.body.imgKey,  //url of image in s3 bucket
                 itemId: req.body.itemId,  //profile id of seller
             }

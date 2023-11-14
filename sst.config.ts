@@ -51,7 +51,7 @@ export default {
           message: "string",         //message content
           dateSent: "number",        //date message was sent
         },
-        primaryIndex: { partitionKey: "senderId", sortKey: "dateSent"},
+        primaryIndex: { partitionKey: "dateSent", sortKey: "senderId"},
       });
 
       const site = new NextjsSite(stack, "site", {

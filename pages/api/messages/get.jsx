@@ -12,7 +12,7 @@ const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
  */
 export default async function handler(req, res) {
     const body = JSON.parse(req.body)
-    const{ExpressionAttributeValues, FilterExpression} = toScanCommand(`(senderId = ${body.person1} AND receiverId = ${body.person2}) OR (senderId = ${body.person2} AND receiverId = ${body.person1})`)
+    const{ExpressionAttributeValues, FilterExpression} = toScanCommand(`(senderId = ${body.person1} OR receiverId = ${body.person1})`)
 
     const input = {
         TableName: Table.messages.tableName,
