@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { apparelType } from '../EditItem/ItemTypes/index';
-import FileInput from '../EditItem/FileInput';
+import {apparelType} from './ItemTypes/apparel.jsx';
+import FileInput from './FileInput';
 import axios from "axios";
 import { format } from "date-fns";
 
@@ -10,7 +10,7 @@ const EditSidebarMenu = () => {
   const [files, setFiles] = useState([]);
   const [status, setStatus] = useState("unsent");
 
- 
+
   return (
     <div className="flex flex-col fixed right-0 inset-y-0 w-[400px] bg-light px-5">
       <div>
@@ -47,8 +47,8 @@ const EditSidebarMenu = () => {
                 <div className="text-xl">{key}</div>
                 {value.options.map((option, index) => (
 
-                  <button key={index} 
-                  onClick={()=>(setFormValues({...formValues, [key]: option}))} 
+                  <button key={index}
+                  onClick={()=>(setFormValues({...formValues, [key]: option}))}
                   className={`${formValues[key]===option && 'text-red-500'}`}>
                     {option}
                   </button>
@@ -83,8 +83,8 @@ const EditSidebarMenu = () => {
 
       <FileInput files={files} setFiles={setFiles} />
 
-      <button onClick={(e)=> {submit(e, formValues, files, setStatus); 
-        setStatus("sending")}} 
+      <button onClick={(e)=> {submit(e, formValues, files, setStatus);
+        setStatus("sending")}}
         className={`${status === "unsent" ? "bg-slate-500" : status==="sending" ? " bg-yellow" : status==="sent" ? "bg-green-500" : "bg-red-500"}}`}>
         Submit
       </button>
@@ -145,7 +145,7 @@ async function submit(e, formValues, files, setStatus) {
     } else {
       throw new Error("Unable to upload images");
     }
-    
+
 
     // Once all uploads are done, set the status
     setStatus("sent");

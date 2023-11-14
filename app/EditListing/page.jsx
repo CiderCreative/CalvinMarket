@@ -1,14 +1,11 @@
 "use client"
 
 import React from 'react'
-import { ExitItem, ItemCarousel, SidebarMenu } from '../../components/Item/index'
-import EditSidebarMenu from '../../components/Item/EditItem/EditSidebarMenu'
+import { EditSidebarMenu } from "../../components/EditListing/index.js"
 
 const page = ({params: {ItemId}}) => {
   return (
     <div>
-      {/* <ExitItem />
-      <ItemCarousel /> */}
       <EditSidebarMenu/>
     </div>
   )
