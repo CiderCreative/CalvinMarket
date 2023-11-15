@@ -12,49 +12,64 @@ const EditSidebarMenu = () => {
 
 
   return (
-    <div className="flex flex-col fixed right-0 inset-y-0 w-[400px] bg-light px-5">
-      <div>
-        <h3>Title</h3>
+    <div className="flex flex-col fixed right-0 inset-y-0 w-5/12 px-5 border-l-2 p-10 ">
+
+      <div className="flex items-center text-3xl font-bold space-x-5 w-full">
+        {/* Title */}
         <input
           type="text"
+          placeholder='Item Title'
           onChange={(e) => setFormValues({...formValues, title: e.target.value})}
+          className="w-3/5 px-5 py-3 input-clear rounded-xl"
         />
+
+        {/* Price */}
+        <div className="relative  flex items-center w-2/5">
+          <span className="absolute left-4 opacity-50">$</span>
+          <input
+            type="number"
+            placeholder="0"
+            value={formValues.price}
+            onChange={(e) => setFormValues({...formValues, price: e.target.value})}
+            className="text-center w-full px-5 py-3 rounded-xl input-clear"
+          />
+        </div>
       </div>
 
-      <div>
-        <h3>Price</h3>
-        <input
-          type="number"
-          onChange={(e) => setFormValues({...formValues, price: e.target.value})}
-        />
-      </div>
+      <hr className='bg-opposite/5 w-11/12 m-auto h-[2px] my-8' />
 
-      <div>
-        <h3>Preferred Meetup</h3>
-        <input
-          type="text"
-          onChange={(e) => setFormValues({...formValues, preferredMeetup: e.target.value})}
-        />
-      </div>
-
-      {/* maping specific tag questions for each item */}
+      {/* mapping specific tag questions for each item */}
       {Object.keys(apparelType).map((key, index) => {
         let value = apparelType[key];
         return (
           <div key={index}>
-            {value.type === "button" ? (
-              <div>
-                <div className="text-xl">{key}</div>
+
+          {value.type === "button" ? (
+            <div className='flex space-x-10 my-5'>
+              {/* Tag title */}
+              <div className="text-lg">{key}</div>
+
+              {/* Radio Buttons Type*/}
+              <div className="flex space-x-5">
                 {value.options.map((option, index) => (
+                  <div
+                  key={index}
+                  className="flex flex-col items-center"
+                  onClick={() => setFormValues({ ...formValues, [key]: option })}
+                  >
 
-                  <button key={index}
-                  onClick={()=>(setFormValues({...formValues, [key]: option}))}
-                  className={`${formValues[key]===option && 'text-red-500'}`}>
-                    {option}
-                  </button>
+                  {/* Radio button */}
+                  <div className={`aspect-square rounded-full w-5 cursor-pointer border-[1.5px] border-opposite relative ${formValues[key] === option ? 'bg-yellow' : ''}`}>
+                    {/* Center dot*/}
+                    {formValues[key] === option && ( <div className="absolute inset-1/2 w-1.5 h-1.5 bg-black rounded-full transform -translate-x-1/2 -translate-y-1/2" />)}
+                  </div>
 
+                    {/* Description of option */}
+                    <label htmlFor={`${key}-option-${index}`} className="text-lg cursor-pointer" > {option} </label>
+                  </div>
                 ))}
               </div>
+            </div>
 
 
             ) : value.type === "drop-down" ? (
@@ -79,15 +94,26 @@ const EditSidebarMenu = () => {
           </div>
         );
       })}
-      {/* Submit button */}
+
+
 
       <FileInput files={files} setFiles={setFiles} />
 
+      <div>
+        <h3>Preferred Meetup</h3>
+        <input
+          type="text"
+          onChange={(e) => setFormValues({...formValues, preferredMeetup: e.target.value})}
+          />
+      </div>
+
+      {/* Submit button */}
       <button onClick={(e)=> {submit(e, formValues, files, setStatus);
         setStatus("sending")}}
         className={`${status === "unsent" ? "bg-slate-500" : status==="sending" ? " bg-yellow" : status==="sent" ? "bg-green-500" : "bg-red-500"}}`}>
         Submit
       </button>
+
     </div>
   );
 };
