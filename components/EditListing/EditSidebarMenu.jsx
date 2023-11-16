@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {apparelType} from './ItemTypes/apparel.jsx';
 import FileInput from './FileInput';
 import axios from "axios";
@@ -10,7 +10,17 @@ const EditSidebarMenu = () => {
   const [formValues, setFormValues] = useState({});
   const [files, setFiles] = useState([]);
   const [status, setStatus] = useState("unsent");
-  const [ dropdown, setDropdown ] = useState([])
+  const [ dropdown, setDropdown ] = useState()
+
+    // Close Dropdown on click away (outside of menu)
+    useEffect(() => {
+      const clickAway = (event) => {
+        if ((dropdown) && !event.target.closest('.click-away'))
+          setDropdown(false);
+      };
+      document.addEventListener('mousedown', clickAway);
+      return () => { document.removeEventListener('mousedown', clickAway); };
+    }, [dropdown]);
 
   return (
     <div className="flex flex-col fixed right-0 inset-y-0 w-1/2 px-5 border-l-2 p-10 overflow-y-scroll">
@@ -85,12 +95,12 @@ const EditSidebarMenu = () => {
               </div>
             </div>
 
-            {dropdown === index && <div className="absolute top-12 py-5 px-10 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-scroll">
+            {dropdown === index && <div className="absolute top-12 py-5 px-10 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-scroll click-away">
               {value.options.map((option, index) => (
                 <div key={index}
                   value={option}
                   className="hover:bg-yellow cursor-pointer px-10 py-5 rounded-xl text-center"
-                  onClick={() => setFormValues({ ...formValues, [key]: option })}
+                  onClick={() => {setFormValues({ ...formValues, [key]: option }), setDropdown(false)}}
                 >
                   {option}
                 </div>
