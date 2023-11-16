@@ -95,11 +95,11 @@ const EditSidebarMenu = () => {
               </div>
             </div>
 
-            {dropdown === index && <div className="absolute top-12 py-5 px-10 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-scroll click-away">
+            {dropdown === index && <div className="absolute top-12 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-y-auto click-away">
               {value.options.map((option, index) => (
                 <div key={index}
                   value={option}
-                  className="hover:bg-yellow cursor-pointer px-10 py-5 rounded-xl text-center"
+                  className="hover:bg-yellow cursor-pointer px-10 py-3 border-y border-opposite/10 text-center"
                   onClick={() => {setFormValues({ ...formValues, [key]: option }), setDropdown(false)}}
                 >
                   {option}
