@@ -31,7 +31,7 @@ const EditSidebarMenu = () => {
           type="text"
           placeholder='Item Title'
           onChange={(e) => setFormValues({...formValues, title: e.target.value})}
-          className="w-3/5 px-5 py-3 input-clear rounded-xl"
+          className="w-3/5 px-5 py-3 input-clear rounded-xl border-[1px] border-opposite/30"
         />
 
         {/* Price */}
@@ -42,7 +42,7 @@ const EditSidebarMenu = () => {
             placeholder="0"
             value={formValues.price}
             onChange={(e) => setFormValues({...formValues, price: e.target.value})}
-            className="text-center w-full px-5 py-3 rounded-xl input-clear"
+            className="text-center w-full px-5 py-3 rounded-xl input-clear border-[1px] border-opposite/30"
           />
         </div>
       </div>
@@ -52,6 +52,7 @@ const EditSidebarMenu = () => {
       {/* mapping specific tag questions for each item */}
       {Object.keys(apparelType).map((key, index) => {
         let value = apparelType[key];
+
 
         { // ------------- Radio Button Tags ------------- //
         if (value.type === "button") {
@@ -63,8 +64,8 @@ const EditSidebarMenu = () => {
             <div className="flex space-x-5">{value.options.map((option, index) => (
               <div key={index}
                 className="flex flex-col items-center"
-                onClick={() => setFormValues({ ...formValues, [key]: option })}
-              >
+                onClick={() => setFormValues((prevFormValues) => ({ ...prevFormValues, [key]: option, ...(prevFormValues[key] === option && { [key]: null }) }))}
+                >
                 {/* Button */}
                 <div className={`aspect-square rounded-full w-5 cursor-pointer border-[1px] border-opposite relative ${formValues[key] === option ? 'bg-yellow' : ''}`}>
                   {/* Center dot*/}
@@ -114,11 +115,13 @@ const EditSidebarMenu = () => {
         else if (value.type === "text"){
           return (
           <div>
-            <div>{key}</div>
-            <input
+            <p className="text-lg mb-3">{key}</p>
+            <textarea
               type="text"
               placeholder={value.filler}
               onChange={(e) => setFormValues({...formValues, [key]: e.target.value})}
+              className="w-4/5 px-5 py-3 input-clear border-[1px] border-opposite/30 rounded-xl"
+              rows={5}
             />
           </div>)
           } }

@@ -21,7 +21,6 @@ body {
 }
 
 .input-clear {
-  border-color: transparent;
   outline: none;
   box-shadow: none;
 }
