@@ -3,6 +3,7 @@ import {apparelType} from './ItemTypes/apparel.jsx';
 import FileInput from './FileInput';
 import axios from "axios";
 import { format } from "date-fns";
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const EditSidebarMenu = () => {
   // State to manage form values
@@ -10,9 +11,8 @@ const EditSidebarMenu = () => {
   const [files, setFiles] = useState([]);
   const [status, setStatus] = useState("unsent");
 
-
   return (
-    <div className="flex flex-col fixed right-0 inset-y-0 w-5/12 px-5 border-l-2 p-10 ">
+    <div className="flex flex-col fixed right-0 inset-y-0 w-1/2 px-5 border-l-2 p-10 overflow-y-scroll">
 
       <div className="flex items-center text-3xl font-bold space-x-5 w-full">
         {/* Title */}
@@ -24,7 +24,7 @@ const EditSidebarMenu = () => {
         />
 
         {/* Price */}
-        <div className="relative  flex items-center w-2/5">
+        <div className="relative flex items-center w-2/5">
           <span className="absolute left-4 opacity-50">$</span>
           <input
             type="number"
@@ -41,47 +41,63 @@ const EditSidebarMenu = () => {
       {/* mapping specific tag questions for each item */}
       {Object.keys(apparelType).map((key, index) => {
         let value = apparelType[key];
-        return (
-          <div key={index}>
 
-          {value.type === "button" ? (
+          { // ------------- Radio Button Tags ------------- //
+          if (value.type === "button") {
+            return(
             <div className='flex space-x-10 my-5'>
               {/* Tag title */}
-              <div className="text-lg">{key}</div>
+              <p className="text-lg">{key}</p>
 
-              {/* Radio Buttons Type*/}
-              <div className="flex space-x-5">
-                {value.options.map((option, index) => (
-                  <div
-                  key={index}
+              <div className="flex space-x-5">{value.options.map((option, index) => (
+                <div key={index}
                   className="flex flex-col items-center"
                   onClick={() => setFormValues({ ...formValues, [key]: option })}
-                  >
-
-                  {/* Radio button */}
-                  <div className={`aspect-square rounded-full w-5 cursor-pointer border-[1.5px] border-opposite relative ${formValues[key] === option ? 'bg-yellow' : ''}`}>
+                >
+                  {/* Button */}
+                  <div className={`aspect-square rounded-full w-5 cursor-pointer border-[1px] border-opposite relative ${formValues[key] === option ? 'bg-yellow' : ''}`}>
                     {/* Center dot*/}
                     {formValues[key] === option && ( <div className="absolute inset-1/2 w-1.5 h-1.5 bg-black rounded-full transform -translate-x-1/2 -translate-y-1/2" />)}
                   </div>
 
-                    {/* Description of option */}
-                    <label htmlFor={`${key}-option-${index}`} className="text-lg cursor-pointer" > {option} </label>
-                  </div>
-                ))}
+                  {/* Description of option */}
+                  <label htmlFor={`${key}-option-${index}`} className="text-md cursor-pointer">{option}</label>
+                </div>
+              ))}
+
               </div>
             </div>
+          )}
 
+            // ------------- Drop Down Tags ------------- //
+          else if (value.type === "drop-down")  {
+              return (
+              <div className="my-5">
+                <div className="flex items-center space-x-10">
+                  <label className="text-lg">{key}</label>
+                  <div className="border-[1px] hover:bg-opposite/10 cursor-pointer border-opposite/30 rounded-xl px-5 py-2 flex justify-between items-center w-1/4">
+                    [Something]
+                    <ChevronDownIcon className="inset-y-0 right-0 pointer-events-none aspect-square w-6" />
+                  </div>
+                </div>
 
-            ) : value.type === "drop-down" ? (
-              <div>
-                <div>{key}</div>
-                <select onChange={(e) => setFormValues({...formValues, [key]: e.target.value})}>
+                <div>
                   {value.options.map((option, index) => (
-                    <option key={index}>{option}</option>
+                    <div key={index}
+                      value={option}
+                      className="hover:bg-yellow cursor-pointer"
+                      onClick={() => setFormValues({ ...formValues, [key]: option })}
+                    >
+                      {option}
+                    </div>
                   ))}
-                </select>
+                </div>
               </div>
-            ) : value.type === "text" ? (
+            )}
+
+            // ------------- Text Input Tags ------------- //
+            else if (value.type === "text"){
+              return (
               <div>
                 <div>{key}</div>
                 <input
@@ -89,11 +105,11 @@ const EditSidebarMenu = () => {
                   placeholder={value.filler}
                   onChange={(e) => setFormValues({...formValues, [key]: e.target.value})}
                 />
-              </div>
-            ) : null}
-          </div>
-        );
-      })}
+              </div>)
+             } }
+
+            })}
+
 
 
 
