@@ -77,7 +77,7 @@ const EditSidebarMenu = () => {
             <div className="flex items-center space-x-10">
               <label className="text-lg">{key}</label>
               <div
-                onClick={() => setDropdown(index)}
+                onClick={() => (dropdown === index ? setDropdown(null) : setDropdown(index))}
                 className="border-[1px] hover:bg-opposite/10 cursor-pointer border-opposite/30 rounded-xl px-5 py-2 flex justify-between items-center w-1/4"
               >
                 {formValues[key] || 'Select an option'}
