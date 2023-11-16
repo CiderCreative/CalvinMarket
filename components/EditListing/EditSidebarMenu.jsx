@@ -73,7 +73,7 @@ const EditSidebarMenu = () => {
         // ------------- Drop Down Tags ------------- //
         else if (value.type === "drop-down")  {
           return (
-          <div className="my-5">
+          <div className="relative my-5">
             <div className="flex items-center space-x-10">
               <label className="text-lg">{key}</label>
               <div
@@ -85,19 +85,20 @@ const EditSidebarMenu = () => {
               </div>
             </div>
 
-            <div>
-              {dropdown === index && value.options.map((option, index) => (
+            {dropdown === index && <div className="absolute top-12 py-5 px-10 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-scroll">
+              {value.options.map((option, index) => (
                 <div key={index}
                   value={option}
-                  className="hover:bg-yellow cursor-pointer"
+                  className="hover:bg-yellow cursor-pointer px-10 py-5 rounded-xl text-center"
                   onClick={() => setFormValues({ ...formValues, [key]: option })}
                 >
                   {option}
                 </div>
               ))}
-            </div>
+            </div>}
           </div>
           )}
+
 
         // ------------- Text Input Tags ------------- //
         else if (value.type === "text"){
