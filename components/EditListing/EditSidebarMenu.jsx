@@ -7,10 +7,10 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
 const EditSidebarMenu = () => {
   // State to manage form values
-  const [formValues, setFormValues] = useState({});
-  const [files, setFiles] = useState([]);
-  const [status, setStatus] = useState("unsent");
-  const [ dropdown, setDropdown ] = useState()
+  const [formValues,  setFormValues] = useState({});
+  const [files,       setFiles]      = useState([]);
+  const [status,      setStatus]     = useState("unsent");
+  const [dropdown,    setDropdown]   = useState()
 
     // Close Dropdown on click away (outside of menu)
     useEffect(() => {
@@ -49,6 +49,7 @@ const EditSidebarMenu = () => {
 
       <hr className='bg-opposite/5 w-11/12 m-auto h-[2px] my-8' />
 
+      <h3 className="text-xl font-black">Item Details</h3>
       {/* mapping specific tag questions for each item */}
       {Object.keys(apparelType).map((key, index) => {
         let value = apparelType[key];
@@ -59,7 +60,7 @@ const EditSidebarMenu = () => {
           return(
           <div className='flex space-x-10 my-5' key={index}>
             {/* Tag title */}
-            <p className="text-lg">{key}</p>
+            <p className="text-md">{key}</p>
 
             <div className="flex space-x-5">{value.options.map((option, index) => (
               <div key={index}
@@ -73,7 +74,7 @@ const EditSidebarMenu = () => {
                 </div>
 
                 {/* Description of option */}
-                <label htmlFor={`${key}-option-${index}`} className="text-md cursor-pointer">{option}</label>
+                <label htmlFor={`${key}-option-${index}`} className="text-sm cursor-pointer">{option}</label>
               </div>
             ))}
 
@@ -84,9 +85,9 @@ const EditSidebarMenu = () => {
         // ------------- Drop Down Tags ------------- //
         else if (value.type === "drop-down")  {
           return (
-          <div className="relative my-5">
+          <div className="relative my-5 click-away">
             <div className="flex items-center space-x-10">
-              <label className="text-lg">{key}</label>
+              <label className="text-md">{key}</label>
               <div
                 onClick={() => (dropdown === index ? setDropdown(null) : setDropdown(index))}
                 className="border-[1px] hover:bg-opposite/10 cursor-pointer border-opposite/30 rounded-xl px-5 py-2 flex justify-between items-center w-1/4"
@@ -96,7 +97,7 @@ const EditSidebarMenu = () => {
               </div>
             </div>
 
-            {dropdown === index && <div className="absolute top-12 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-y-auto click-away">
+            {dropdown === index && <div className="absolute top-12 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-y-auto">
               {value.options.map((option, index) => (
                 <div key={index}
                   value={option}
@@ -115,29 +116,43 @@ const EditSidebarMenu = () => {
         else if (value.type === "text"){
           return (
           <div>
-            <p className="text-lg mb-3">{key}</p>
+            <p className="text-md mb-3">{key}</p>
             <textarea
               type="text"
               placeholder={value.filler}
               onChange={(e) => setFormValues({...formValues, [key]: e.target.value})}
               className="w-4/5 px-5 py-3 input-clear border-[1px] border-opposite/30 rounded-xl"
-              rows={5}
+              rows={3}
             />
           </div>)
           } }
-
         })}
 
+      <div>
+        <h3 className="text-xl font-black my-10">Exchange Preferences (Optional)</h3>
+
+        {/* Radio buttons */}
+        <div className="flex space-x-10">
+          {["Dorm pickup", "K.E. pickup", "Campus meetup"].map((option, index) => (
+            <div key={index}
+                className="flex flex-col items-center"
+                onClick={() => setFormValues((prevFormValues) => ({ ...prevFormValues, meetup: prevFormValues.meetup === option ? null : option }))}
+                >
+                {/* Button */}
+                <div className={`aspect-square rounded-full w-8 cursor-pointer border-[1px] border-opposite relative ${formValues.meetup === option ? 'bg-yellow' : ''}`}>
+                  {/* Center dot*/}
+                  {formValues.meetup === option && <div className="absolute inset-1/2 aspect-square w-2 bg-black rounded-full transform -translate-x-1/2 -translate-y-1/2" />}
+                </div>
+
+                {/* Description of option */}
+                <label  className="text-sm cursor-pointer">{option}</label>
+              </div>
+            ))}
+        </div>
+      </div>
 
       <FileInput files={files} setFiles={setFiles} />
 
-      <div>
-        <h3>Preferred Meetup</h3>
-        <input
-          type="text"
-          onChange={(e) => setFormValues({...formValues, preferredMeetup: e.target.value})}
-          />
-      </div>
 
       {/* Submit button */}
       <button onClick={(e)=> {submit(e, formValues, files, setStatus);

@@ -20,7 +20,7 @@ export const apparelType = {
     },
     Description: {
         type: "text",
-        filler: "enter description here"
+        filler: "Describe your item(s) here"
     }
 
 }
