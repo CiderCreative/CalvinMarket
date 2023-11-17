@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {apparelType} from './ItemTypes/apparel.jsx';
-import FileInput from './FileInput';
 import axios from "axios";
 import { format } from "date-fns";
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
-const EditSidebarMenu = () => {
+const EditSidebarMenu = ({files}) => {
   // State to manage form values
   const [formValues,  setFormValues] = useState({});
-  const [files,       setFiles]      = useState([]);
   const [status,      setStatus]     = useState("unsent");
   const [dropdown,    setDropdown]   = useState()
 
@@ -23,7 +21,7 @@ const EditSidebarMenu = () => {
     }, [dropdown]);
 
   return (
-    <div className="flex flex-col fixed right-0 inset-y-0 w-1/2 px-5 border-l-2 p-10 overflow-y-scroll">
+    <div className="flex flex-col right-0 inset-y-0 w-full px-5 border-l-2 p-10 overflow-y-scroll">
 
       <div className="flex items-center text-3xl font-bold space-x-5 w-full">
         {/* Title */}
@@ -85,29 +83,37 @@ const EditSidebarMenu = () => {
         // ------------- Drop Down Tags ------------- //
         else if (value.type === "drop-down")  {
           return (
-          <div className="relative my-5 click-away">
+          <div className="relative my-5">
             <div className="flex items-center space-x-10">
               <label className="text-md">{key}</label>
-              <div
-                onClick={() => (dropdown === index ? setDropdown(null) : setDropdown(index))}
-                className="border-[1px] hover:bg-opposite/10 cursor-pointer border-opposite/30 rounded-xl px-5 py-2 flex justify-between items-center w-1/4"
-              >
-                {formValues[key] || 'Select an option'}
-                <ChevronDownIcon className="inset-y-0 right-0 pointer-events-none aspect-square w-6" />
+
+              <div className="relative click-away">
+                {/* Display Box */}
+                <div
+                  onClick={() => (dropdown === index ? setDropdown(null) : setDropdown(index))}
+                  className="border-[1px] hover:bg-opposite/10 cursor-pointer border-opposite/30 rounded-xl px-5 py-2 flex justify-between items-center"
+                >
+                  {formValues[key] || 'Select an option'}
+                  <ChevronDownIcon className="inset-y-0 right-0 pointer-events-none aspect-square w-6 ml-3" />
+                </div>
+
+                {/* Dropdown option selection */}
+                {dropdown === index && <div className="absolute left-0  flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-y-auto">
+                  {value.options.map((option, index) => (
+                    <div key={index}
+                      value={option}
+                      className="hover:bg-yellow cursor-pointer px-10 py-3 border-y border-opposite/10 text-center"
+                      onClick={() => {setFormValues({ ...formValues, [key]: option }), setDropdown(false)}}
+                    >
+                      {option}
+                    </div>
+                  ))}
+                </div>}
+
               </div>
+
             </div>
 
-            {dropdown === index && <div className="absolute top-12 flex flex-col bg-primary border-2 border-opposite/30 z-10 rounded-xl max-h-80 overflow-y-auto">
-              {value.options.map((option, index) => (
-                <div key={index}
-                  value={option}
-                  className="hover:bg-yellow cursor-pointer px-10 py-3 border-y border-opposite/10 text-center"
-                  onClick={() => {setFormValues({ ...formValues, [key]: option }), setDropdown(false)}}
-                >
-                  {option}
-                </div>
-              ))}
-            </div>}
           </div>
           )}
 
@@ -151,14 +157,12 @@ const EditSidebarMenu = () => {
         </div>
       </div>
 
-      <FileInput files={files} setFiles={setFiles} />
-
-
       {/* Submit button */}
-      <button onClick={(e)=> {submit(e, formValues, files, setStatus);
-        setStatus("sending")}}
-        className={`${status === "unsent" ? "bg-slate-500" : status==="sending" ? " bg-yellow" : status==="sent" ? "bg-green-500" : "bg-red-500"}}`}>
-        Submit
+      <button
+        onClick={(e)=> {submit(e, formValues, files, setStatus); setStatus("sending")}}
+        className={`mt-10 w-[200px] ml-auto py-3 rounded-full text-white transition-colors duration-500 ${status === "sending" ? "bg-yellow-500" : status === "sent" ? "bg-neutral-700 cursor-not-allowed" : "bg-maroon hover:opacity-80"}`}
+      >
+        {status === "sending" ? "Sending..." : status === "sent" ? "Sent" : "Submit"}
       </button>
 
     </div>

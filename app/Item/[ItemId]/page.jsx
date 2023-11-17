@@ -1,6 +1,8 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { ExitItem, ImageContainer, ItemCarousel, SidebarMenu } from '../../../components/Item/index'
+import { ImageContainer, ItemCarousel, SidebarMenu } from '../../../components/Item/index'
+import { ExitButton } from '../../../components/Global/index'
+
 
 const Page = ({params: {ItemId}}) => {
   const [item, setItem] = useState([{imageKeys:"[]"}]);
@@ -22,7 +24,7 @@ const Page = ({params: {ItemId}}) => {
 
   return (
     <div>
-      <ExitItem />
+      <ExitButton />
 
       <div className="max-lg:flex-col mt-20">
         {/* Contains carousel & image container (for quick selection) */}
