@@ -1,8 +1,9 @@
-
-"use client"
+"use client";
 import { SessionProvider, signIn } from "next-auth/react";
-import React from 'react';
+import React from "react";
 import { useState } from "react";
+import Link from "next/link";
+import { Logo } from "../../components/Global";
 
 const SignInPage = () => {
   const [email, setEmail] = useState("");
@@ -18,24 +19,65 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-md w-full p-6 bg-white rounded shadow-lg">
-        <h2 className="text-2xl font-semibold mb-4">Sign In</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-medium mb-1">Email</label>
-            <input type="email" id="email" name="email" value={email}
-            required className="w-full border rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" 
-            onChange={(e)=>{setEmail(e.target.value)}}/>
-          </div>
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 font-medium mb-1">Password</label>
-            <input type="password" id="password" name="password" required onChange={(e)=>{setPsswd(e.target.value)}} value={psswd}
-            className="w-full border rounded-md py-2 px-3 focus:outline-none focus:border-blue-400" />
-          </div>
-          <button type="submit" className="w-full bg-blue-500 text-white rounded-md py-2 hover:bg-blue-600 focus:outline-none">Sign In</button>
-        </form>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-primary">
+
+      <div className="absolute top-10">
+        <Logo />
       </div>
+
+      <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">Log In</h2>
+
+      <form onSubmit={handleSubmit}>
+
+        {/* Email */}
+        <div className="mb-4 sm:w-[300px]">
+          <label htmlFor="email" className="text-sm font-semibold mb-3" >
+            Calvin Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            placeholder="abc@calvin.edu"
+            required
+            className="w-full border-[1px] border-opposite rounded-md py-2 px-3 input-clear"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+
+        {/* Password  */}
+        <div className="mb-6 sm:w-[300px]">
+          <label
+            htmlFor="password"
+            className="block text-gray-700 font-medium mb-1"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="***********"
+            required
+            onChange={(e) => {
+              setPsswd(e.target.value);
+            }}
+            value={psswd}
+            className="w-full border-[1px] border-opposite rounded-md py-2 px-3 input-clear"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-maroon text-white rounded-md py-2 hover:scale-[102%] hover:opacity-80 transition-all duration-200 focus:outline-none"
+        >
+          Log In
+        </button>
+      </form>
+      <Link href="/SignUp" className="sm:w-[300px] text-left mt-5 text-neutral-500 hover:opacity-80" >Need to create an account?</Link>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 
 import { AccountIndication, HighlightContainer, Searchbar, Settings, HomeSidebar } from "../components/Home/index"
 import { useState, useEffect } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 function Home({ user}) {
   const [sidebarClosed, setSidebarClosed] = useState(false);
@@ -26,7 +26,7 @@ function Home({ user}) {
 
   if( session?.user?.email ){
     return (
-      <div className={`transition-all duration-300 overflow-x-hidden m-auto sm:pl-[300px] ${sidebarClosed ? "sm:pl-[50px]" : ""}`}>
+      <div className={`transition-all duration-100 overflow-x-hidden m-auto sm:pl-[300px] ${sidebarClosed ? "sm:pl-[50px]" : ""}`}>
         <HomeSidebar sidebarClosed={sidebarClosed} setSidebarClosed={setSidebarClosed}/>
 
         <div className="flex justify-between mx-10 mt-3">
