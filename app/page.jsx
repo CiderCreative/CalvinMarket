@@ -32,7 +32,7 @@ function Home({ user}) {
         <div className="flex justify-between mx-10 mt-3">
           <Searchbar />
           <div className="flex space-x-5">
-            <AccountIndication userName={user}/>
+            <AccountIndication userName={session.user.email.split('@')[0]} />
             <Settings />
           </div>
         </div>
