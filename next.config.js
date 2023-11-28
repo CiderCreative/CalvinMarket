@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['blint-calvinmarket-site-itemimgsbucket19c4dc57-bsa6p9wh6q89.s3.us-east-1.amazonaws.com'],
+        domains: ['blint-calvinmarket-site-itemimgsbucket19c4dc57-kafbox1v5lux.s3.us-east-1.amazonaws.com'],
     },
 }
 

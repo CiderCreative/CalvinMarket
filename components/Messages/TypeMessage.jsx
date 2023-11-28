@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 
-const TypeMessage = ({sidebarOpen}) => {
+const TypeMessage = ({sidebarOpen, onSubmit}) => {
   const [message, setMessage] = useState("")
   const widthVal = sidebarOpen ? "w-[calc(100vw-300px)]" : "w-[calc(100vw-100px)]";
 
@@ -11,6 +11,7 @@ const TypeMessage = ({sidebarOpen}) => {
       event.preventDefault();
       console.log(message);
       setMessage("");
+      onSubmit(event, message);
     } else {
       setMessage(event.target.value);
     }
@@ -29,7 +30,7 @@ const TypeMessage = ({sidebarOpen}) => {
         />
 
         <div
-          onClick={() => {message.length > 0 ? (console.log(message), setMessage("")) : ({})}}
+          onClick={(e) => {message.length > 0 && (console.log(message), setMessage(""), onSubmit(e, message))}}
           className="flex flex-col items-center justify-center px-5 hover:bg-yellow rounded-r-lg transition-colors duration-100"
         >
           <PaperAirplaneIcon className="aspect-square w-5"/>
