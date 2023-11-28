@@ -141,7 +141,6 @@ async function submit(e, formValues, files, setStatus) {
         }),
       });
       const data = await resp.json();
-      console.log(data);
     } else {
       throw new Error("Unable to upload images");
     }

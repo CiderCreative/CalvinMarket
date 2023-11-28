@@ -9,7 +9,6 @@ const TypeMessage = ({sidebarOpen, onSubmit}) => {
   function handleKeyPress(event) {
     if (event.key === 'Enter' && message.length > 0) {
       event.preventDefault();
-      console.log(message);
       setMessage("");
       onSubmit(event, message);
     } else {
