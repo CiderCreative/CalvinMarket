@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/api": "^6.0.2",
     "@aws-amplify/ui-react": "^5.3.1",
     "@aws-sdk/client-cognito-identity-provider": "^3.438.0",
     "@aws-sdk/client-dynamodb": "^3.430.0",
@@ -19,7 +20,7 @@
     "@heroicons/react": "^2.0.18",
     "astro-sst": "^2.27.0",
     "autoprefixer": "10.4.15",
-    "aws-amplify": "^5.3.11",
+    "aws-amplify": "^5.3.12",
     "crypto": "^1.0.1",
     "date-fns": "^2.30.0",
     "eslint": "8.49.0",

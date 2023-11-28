@@ -1,8 +1,11 @@
 "use client"
-import React, { useState } from 'react'
+import {Amplify} from '@aws-amplify/core'
+import * as gen from '../../constants/backend/generated'
+import React, { useState, useEffect, useRef, use } from 'react'
 import { CurrentConversationContainer, CurrentConversationHeader, MessagesSidebar, TypeMessage } from "../../components/Messages/index.js"
 import wayfinder from "../../public/wayfinder.svg"
-
+import { MessageHandler } from "../../utils/MessageHandler"
+import { useSession } from 'next-auth/react'
 const peopleList = [
   { name: "Emily Rodriguez",  image: wayfinder },
   { name: "Jordan Smith",     image: wayfinder },
@@ -13,48 +16,25 @@ const peopleList = [
   { name: "Vanessa Patel",    image: wayfinder }
 ];
 
-const messages = [
-  { sender: "You",  content: "Hey there! I saw your listing for the used laptop. Is it still available?" },
-  { sender: "Other", content: "Hi Sarah! Yep, it's still available. It's a great laptop and in excellent condition. Are you interested?" },
-  { sender: "You",  content: "Awesome! Yeah, I'm definitely interested. Could you tell me a bit more about its specs and how much you're asking for it?" },
-  { sender: "Other", content: "Sure thing! It's a Dell Inspiron 15 with an Intel Core i5 processor, 8GB RAM, and a 256GB SSD. I'm asking for $350, but I'm willing to negotiate." },
-  { sender: "You",  content: "That sounds pretty good! Would you mind meeting up so I can take a look at it in person?" },
-  { sender: "Other", content: "Of course! Where and when would you like to meet? I'm on campus most of the time." },
-  { sender: "You",  content: "How about we meet at Johnny's Cafe tomorrow afternoon around 3 PM?" },
-  { sender: "You",  content: "Hey there! I saw your listing for the used laptop. Is it still available?" },
-  { sender: "Other", content: "Hi Sarah! Yep, it's still available. It's a great laptop and in excellent condition. Are you interested?" },
-  { sender: "You",  content: "Awesome! Yeah, I'm definitely interested. Could you tell me a bit more about its specs and how much you're asking for it?" },
-  { sender: "Other", content: "Sure thing! It's a Dell Inspiron 15 with an Intel Core i5 processor, 8GB RAM, and a 256GB SSD. I'm asking for $350, but I'm willing to negotiate." },
-  { sender: "You",  content: "That sounds pretty good! Would you mind meeting up so I can take a look at it in person?" },
-  { sender: "Other", content: "Of course! Where and when would you like to meet? I'm on campus most of the time." },
-  { sender: "You",  content: "How about we meet at Johnny's Cafe tomorrow afternoon around 3 PM?" },
-  { sender: "You",  content: "Hey there! I saw your listing for the used laptop. Is it still available?" },
-  { sender: "Other", content: "Hi Sarah! Yep, it's still available. It's a great laptop and in excellent condition. Are you interested?" },
-  { sender: "You",  content: "Awesome! Yeah, I'm definitely interested. Could you tell me a bit more about its specs and how much you're asking for it?" },
-  { sender: "Other", content: "Sure thing! It's a Dell Inspiron 15 with an Intel Core i5 processor, 8GB RAM, and a 256GB SSD. I'm asking for $350, but I'm willing to negotiate." },
-  { sender: "You",  content: "That sounds pretty good! Would you mind meeting up so I can take a look at it in person? That sounds pretty good! Would you mind meeting up so I can take a look at it in person? That sounds pretty good! Would you mind meeting up so I can take a look at it in person? That sounds pretty good! Would you mind meeting up so I can take a look at it in person? That sounds pretty good! Would you mind meeting up so I can take a look at it in person?" },
-  { sender: "Other", content: "Of course! Where and when would you like to meet? I'm on campus most of the time." },
-  { sender: "You",  content: "How about we meet at Johnny's Cafe tomorrow afternoon around 3 PM?" },
-  { sender: "You",  content: "Hey there! I saw your listing for the used laptop. Is it still available?" },
-  { sender: "Other", content: "Hi Sarah! Yep, it's still available. It's a great laptop and in excellent condition. Are you interested?" },
-  { sender: "You",  content: "Awesome! Yeah, I'm definitely interested. Could you tell me a bit more about its specs and how much you're asking for it?" },
-  { sender: "Other", content: "Sure thing! It's a Dell Inspiron 15 with an Intel Core i5 processor, 8GB RAM, and a 256GB SSD. I'm asking for $350, but I'm willing to negotiate." },
-  { sender: "You",  content: "That sounds pretty good! Would you mind meeting up so I can take a look at it in person?" },
-  { sender: "Other", content: "Of course! Where and when would you like to meet? I'm on campus most of the time." },
-  { sender: "You",  content: "How about we meet at Johnny's Cafe tomorrow afternoon around 3 PM?" },
-  { sender: "You",  content: "Hey there! I saw your listing for the used laptop. Is it still available?" },
-  { sender: "Other", content: "Hi Sarah! Yep, it's still available. It's a great laptop and in excellent condition. Are you interested?" },
-  { sender: "You",  content: "Awesome! Yeah, I'm definitely interested. Could you tell me a bit more about its specs and how much you're asking for it?" },
-  { sender: "Other", content: "Sure thing! It's a Dell Inspiron 15 with an Intel Core i5 processor, 8GB RAM, and a 256GB SSD. I'm asking for $350, but I'm willing to negotiate." },
-  { sender: "You",  content: "That sounds pretty good! Would you mind meeting up so I can take a look at it in person?" },
-  { sender: "Other", content: "Of course! Where and when would you like to meet? I'm on campus most of the time." },
-  { sender: "You",  content: "How about we meet at Johnny's Cafe tomorrow afternoon around 3 PM?" },
-];
 
+Amplify.configure(gen.config)
 
 const Messages = () => {
+  const session = useSession();
   const [ activePerson, setActivePerson ] = useState(peopleList[0]);
   const [ sidebarOpen,  setSidebarOpen  ] = useState(true);
+  const [ messages,     setMessages     ] = useState([]);
+  const [ newMessage,   setNewMessage   ] = useState(null);
+
+  const messageHandler = useRef(new MessageHandler(session.data.user.email, (msg) => {setNewMessage(msg)})).current;
+
+  async function handleSubmit(e, msg) {
+      e.preventDefault()
+      e.stopPropagation()
+      await gen.publish(Math.round((Date.now()-1700179470000)/100), session.data.user.email, msg, activePerson.name);
+  }
+
+  useEffect(() => {setMessages(messageHandler.getMessages()); }, [newMessage])
 
   return (
     <div>
@@ -70,8 +50,8 @@ const Messages = () => {
       {/* Main messages content */}
       <div className={`transition-all duration-200 ${sidebarOpen ? "pl-[300px]" : "pl-[100px]" }`}>
         <CurrentConversationHeader      activePerson={activePerson} />
-        <CurrentConversationContainer   messagesArray={messages}    />
-        <TypeMessage                    sidebarOpen={sidebarOpen}   />
+        <CurrentConversationContainer   messagesArray={messages[activePerson.name] || []}    userId={session.data.user.email}/>
+        <TypeMessage  onSubmit={handleSubmit}       sidebarOpen={sidebarOpen}   />
       </div>
 
     </div>
