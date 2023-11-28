@@ -1,5 +1,5 @@
 "use client";
-import { SessionProvider, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import React from "react";
 import { useState } from "react";
 import Link from "next/link";
@@ -27,10 +27,10 @@ const SignInPage = () => {
 
       <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">Log In</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="w-[80vw] max-w-[300px] sm:w-[300px]">
 
         {/* Email */}
-        <div className="mb-4 sm:w-[300px]">
+        <div className="mb-4 w-full">
           <label htmlFor="email" className="text-sm font-semibold mb-3" >
             Calvin Email
           </label>
@@ -49,10 +49,10 @@ const SignInPage = () => {
         </div>
 
         {/* Password  */}
-        <div className="mb-6 sm:w-[300px]">
+        <div className="mb-6 w-full">
           <label
             htmlFor="password"
-            className="block text-gray-700 font-medium mb-1"
+            className="text-sm font-semibold mb-3"
           >
             Password
           </label>
@@ -72,12 +72,12 @@ const SignInPage = () => {
 
         <button
           type="submit"
-          className="w-full bg-maroon text-white rounded-md py-2 hover:scale-[102%] hover:opacity-80 transition-all duration-200 focus:outline-none"
+          className="w-full bg-maroon text-white rounded-md py-2 hover:scale-[102%] hover:opacity-80 transition-all duration-200 active:scale-95"
         >
           Log In
         </button>
       </form>
-      <Link href="/SignUp" className="sm:w-[300px] text-left mt-5 text-neutral-500 hover:opacity-80" >Need to create an account?</Link>
+      <Link href="/SignUp" className="w-[80vw] max-w-[300px] sm:w-[300px] text-left mt-5 text-neutral-500 hover:opacity-80" >Need to create an account?</Link>
     </div>
   );
 };

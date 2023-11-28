@@ -1,8 +1,7 @@
 
 "use client"
-import { SessionProvider, signIn } from "next-auth/react";
-import { CognitoIdentityProviderClient, SignUpCommand } from '@aws-sdk/client-cognito-identity-provider'
-import { useState, useEffect } from "react";
+import { signIn } from "next-auth/react";
+import { useState } from "react";
 import ShowErrors from "../../components/Backend/ShowErrors";
 import Link from "next/link";
 import { Logo } from "../../components/Global";
@@ -12,7 +11,7 @@ const SignUpPage = () => {
   const [psswd, setPsswd] = useState("");
   const [errors, setErrors] = useState([]);
   const [confirmationCode, setConfirmationCode] = useState("");
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("unsent");
 
   const passwordRequirements = [
     {test: /[A-Z]/, message: "Uppercase letter"},
@@ -68,18 +67,17 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-primary">
+
       <div className="absolute top-10">
         <Logo />
       </div>
 
-      <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">
-        Sign Up
-      </h2>
+      <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">Sign Up</h2>
 
-      {status === "idle" ? (
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4 sm:w-[300px]">
+      {status === "unsent" ? (
+        <form onSubmit={handleSubmit} className="w-[80vw] max-w-[300px] sm:w-[300px]">
+          <div className="mb-4 w-full">
             <label htmlFor="email" className="text-sm font-semibold mb-3">
               Email
             </label>
@@ -97,7 +95,7 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="mb-6 sm:w-[300px]">
+          <div className="mb-6 w-full">
             <label htmlFor="password" className="text-sm font-semibold mb-3">
               Password
             </label>
@@ -128,13 +126,13 @@ const SignUpPage = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-yellow text-dark rounded-md py-2 hover:scale-[102%] hover:opacity-80 transition-all duration-200 focus:outline-none"
+            className="w-full bg-yellow text-dark rounded-md py-2 hover:scale-[102%] hover:opacity-80 transition-all duration-200 active:scale-95"
           >
             Sign Up
           </button>
         </form>
       ) : (
-        <form onSubmit={handleConfirm} className="w-[300px]">
+        <form onSubmit={handleConfirm} className="w-[80vw] max-w-[300px] sm:w-[300px]">
           <input
             id="confirmationCode"
             name="confirmationCode"
@@ -147,7 +145,7 @@ const SignUpPage = () => {
           />
           <button
             type="submit"
-            className="w-full bg-yellow text-dark rounded-md py-2 hover:scale-[102%] hover:opacity-80 transition-all duration-200 focus:outline-none"
+            className="w-full bg-yellow text-dark rounded-md py-2 hover:scale-[102%] hover:opacity-80 transition-all duration-200 active:scale-95"
           >
             Enter confirmation code
           </button>
@@ -155,7 +153,7 @@ const SignUpPage = () => {
       )}
       <Link
         href="/LogIn"
-        className="sm:w-[300px] text-left mt-5 text-neutral-500 hover:opacity-80"
+        className="w-[80vw] max-w-[300px] sm:w-[300px] text-left mt-5 text-neutral-500 hover:opacity-80"
       >
         Already have an account?
       </Link>
