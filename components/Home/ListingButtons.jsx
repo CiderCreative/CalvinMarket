@@ -1,13 +1,21 @@
-import React from 'react'
-import { ButtonLink } from "./index"
+import React from "react";
+import { ButtonLink } from "./index";
 
 const ListingButtons = () => {
   return (
-    <div className="flex flex-col justify-center ml-[10%] w-[80%] space-y-3">
-      <ButtonLink text="Create a listing" link="/EditListing" styles="bg-opposite text-opposite font-semibold" />
-      <ButtonLink text="Edit listings"    link="/EditListing" styles="border-2 border-opposite" />
+    <div className="flex lg:flex-col justify-around lg:justify-center max-lg:mb-5 lg:ml-[10%] lg:w-[80%] lg:space-y-3">
+      <ButtonLink
+        text="Create a listing"
+        link="/EditListing"
+        styles="bg-opposite text-opposite font-semibold max-lg:w-2/5"
+      />
+      <ButtonLink
+        text="Edit listings"
+        link="/EditListing"
+        styles="border-2 border-dark dark:border-light/20 max-lg:w-2/5"
+      />
     </div>
-  )
-}
+  );
+};
 
-export default ListingButtons
+export default ListingButtons;

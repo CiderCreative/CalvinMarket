@@ -6,6 +6,7 @@ import {
   Searchbar,
   Settings,
   HomeSidebar,
+  HomeTopbar,
 } from "../components/Home/index";
 import { useState, useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
@@ -37,19 +38,22 @@ function Home({ user }) {
           sidebarClosed ? "lg:pl-[50px]" : "lg:pl-[300px]"
         }`}
       >
-        <HomeSidebar
-          sidebarClosed={sidebarClosed}
-          setSidebarClosed={setSidebarClosed}
-        />
-
         {/* Top Bar */}
-        <div className="flex w-full items-center justify-between px-10 mt-5">
+        <div className="flex w-full items-center justify-between px-3 lg:px-10 mt-5">
           <Searchbar />
           <div className="flex space-x-5">
             <AccountIndication userName={session.user.email.split("@")[0]} />
             <Settings />
           </div>
         </div>
+
+        {/* Sidebar - Large Screens */}
+        <HomeSidebar
+          sidebarClosed={sidebarClosed}
+          setSidebarClosed={setSidebarClosed}
+        />
+
+        <HomeTopbar />
 
         {/* Featured Item Categories */}
         <HighlightContainer text="Newly Added" data={items} />
