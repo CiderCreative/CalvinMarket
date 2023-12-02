@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect } from "react";
 
-const ShowErrors = ({ errors }) => {
+const ShowErrors = ({ errors, setErrors }) => {
+  useEffect(() => {
+    let timer;
+    if (errors.length > 0) {
+      timer = setTimeout(() => setErrors([]), 5000);
+    }
+    return () => clearTimeout(timer);
+  }, [errors, setErrors]);
+
   if (!errors || errors.length === 0) return null;
 
   return (
@@ -14,5 +22,4 @@ const ShowErrors = ({ errors }) => {
   );
 };
 
-
-export default ShowErrors
+export default ShowErrors;

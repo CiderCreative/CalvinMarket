@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import ShowErrors from "../../components/Backend/ShowErrors";
@@ -14,18 +13,24 @@ const SignUpPage = () => {
   const [status, setStatus] = useState("unsent");
 
   const passwordRequirements = [
-    {test: /[A-Z]/, message: "Uppercase letter"},
-    {test: /[a-z]/, message: "Lowercase letter"},
-    {test: /[0-9]/, message: "Number"},
-    {test: /[\^\$\*\.\[\]\{\}\(\)\?\!@\#%&\/,><'\":;\|_~`+=-]/, message: "Special character",},
-    {test: /.{8,}/, message: "8 digits long"},
+    { test: /[A-Z]/, message: "Uppercase letter" },
+    { test: /[a-z]/, message: "Lowercase letter" },
+    { test: /[0-9]/, message: "Number" },
+    {
+      test: /[\^\$\*\.\[\]\{\}\(\)\?\!@\#%&\/,><'\":;\|_~`+=-]/,
+      message: "Special character",
+    },
+    { test: /.{8,}/, message: "8 digits long" },
   ];
 
   // ensures that the page is loaded over HTTPS
-  if (typeof window !== 'undefined') {
-    if (window.location.protocol !== 'https:' && process.env.NODE_ENV !== 'development') {
-      console.error('This page must be loaded over HTTPS');
-      setErrors([...errors, 'This page must be loaded over HTTPS'])
+  if (typeof window !== "undefined") {
+    if (
+      window.location.protocol !== "https:" &&
+      process.env.NODE_ENV !== "development"
+    ) {
+      console.error("This page must be loaded over HTTPS");
+      setErrors([...errors, "This page must be loaded over HTTPS"]);
       return;
     }
   }
@@ -37,9 +42,9 @@ const SignUpPage = () => {
       body: JSON.stringify({
         email,
         password: psswd,
-      })
-    })
-    if(resp.status === 200){
+      }),
+    });
+    if (resp.status === 200) {
       setStatus("confirm");
     } else {
       const jsonResponse = await resp.json();
@@ -54,29 +59,36 @@ const SignUpPage = () => {
       body: JSON.stringify({
         email,
         code: confirmationCode,
-      })
-    }).then((res) => res.json())
-    .then( async ()=>
-      await signIn("credentials", {
-        username: email,
-        password: psswd,
-        redirect: true,
-        callbackUrl: "/",
-      }))
-    .catch(() => (setErrors([...errors,"Unknown Error"])));
+      }),
+    })
+      .then((res) => res.json())
+      .then(
+        async () =>
+          await signIn("credentials", {
+            username: email,
+            password: psswd,
+            redirect: true,
+            callbackUrl: "/",
+          })
+      )
+      .catch(() => setErrors([...errors, "Unknown Error"]));
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-primary">
-
       <div className="absolute top-10">
         <Logo />
       </div>
 
-      <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">Sign Up</h2>
+      <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">
+        Sign Up
+      </h2>
 
       {status === "unsent" ? (
-        <form onSubmit={handleSubmit} className="w-[80vw] max-w-[300px] sm:w-[300px]">
+        <form
+          onSubmit={handleSubmit}
+          className="w-[80vw] max-w-[300px] sm:w-[300px]"
+        >
           <div className="mb-4 w-full">
             <label htmlFor="email" className="text-sm font-semibold mb-3">
               Email
@@ -132,7 +144,10 @@ const SignUpPage = () => {
           </button>
         </form>
       ) : (
-        <form onSubmit={handleConfirm} className="w-[80vw] max-w-[300px] sm:w-[300px]">
+        <form
+          onSubmit={handleConfirm}
+          className="w-[80vw] max-w-[300px] sm:w-[300px]"
+        >
           <input
             id="confirmationCode"
             name="confirmationCode"
@@ -158,10 +173,9 @@ const SignUpPage = () => {
         Already have an account?
       </Link>
 
-      <ShowErrors errors={errors} />
+      <ShowErrors errors={errors} setErrors={setErrors} />
     </div>
   );
 };
-
 
 export default SignUpPage;
