@@ -1,20 +1,32 @@
-"use client"
-import { FilterContainer, ListingButtons} from "./index"
-import { Logo } from "../Global/index"
+"use client";
+import { FilterContainer, ListingButtons } from "./index";
+import { Logo } from "../Global/index";
+import { ChevronDoubleLeftIcon } from "@heroicons/react/24/outline";
 
-const HomeSidebar = ({sidebarClosed, setSidebarClosed}) => {
-  const arrow = <svg className={`flex-shrink-0 transition-all duration-100 ${sidebarClosed ? "w-4 rotate-0" : "w-5 rotate-180"}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 10"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m7 9 4-4-4-4M1 9l4-4-4-4"/></svg>
-
+const HomeSidebar = ({ sidebarClosed, setSidebarClosed }) => {
   return (
-    <div className={`max-sm:hidden fixed top-0 left-0 text-primary bg-primary w-[300px] drop-shadow-xl h-full ${sidebarClosed ? "w-[30px]" : ""} transition-all duration-100 overflow-hidden`}>
-      <div className="flex text-primary mt-3 mr-2 justify-end hover:cursor-pointer" onClick={() => {setSidebarClosed(!sidebarClosed)}}>{arrow}</div>
+    <div
+      className={`max-lg:hidden fixed top-0 left-0 text-primary bg-primary w-[300px] drop-shadow-xl h-full ${
+        sidebarClosed ? "w-[30px]" : ""
+      } transition-all duration-100 overflow-hidden`}
+    >
+      {/* Arrow */}
+      <div className="flex justify-end pr-1 pt-3">
+        <ChevronDoubleLeftIcon
+          className={`h-6 w-6 stroke-[2px] flex-shrink-0 cursor-pointer hover:opacity-70 ${
+            sidebarClosed ? "rotate-180" : "rotate-0"
+          }`}
+          onClick={() => setSidebarClosed(!sidebarClosed)}
+        />
+      </div>
+
       <div className={`${sidebarClosed ? "hidden" : ""}`}>
         <Logo />
-        <ListingButtons />    {/* Create & Edit Listing */}
-        <FilterContainer />   {/* "School Supplies", "Electronics", etc. */}
+        <ListingButtons /> {/* Create & Edit Listing */}
+        <FilterContainer /> {/* "School Supplies", "Electronics", etc. */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomeSidebar
+export default HomeSidebar;
