@@ -21,7 +21,7 @@ const HomeSidebar = ({ sidebarClosed, setSidebarClosed }) => {
       </div>
 
       <div
-        className={`h-screen overflow-y-scroll pb-10 ${
+        className={`h-screen overflow-y-auto pb-10 ${
           sidebarClosed ? "hidden" : ""
         }`}
       >

@@ -22,7 +22,7 @@ const Page = ({ params: { ItemId } }) => {
   }, [ItemId]);
 
   return (
-    <div>
+    <div className="w-screen overflow-x-clip">
       <ExitButton />
 
       <div className="max-lg:flex-col mt-20">
