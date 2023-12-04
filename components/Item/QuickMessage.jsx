@@ -31,7 +31,7 @@ const QuickMessage = () => {
   }
 
   return (
-    <div className="lg:absolute bottom-3 w-full flex flex-col max-lg:pt-10 bg-primary">
+    <div className="lg:absolute left-0 bottom-3 w-full flex flex-col max-lg:pt-10 bg-primary lg:px-5">
       <div className="flex items-center space-x-2">
         {messageIcon}
         <p className="text-md font-regular">Send the seller a message</p>

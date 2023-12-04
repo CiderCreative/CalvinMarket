@@ -47,7 +47,7 @@ const Carousel = ({ index, setIndex, urls }) => {
   }, [handleLeft, handleRight]);
 
   return (
-    <div className="bg-dark relative lg:w-full lg:h-[80vh] flex justify-between">
+    <div className="relative lg:w-full lg:h-[80vh] max-h-[1200px] flex justify-between">
       {/* The Carousel */}
       <div
         className="flex overflow-visible [&>*]:flex-shrink-0 relative transition-all duration-200 ease-in-out right-0"
@@ -58,7 +58,7 @@ const Carousel = ({ index, setIndex, urls }) => {
           return (
             <div
               key={idx}
-              className={`flex item-center justify-center w-full bg-primary`}
+              className={`flex item-center justify-center w-full`}
               {...handlers} //Swipe handlers
             >
               <Image
