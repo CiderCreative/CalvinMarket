@@ -13,8 +13,8 @@ const SidebarMenu = ({ item }) => {
   } = item;
 
   return (
-    <div className="flex flex-col bg-primary px-5 pt-10 m-auto w-full h-full p-5">
-      <div className="overflow-y-scroll">
+    <div className="relative flex flex-col bg-primary px-5 pt-10 m-auto max-w-full h-full p-5">
+      <div className="overflow-y-scroll w-full">
         <ItemHeader
           title={title}
           price={price}
