@@ -20,7 +20,11 @@ const HomeSidebar = ({ sidebarClosed, setSidebarClosed }) => {
         />
       </div>
 
-      <div className={`${sidebarClosed ? "hidden" : ""}`}>
+      <div
+        className={`h-screen overflow-y-scroll pb-10 ${
+          sidebarClosed ? "hidden" : ""
+        }`}
+      >
         <Logo />
         <ListingButtons /> {/* Create & Edit Listing */}
         <FilterContainer /> {/* "School Supplies", "Electronics", etc. */}

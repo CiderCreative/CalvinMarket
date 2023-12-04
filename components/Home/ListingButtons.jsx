@@ -7,7 +7,7 @@ const ListingButtons = () => {
       <ButtonLink
         text="Create a listing"
         link="/EditListing"
-        styles="bg-opposite text-opposite font-semibold max-lg:w-2/5"
+        styles="bg-opposite dark:bg-neutral-700 text-light dark:text-neutral-300 font-semibold max-lg:w-2/5"
       />
       <ButtonLink
         text="Edit listings"
