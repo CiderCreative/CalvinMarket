@@ -11,12 +11,10 @@ export default async function jwt( token, user, account ) {
     token.RefreshToken = user.RefreshToken;
     return token;
   }
-
   // Return previous token if the access token has not expired yet
   if (Date.now() < token.AccessTokenExpires) {
     return token;
   }
-
   // Access token has expired, try to update it
-  return refreshAccessToken(token);
+  return refreshAccessToken(token, user);
   }

@@ -4,9 +4,8 @@ export const config = {
     "aws_appsync_graphqlEndpoint": "https://cznd6iwygzdi7e4pkgwxteppfq.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-2jib6hx6gfcirgtx4np6ouziju",
+    "aws_appsync_apiKey": "da2-iyq6gxzjivhcdjpx27xr7wer6i",
 }
-
 
 export const publishMessage = /* GraphQL */ 
     `mutation PublishData($dateSent: Int!, $senderId: String!, $message: String!, $receiverId: String!) {
@@ -59,18 +58,24 @@ export const listMessageRec = /* GraphQL */ `
 
 export async function listSender(userId) {
     const res=  await API.graphql(graphqlOperation(listMessageSend, {userId}));
-    console.log(res.data)
     return res.data.listBlintCalvinmarketMessages.items;
 }
 
 export async function listReceiver(userId) {
+    let isDone = false;
+    let items = [];
+    // while(!isDone) {
+    //     console.log("in listReceiver2")
+    //     const res=  await API.graphql(graphqlOperation(listMessageRec, {userId}));
+    //     items = items.concat(res.data.listBlintCalvinmarketMessages.items);
+    // }
     const res=  await API.graphql(graphqlOperation(listMessageRec, {userId}));
+
     return res.data.listBlintCalvinmarketMessages.items;
 }
  
  export async function publish(dateSent, senderId, message, receiverId) {
      const variables = { dateSent, senderId, message, receiverId };
-    console.log(graphqlOperation(publishMessage, variables))
      return await API.graphql(graphqlOperation(publishMessage, variables));
  }
 

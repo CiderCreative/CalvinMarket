@@ -43,3 +43,28 @@
 //     return res.status(400).json({ message: 'Failed to retrieve user', error: error.message });
 //   }
 // }
+import { CognitoIdentityProviderClient, GetUserCommand } from '@aws-sdk/client-cognito-identity-provider';
+import { getServerSession } from "next-auth/next"
+import { authOptions } from '../auth/[...nextauth]';
+
+export async function getUser(accessToken) {
+    const session = await getServerSession(req, res, authOptions);
+    if (!session) {res.status(401).json({ success: "unauthorized to access api" }); return;}
+    const client = new CognitoIdentityProviderClient({
+        region: process.env.COGNITO_REGION,
+    });
+
+    const commandProps = {
+        AccessToken: accessToken,
+    };
+
+    try {
+        const response = await client.send(new GetUserCommand(commandProps));
+        console.log('User Data:', response.UserAttributes);
+        return response.UserAttributes; // You can return the user attributes or use them as needed.
+    } catch (error) {
+        console.error('GetUser Error:', error);
+        throw error;
+    }
+}
+

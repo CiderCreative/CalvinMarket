@@ -1,8 +1,13 @@
 import { Table } from "sst/node/table";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {PutCommand,  DynamoDBDocumentClient,} from "@aws-sdk/lib-dynamodb";
+import { getServerSession } from "next-auth/next"
+import { authConfig } from '../auth/[...nextauth]'
 
 export default async function handler(req, res) {
+    const session = getServerSession(req, res, authConfig);
+    if (!session) {res.status(401).json({ success: "unauthorized to access api" }); return;}
+
     const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
     const body = JSON.parse(req.body);
     try {

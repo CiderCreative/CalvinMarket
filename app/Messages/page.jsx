@@ -1,4 +1,5 @@
 "use client"
+
 import {Amplify} from '@aws-amplify/core'
 import * as gen from '../../constants/backend/generated'
 import React, { useState, useEffect, useRef, use } from 'react'

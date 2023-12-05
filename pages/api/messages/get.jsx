@@ -1,6 +1,8 @@
 import { Table } from "sst/node/table";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import {ScanCommand, DynamoDBDocumentClient} from "@aws-sdk/lib-dynamodb";
+import { getServerSession } from "next-auth/next"
+import { authConfig } from '../auth/[...nextauth]'
 
 const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 /**
@@ -11,6 +13,9 @@ const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
  * }
  */
 export default async function handler(req, res) {
+    const session = getServerSession(req, res, authConfig);
+    if (!session) {res.status(401).json({ success: "unauthorized to access api" }); return;}
+
     const body = JSON.parse(req.body)
     const{ExpressionAttributeValues, FilterExpression} = toScanCommand(`(senderId = ${body.person1} OR receiverId = ${body.person1})`)
 
