@@ -3,7 +3,7 @@
 import { SessionProvider, signIn } from "next-auth/react";
 import { CognitoIdentityProviderClient, SignUpCommand } from '@aws-sdk/client-cognito-identity-provider'
 import { useState, useEffect } from "react";
-import ShowErrors from "../../components/Backend/ShowErrors";
+import ShowErrors from "../../utils/ShowErrors";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState("");

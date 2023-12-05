@@ -65,10 +65,11 @@ export const authOptions = {
   ],
   callbacks: {
     //ensures all tokens are good and up to date
+    //token includes email, sub, AccessToken, AccessTokenExpires, Refresh Token, iat, exp, and jti
     async jwt({token, user, account}){
       return jwt(token, user, account);
     },
-    //basically just takes the token and adds it to the session
+    //basically just takes the token and adds it to the session objs (but doesn't add them 4 sum reason)
     async session({ session, token }) {
       if (token) {
         session.user = {
