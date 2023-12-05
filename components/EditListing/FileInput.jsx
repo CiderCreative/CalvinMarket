@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRef, useState } from "react";
 
 export default function FileInput({files, setFiles}) {
@@ -38,17 +39,10 @@ export default function FileInput({files, setFiles}) {
   const XIcon = <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/></svg>
 
   return (
-    <div className="flex items-center justify-center hover:cursor-pointer hover:bg-[#555555] active:bg-[#333333] transition-colors duration-300 my-3">
+    <div className="">
+    {/* <div className="flex items-center justify-center hover:cursor-pointer hover:bg-[#555555] active:bg-[#333333] transition-colors duration-300 w-4/5 m-auto my-20"> */}
       <form
-        className={`${
-          dragActive ? "bg-[#333333]" : ""
-        }  p-4 w-full text-center flex flex-col items-center justify-center border-2 py-10`}
-        onDragEnter={(e)=> {handle(e); setDragActive(true);}}
         onSubmit={(e) => e.preventDefault()}
-        onDrop={handleDrop}
-        onDragLeave={(e)=> {handle(e); setDragActive(false);}}
-        onDragOver={(e)=> {handle(e); setDragActive(true);}}
-        onClick={openFileExplorer}
       >
 
         {/* hidden file input */}
@@ -62,31 +56,49 @@ export default function FileInput({files, setFiles}) {
             accept="image/*"
         />
 
-        <p className={`text-xs sm:text-sm lg:text-md ${files.length > 0 ? "my-4" : ""}`}>Drag & drop images here or click to select files</p>
+        {/* Prompt box */}
+        <div
+          onClick={openFileExplorer}
+          onDrop={handleDrop}
+          onDragEnter={(e)=> {handle(e); setDragActive(true);}}
+          onDragLeave={(e)=> {handle(e); setDragActive(false);}}
+          onDragOver={(e)=> {handle(e); setDragActive(true);}}
+          className={`
+            text-center aspect-square flex flex-col items-center justify-center py-10
+           hover:bg-yellow/50 cursor-pointer my-20 transition-colors duration-200
+           border-4 border-dashed border-opposite rounded-xl w-3/5 m-auto border-separate
+           ${dragActive ? "bg-[#333333]" : ""}
+           `}
+        >
+          <p className="text-xs sm:text-sm lg:text-3xl font-bold">Add your <br />images here</p>
+        </div>
 
-        {/* img thumbnail + remove */}
-        <div className="flex flex-row items-center">
+
+        {/* Image Thumbnails & Remove Functionality */}
+        <div className="flex items-center justify-center w-4/5 m-auto">
+
           {files.map((file, idx) => (
-            <div key={idx} className="flex flex-row space-x-5 justify-end pr-5">
+            <div key={idx} className="flex flex-row justify-end p-2 cursor-pointer group hover:group-hover">
               {file.type.startsWith("image/") ? (
-                <img
+                <Image
                   src={URL.createObjectURL(file)}
                   alt={file.name}
                   className="aspect-square w-28 object-cover"
+                  width={500}
+                  height={500}
                 />
               ) : (
                 <span>PDF Thumbnail</span>
               )}
-              <button
-                className="text-red-500 hover:text-white cursor-pointer absolute items-end justify-end p-1 hover:bg-red-500 rounded-xl transition-all duration-200"
-                onClick={(e) => {e.stopPropagation(); removeFile(idx);}}
-              >
-                {/* Delete Icon (X Out) */}
+              {/* Delete Icon (X Out) */}
+              <button onClick={(e) => {e.stopPropagation(); removeFile(idx);}} className="hidden group-hover:block absolute p-1 bg-red-500 text-white">
                 {XIcon}
               </button>
             </div>
           ))}
+
         </div>
+
       </form>
     </div>
   );

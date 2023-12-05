@@ -2,25 +2,25 @@
 // are generally wanted for each type of item
 
 export const apparelType = {
-    condition: {
-        type: "button", 
+    Condition: {
+        type: "button",
         options: ["New", "Excellent", "Good", "Fair", "Used"]
     },
-    gender: {
+    Gender: {
         type: "button",
         options: ["Men's", "Women's", "Unisex"]
     },
-    size: {
+    Size: {
         type: "drop-down",
         options: ["XS", "S", "M", "L", "XL", "XXL"]
     },
-    color: {
+    Color: {
         type: "drop-down",
         options: ["Black", "White", "Red", "Blue", "Green", "Yellow", "Orange", "Purple", "Pink", "Brown", "Grey", "Multi-Color"]
     },
-    description: {
+    Description: {
         type: "text",
-        filler: "enter description here"
+        filler: "Describe your item(s) here"
     }
 
 }

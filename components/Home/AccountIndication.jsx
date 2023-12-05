@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const AccountIndication = ({userName = "???????"}) => {
-  return (
-    <div>You are logged in as {userName}</div>
-  )
-}
+const AccountIndication = ({ userName = "?????" }) => {
+  return <div className="max-xl:hidden">You are logged in as {userName}</div>;
+};
 
-export default AccountIndication
+export default AccountIndication;

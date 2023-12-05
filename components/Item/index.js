@@ -1,6 +1,5 @@
 import ActiveImage from "./ActiveImage"
 import ChangeImageButton from "./ChangeImageButton"
-import ExitItem from "./ExitItem"
 import FavoriteButton from "./FavoriteButton"
 import ImageContainer from "./ImageContainer"
 import InactiveImage from "./InactiveImage"
@@ -16,7 +15,7 @@ import Carousel from "./Carousel"
 import CarouselArrow from "./CarouselArrow"
 
 export {
-        ActiveImage, ChangeImageButton, ExitItem, FavoriteButton, ImageContainer,
+        ActiveImage, ChangeImageButton, FavoriteButton, ImageContainer,
         InactiveImage, ItemCarousel, ItemDescription, ItemHeader, MessageButton,
         MoreOptionsButton, QuickMessage, SellerInfo, SidebarMenu, Carousel,
         CarouselArrow
