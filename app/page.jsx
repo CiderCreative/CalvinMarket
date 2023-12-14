@@ -11,7 +11,7 @@ import {
 import { useState, useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
 
-function Home({ user }) {
+function Home() {
   const [sidebarClosed, setSidebarClosed] = useState(false);
   const [items, setItems] = useState([]);
   const { data: session } = useSession();
