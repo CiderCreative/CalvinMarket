@@ -8,17 +8,9 @@ import {
   AboutQualifications,
 } from "./index";
 
-const Foreground = ({ childRef }) => {
-  useEffect(
-    () => console.log("inside effect:", childRef.current.offsetHeight),
-    []
-  );
-
+const Foreground = () => {
   return (
-    <div
-      ref={childRef}
-      className="bg-light text-dark w-4/5 h-auto top-4 bottom-4 rounded-l-xl pt-12 pb-40 px-40 mb-4 ml-auto"
-    >
+    <div className="bg-light text-dark w-4/5 h-auto top-4 bottom-4 rounded-l-xl pt-12 pb-40 px-40 mb-4 ml-auto">
       {/* Title of Page */}
       <div className="text-center space-y-1">
         <h1 className="text-3xl font-bold">Overview</h1>
