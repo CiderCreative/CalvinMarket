@@ -9,9 +9,9 @@ const AboutTeam = () => {
       {/* Header & divider */}
       <AboutHeader text="Team" />
 
-      <div className="flex justify-center space-x-40">
+      <div className="flex max-xl:flex-col items-center max-xl:space-y-20 xl:space-x-10 2xl:space-x-40">
         {/* Braden's Description */}
-        <div className="space-y-5 w-[500px]">
+        <div className="space-y-5 max-lg:w-[85vw] max-w-[500px]">
           <Image
             src={BradenIcon}
             alt=""
@@ -29,7 +29,7 @@ const AboutTeam = () => {
         </div>
 
         {/* Logan's Description */}
-        <div className="space-y-5 w-[500px]">
+        <div className="space-y-5 max-lg:w-[85vw] max-w-[500px]">
           <Image
             src={LoganIcon}
             alt=""

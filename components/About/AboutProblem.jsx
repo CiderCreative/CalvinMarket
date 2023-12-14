@@ -7,8 +7,8 @@ const AboutProblem = () => {
       {/* Header & divider */}
       <AboutHeader text="The Problem" />
 
-      <div className="flex justify-center space-x-40 text-sm font-normal">
-        <p className="w-[500px]">
+      <div className="flex max-xl:flex-col max-xl:space-y-8 max-xl:items-center justify-center xl:space-x-40 text-sm font-normal">
+        <p className="max-lg:w-[85vw] max-w-[500px]">
           Attending college involves more than just tuition fees; students face
           various additional expenses like technology, textbooks, and dorm
           essentials. Many of these items, often bought new, add to the
@@ -20,7 +20,7 @@ const AboutProblem = () => {
           within the campus, aiding peers financially.
         </p>
 
-        <p className="w-[500px]">
+        <p className="max-lg:w-[85vw] max-w-[500px]">
           The solution lies in creating a campus-centric marketplace, fostering
           a community of buyers and sellers. This ecosystem encourages the use
           of second-hand items, offering affordable alternatives and helping

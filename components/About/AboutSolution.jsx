@@ -7,8 +7,8 @@ const AboutSolution = () => {
       {/* Header & divider */}
       <AboutHeader text="The Solution" />
 
-      <div className="flex justify-center space-x-40 text-sm font-normal">
-        <div className="space-y-5 w-[500px]">
+      <div className="flex max-xl:flex-col max-xl:items-center max-xl:space-y-8 justify-center xl:space-x-40 text-sm font-normal">
+        <div className="space-y-8 xl:space-y-5 max-lg:w-[85vw] max-w-[500px]">
           <p>
             Calvin Market is a new web application we’re creating for Calvin
             University. It’s a platform for students to buy, sell, and trade
@@ -26,7 +26,7 @@ const AboutSolution = () => {
             user-friendly; it’ll also be fast and secure.
           </p>
         </div>
-        <div className="space-y-5 w-[500px]">
+        <div className="space-y-8 xl:space-y-5 max-lg:w-[85vw] max-w-[500px]">
           <p>
             Our goal with Calvin Market is to make college life a bit easier and
             more connected. It’s not just about buying and selling; it’s about

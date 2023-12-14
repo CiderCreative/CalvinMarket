@@ -30,17 +30,22 @@ const AboutCode = () => {
       {/* Necessary Buttons */}
       <div className="space-y-5">
         {linkArray.map((item, idx) => (
-          <div key={idx} className="flex justify-between w-[1000px]">
+          <div
+            key={idx}
+            className="flex max-2xl:flex-col lg:justify-between w-[80vw] max-w-[1000px] m-auto"
+          >
             <p className="text-md">{item.text}</p>
-            <Link
-              href={item.buttonLink}
-              target="_blank"
-              className={`px-10 py-3 rounded-xl text-light hover:opacity-70 text-md font-medium duration-100 ${
-                item.buttonColor ? "bg-maroon" : "bg-dark"
-              }`}
-            >
-              {item.buttonText}
-            </Link>
+            <div className="my-5">
+              <Link
+                href={item.buttonLink}
+                target="_blank"
+                className={`px-4 sm:px-10 py-3 rounded-xl text-light hover:opacity-70 text-md font-medium duration-100 ${
+                  item.buttonColor ? "bg-maroon" : "bg-dark"
+                }`}
+              >
+                {item.buttonText}
+              </Link>
+            </div>
           </div>
         ))}
       </div>

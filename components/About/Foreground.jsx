@@ -10,7 +10,7 @@ import {
 
 const Foreground = () => {
   return (
-    <div className="bg-light text-dark w-4/5 h-auto top-4 bottom-4 rounded-l-xl pt-12 pb-40 px-40 mb-4 ml-auto">
+    <div className="bg-light text-dark overflow-clip flex flex-col items-center ml-4 xl:ml-[250px] 2xl:ml-[400px] h-auto top-4 bottom-4 rounded-l-xl pt-12 pb-40 mb-4">
       {/* Title of Page */}
       <div className="text-center space-y-1">
         <h1 className="text-3xl font-bold">Overview</h1>
@@ -18,7 +18,7 @@ const Foreground = () => {
       </div>
 
       {/* Content Sections */}
-      <div className="space-y-40 w-[1100px] m-auto">
+      <div className="space-y-20 xl:space-y-40 w-[800px] 2xl:w-[1100px]">
         <AboutTeam />
         <AboutVision />
         <AboutCode />

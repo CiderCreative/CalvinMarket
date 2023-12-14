@@ -7,8 +7,8 @@ const AboutVision = () => {
       {/* Header & divider */}
       <AboutHeader text="Vision" />
 
-      <div className="flex justify-center space-x-40 text-sm font-normal">
-        <div className="space-y-5 w-[500px]">
+      <div className="flex max-xl:flex-col max-xl:space-y-8 items-center xl:space-x-40 text-sm font-normal">
+        <div className="space-y-8 xl:space-y-5 max-lg:w-[85vw] max-w-[500px]">
           <p>
             We’ve observed that college students need to purchase many items,
             but not all of them need to be new. Additionally, many of the items
@@ -21,8 +21,7 @@ const AboutVision = () => {
             buy, sell, and give away items conveniently and sustainably.
           </p>
         </div>
-
-        <p className="w-[500px]">
+        <p className="max-lg:w-[85vw] xl:max-2xl:max-w-[350px] max-w-[500px]">
           With an emphasis on campus-centric transactions, Calvin Market
           eliminates the need for transportation and fosters a closer community
           spirit. The intuitive user interface, coupled with a secure login
