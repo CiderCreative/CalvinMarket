@@ -7,7 +7,7 @@ const AboutVision = () => {
       {/* Header & divider */}
       <AboutHeader text="Vision" />
 
-      <div className="flex justify-center space-x-40 text-md font-normal">
+      <div className="flex justify-center space-x-40 text-sm font-normal">
         <div className="space-y-5 w-[500px]">
           <p>
             We’ve observed that college students need to purchase many items,

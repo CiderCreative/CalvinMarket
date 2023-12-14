@@ -1,11 +1,23 @@
-import React, { forwardRef } from "react";
-import { AboutTeam, AboutVision, AboutCode } from "./index";
+import React, { useEffect } from "react";
+import {
+  AboutTeam,
+  AboutVision,
+  AboutCode,
+  AboutProblem,
+  AboutSolution,
+  AboutQualifications,
+} from "./index";
 
-const Foreground = ({ ref }) => {
+const Foreground = ({ childRef }) => {
+  useEffect(
+    () => console.log("inside effect:", childRef.current.offsetHeight),
+    []
+  );
+
   return (
     <div
-      ref={ref}
-      className="bg-light text-dark w-4/5 absolute right-0 top-4 bottom-4 rounded-l-xl pt-12 pb-40 px-40"
+      ref={childRef}
+      className="bg-light text-dark w-4/5 h-auto top-4 bottom-4 rounded-l-xl pt-12 pb-40 px-40 mb-4 ml-auto"
     >
       {/* Title of Page */}
       <div className="text-center space-y-1">
@@ -18,6 +30,9 @@ const Foreground = ({ ref }) => {
         <AboutTeam />
         <AboutVision />
         <AboutCode />
+        <AboutProblem />
+        <AboutSolution />
+        <AboutQualifications />
       </div>
     </div>
   );
