@@ -9,11 +9,9 @@ import { decode } from "jsonwebtoken";
 import jwt from "./helpers/jwt";
 import { Config } from "sst/node/config";
 
-process.env.NEXTAUTH_URL = Config.NEXTAUTH_URL;
-process.env.NEXTAUTH_SECRET = Config.NEXTAUTH_SECRET;
-
 export const authOptions = {
-  secret: Config.NEXTAUTH_SECRET,
+  site: process.env.NEXTAUTH_URL,
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     Credentials({
       name: "Credentials",

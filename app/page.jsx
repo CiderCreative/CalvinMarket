@@ -14,8 +14,7 @@ import { signIn, useSession } from "next-auth/react";
 function Home() {
   const [sidebarClosed, setSidebarClosed] = useState(false);
   const [items, setItems] = useState([]);
-  const { data: session } = useSession();
-
+  const { data: session, status } = useSession();
   useEffect(() => {
     const getItems = () => {
       fetch("/api/items/get", {
@@ -24,13 +23,15 @@ function Home() {
           filter: "status = for_sale",
         }),
       })
-        .then((res) => res.json())
+        .then((res) => {
+          return res.json();
+        })
         .then((data) => setItems(data.Items));
     };
 
     getItems();
   }, []);
-
+  console.log("holder");
   if (session?.user?.email) {
     return (
       <div
@@ -42,7 +43,7 @@ function Home() {
         <div className="flex w-full items-center justify-between px-3 lg:px-10 mt-5">
           <Searchbar />
           <div className="flex space-x-5">
-            <AccountIndication userName={session.user.email.split("@")[0]} />
+            <AccountIndication userName={session?.user?.email.split("@")[0]} />
             <Settings />
           </div>
         </div>
@@ -61,6 +62,8 @@ function Home() {
         <HighlightContainer text="Free Items" data={items} />
       </div>
     );
+  } else if (status === "loading") {
+    return <div />;
   } else {
     signIn();
     return <div />;

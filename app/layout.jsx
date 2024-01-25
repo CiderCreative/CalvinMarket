@@ -3,6 +3,7 @@ import LightProvider from "./Context";
 import { Lato } from "next/font/google";
 import { getServerSession } from "next-auth";
 import SessionProvider from "../utils/SessionProvider";
+//import { SessionProvider } from "next-auth/react";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -15,14 +16,11 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const session = await getServerSession();
-  console.log(session);
-
   return (
     <html lang="en" className={lato.className}>
       <LightProvider>
         <body suppressHydrationWarning={true}>
-          <SessionProvider session={session}>{children}</SessionProvider>
+          <SessionProvider>{children}</SessionProvider>
         </body>
       </LightProvider>
     </html>

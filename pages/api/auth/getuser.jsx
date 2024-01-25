@@ -9,14 +9,13 @@
 //     const crypto = require('crypto');
 //     const  {email} = JSON.parse(req.body)
 
-
 //     const secretKey = process.env.COGNITO_CLIENT_SECRET; // Replace with your client secret
 //     const clientId = process.env.COGNITO_CLIENT_ID; // Replace with your client ID
-    
+
 //     const hmac = crypto.createHmac('sha256', secretKey);
-    
+
 //     hmac.update(email + clientId);
-//     const hmacDigest = hmac.digest('base64');  
+//     const hmacDigest = hmac.digest('base64');
 //     const client = new CognitoIdentityProviderClient({
 //         region: process.env.COGNITO_REGION, // e.g., 'us-east-1'
 //     });
@@ -43,28 +42,32 @@
 //     return res.status(400).json({ message: 'Failed to retrieve user', error: error.message });
 //   }
 // }
-import { CognitoIdentityProviderClient, GetUserCommand } from '@aws-sdk/client-cognito-identity-provider';
-import { getServerSession } from "next-auth/next"
-import { authOptions } from '../auth/[...nextauth]';
+import {
+  CognitoIdentityProviderClient,
+  GetUserCommand,
+} from "@aws-sdk/client-cognito-identity-provider";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]";
 
 export async function getUser(accessToken) {
-    const session = await getServerSession(req, res, authOptions);
-    if (!session) {res.status(401).json({ success: "unauthorized to access api" }); return;}
-    const client = new CognitoIdentityProviderClient({
-        region: process.env.COGNITO_REGION,
-    });
+  const session = await getServerSession(req, res, authOptions);
+  if (!session) {
+    res.status(401).json({ success: "unauthorized to access api" });
+    return;
+  }
+  const client = new CognitoIdentityProviderClient({
+    region: process.env.COGNITO_REGION,
+  });
 
-    const commandProps = {
-        AccessToken: accessToken,
-    };
+  const commandProps = {
+    AccessToken: accessToken,
+  };
 
-    try {
-        const response = await client.send(new GetUserCommand(commandProps));
-        console.log('User Data:', response.UserAttributes);
-        return response.UserAttributes; // You can return the user attributes or use them as needed.
-    } catch (error) {
-        console.error('GetUser Error:', error);
-        throw error;
-    }
+  try {
+    const response = await client.send(new GetUserCommand(commandProps));
+    return response.UserAttributes; // You can return the user attributes or use them as needed.
+  } catch (error) {
+    console.error("GetUser Error:", error);
+    throw error;
+  }
 }
-

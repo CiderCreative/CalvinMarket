@@ -1,6 +1,5 @@
-import { Amplify } from '@aws-amplify/core';
-import * as gen from '../constants/backend/generated';
-import React from 'react';
+import { Amplify } from "@aws-amplify/core";
+import * as gen from "../constants/backend/generated";
 
 Amplify.configure(gen.config);
 
@@ -32,13 +31,14 @@ export class MessageHandler {
       this.messages = [...sent, ...received];
       this.sortMessages();
     } catch (error) {
-      console.error('Error fetching messages', error);
+      console.error("Error fetching messages", error);
     }
   }
 
   // adds a new message to the peopleMessage array
   addMessage(message) {
-    let person = message.senderId === this.userId ? message.receiverId : message.senderId;
+    let person =
+      message.senderId === this.userId ? message.receiverId : message.senderId;
     if (!this.peopleMessage[person]) {
       this.peopleMessage[person] = [];
     }
@@ -48,7 +48,10 @@ export class MessageHandler {
   // organizes messages into conversations per contact
   sortMessages() {
     this.messages.forEach((message) => {
-      let person = message.senderId === this.userId ? message.receiverId : message.senderId;
+      let person =
+        message.senderId === this.userId
+          ? message.receiverId
+          : message.senderId;
       if (!this.peopleMessage[person]) {
         this.peopleMessage[person] = [];
       }

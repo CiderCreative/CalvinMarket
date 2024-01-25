@@ -17,7 +17,6 @@ export default async function handler(req, res) {
     res.status(401).json({ success: "unauthorized to access api" });
     return;
   }
-
   const { ExpressionAttributeValues, FilterExpression } = toScanCommand(
     JSON.parse(req.body).filter
   );
