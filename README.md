@@ -8,3 +8,7 @@ THE BEST SEÑIOR PROJECT
 - CalvinMarketPreAuthenticationTrigger
 - Calvin Market cognito resources
 
+TODO
+don't forget to hide API key for the websocket (Appsync)
+
+

@@ -12,27 +12,18 @@ import {
 import wayfinder from "../../public/wayfinder.svg";
 import { MessageHandler } from "../../utils/MessageHandler";
 import { useSession } from "next-auth/react";
-const peopleList = [
-  { name: "Emily Rodriguez", image: wayfinder },
-  { name: "Jordan Smith", image: wayfinder },
-  { name: "Carlos Gonzalez", image: wayfinder },
-  { name: "Alex Turner", image: wayfinder },
-  { name: "Olivia Kim", image: wayfinder },
-  { name: "Sophia Williams", image: wayfinder },
-  { name: "Vanessa Patel", image: wayfinder },
-];
 
 Amplify.configure(gen.config);
 
 const Messages = () => {
   const { data: session, status } = useSession();
-  const [activePerson, setActivePerson] = useState(peopleList[0]);
+  const [activePerson, setActivePerson] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState({});
+  const [peopleList, setPeopleList] = useState([]);
   const [newMessage, setNewMessage] = useState(null); //notification to pass through to MessageHandler
+  const isFirstRender = useRef(true);
   let messageHandler = useRef(null);
-
-  //TODO sort messages correctly and make sure that they are called as soon as user opens messages.
 
   useEffect(() => {
     if (
@@ -58,13 +49,20 @@ const Messages = () => {
       msg,
       activePerson.name
     );
-    console.log("RESPONSE", resp);
   }
 
   //whenever there's a new message, update the messages array
   useEffect(() => {
     if (messageHandler.current) {
       setMessages(messageHandler.current.getMessages());
+      let newPeopleList = messageHandler.current
+        .getContacts()
+        .map((person) => ({ name: person, image: wayfinder }));
+      if (isFirstRender.current) {
+        setActivePerson(newPeopleList[0]);
+        isFirstRender.current = false;
+      }
+      setPeopleList(newPeopleList);
     }
   }, [newMessage]);
 
@@ -87,7 +85,7 @@ const Messages = () => {
       >
         <CurrentConversationHeader activePerson={activePerson} />
         <CurrentConversationContainer
-          messagesArray={messages[activePerson.name] || []}
+          messagesArray={(activePerson && messages[activePerson.name]) || []}
           userId={session?.user.email}
         />
         <TypeMessage onSubmit={handleSubmit} sidebarOpen={sidebarOpen} />
