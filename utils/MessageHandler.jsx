@@ -45,6 +45,7 @@ export class MessageHandler {
       this.peopleMessage[person] = [];
     }
     this.peopleMessage[person].push(message);
+    this.sortPeopleList();
   }
 
   sortMessages() {
@@ -70,6 +71,10 @@ export class MessageHandler {
         ))
     );
 
+    this.sortPeopleList();
+  }
+
+  sortPeopleList() {
     //sorts the uniquePersons by the last message sent
     this.uniquePersons.sort((a, b) => {
       let lastA = this.peopleMessage[a][this.peopleMessage[a].length - 1];
