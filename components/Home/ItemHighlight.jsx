@@ -24,7 +24,7 @@ const ItemHighlight = ({ item }) => {
 
   return (
     <Link
-      href={`/Item/${itemId}}`}
+      href={`/Item/${itemId}`}
       className="flex flex-col hover:scale-[102%] w-full flex-shrink-0 transition-transform duration-200 ease-in-out hover:cursor-pointer mb-5"
     >
       <Image

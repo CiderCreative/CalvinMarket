@@ -37,7 +37,7 @@ export default async function handler(req, res) {
     const response = await cognitoClient.send(signUpCommand);
     return res.status(response["$metadata"].httpStatusCode).send();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     if (err["__type"] === "UsernameExistsException") {
       return res
         .status(err["$metadata"].httpStatusCode)

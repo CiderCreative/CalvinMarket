@@ -14,7 +14,7 @@ const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
 export default async function handler(req, res) {
   const session = await getServerSession(req, res, authOptions);
   if (!session) {
-    res.status(401).json({ success: "unauthorized to access api" });
+    res.status(401).json({ error: "unauthorized to access api" });
     return;
   }
   const { ExpressionAttributeValues, FilterExpression } = toScanCommand(

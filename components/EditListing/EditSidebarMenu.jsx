@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { apparelType } from "./ItemTypes/apparel.jsx";
-import axios from "axios";
-import { format } from "date-fns";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-const EditSidebarMenu = ({ files }) => {
+const EditSidebarMenu = ({ formValues, setFormValues }) => {
   // State to manage form values
-  const [formValues, setFormValues] = useState({});
-  const [status, setStatus] = useState("unsent");
   const [dropdown, setDropdown] = useState();
-
   // Close Dropdown on click away (outside of menu)
   useEffect(() => {
     const clickAway = (event) => {
@@ -28,6 +23,7 @@ const EditSidebarMenu = ({ files }) => {
         <input
           type="text"
           placeholder="Item Title"
+          value={formValues.title}
           onChange={(e) =>
             setFormValues({ ...formValues, title: e.target.value })
           }
@@ -158,6 +154,7 @@ const EditSidebarMenu = ({ files }) => {
                 <textarea
                   type="text"
                   placeholder={value.filler}
+                  value={formValues[key]}
                   onChange={(e) =>
                     setFormValues({ ...formValues, [key]: e.target.value })
                   }
@@ -208,94 +205,8 @@ const EditSidebarMenu = ({ files }) => {
           )}
         </div>
       </div>
-
-      {/* Submit button */}
-      <button
-        onClick={(e) => {
-          submit(e, formValues, files, setStatus);
-          setStatus("sending");
-        }}
-        className={`mt-10 w-[200px] ml-auto py-3 rounded-full text-white transition-colors duration-500 ${
-          status === "sending"
-            ? "bg-yellow-500"
-            : status === "sent"
-            ? "bg-neutral-700 cursor-not-allowed"
-            : "bg-maroon hover:opacity-80"
-        }`}
-      >
-        {status === "sending"
-          ? "Sending..."
-          : status === "sent"
-          ? "Sent"
-          : "Submit"}
-      </button>
     </div>
   );
 };
-
-async function submit(e, formValues, files, setStatus) {
-  e.preventDefault();
-  var date = new Date();
-  var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");
-  var fileNames = "";
-
-  try {
-    // Create an array of promises for the file uploads
-    const uploadPromises = files.map(async (file) => {
-      var fileKey = `${formattedDate}+${formatString(file.name)}`;
-      var fileType = file.type;
-      fileNames = fileNames === "" ? fileKey : `${fileNames}, ${fileKey}`;
-
-      let { data } = await axios.post("/api/postImgUrl", {
-        file_key: fileKey,
-        type: fileType,
-      });
-
-      const uploadUrl = await data.url;
-
-      const response = await axios.put(uploadUrl, file, {
-        headers: {
-          "Content-type": fileType,
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-      return response;
-    });
-    const responses = await Promise.all(uploadPromises);
-    var imagesProcessed = true;
-    responses.forEach((response) => {
-      if (response.status !== 200) {
-        imagesProcessed = false;
-      }
-    });
-    // Check if the upload was successful
-    if (imagesProcessed) {
-      const resp = await fetch("/api/items/put", {
-        method: "POST",
-        body: JSON.stringify({
-          ...formValues,
-          status: "for_sale",
-          dateSold: "",
-          imageKeys: `[${fileNames}]`,
-          sellerId: "123",
-        }),
-      });
-      const data = await resp.json();
-    } else {
-      throw new Error("Unable to upload images");
-    }
-
-    // Once all uploads are done, set the status
-    setStatus("sent");
-  } catch (error) {
-    console.log(error);
-    setStatus("error"); // You can set an error status if there's an exception
-  }
-}
-
-function formatString(text) {
-  var outputText = text.replace(" ", "-").replace("_", "-").toLowerCase();
-  return outputText;
-}
 
 export default EditSidebarMenu;

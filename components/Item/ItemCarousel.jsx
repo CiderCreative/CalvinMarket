@@ -22,8 +22,7 @@ const ItemCarousel = ({ imageKeys }) => {
     if (imageKeyList[0] !== "") {
       fetchImageURLs();
     }
-  }, [imageKeys, imageKeyList]);
-
+  }, [imageKeys]);
   return (
     <div className="overflow-x-hidden w-full h-full">
       {/* Display a single image -- with cycling functionality */}

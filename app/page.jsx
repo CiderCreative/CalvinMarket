@@ -31,7 +31,6 @@ function Home() {
 
     getItems();
   }, []);
-  console.log("holder");
   if (session?.user?.email) {
     return (
       <div
