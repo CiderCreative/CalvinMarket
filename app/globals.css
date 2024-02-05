@@ -4,7 +4,7 @@
 
 
 body {
-  @apply bg-primary text-primary text-sm;
+  @apply bg-primary text-primary text-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -34,12 +34,12 @@ const AboutCode = () => {
             key={idx}
             className="flex max-2xl:flex-col lg:justify-between w-[80vw] max-w-[1000px] m-auto"
           >
-            <p className="text-md">{item.text}</p>
+            <p className="text-base">{item.text}</p>
             <div className="my-5">
               <Link
                 href={item.buttonLink}
                 target="_blank"
-                className={`px-4 sm:px-10 py-3 rounded-xl text-light hover:opacity-70 text-md font-medium duration-100 ${
+                className={`px-4 sm:px-10 py-3 rounded-xl text-light hover:opacity-70 text-base font-medium duration-100 ${
                   item.buttonColor ? "bg-maroon" : "bg-dark"
                 }`}
               >

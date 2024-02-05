@@ -90,7 +90,7 @@ const SignUpPage = () => {
           className="w-[80vw] max-w-[300px] sm:w-[300px]"
         >
           <div className="mb-4 w-full">
-            <label htmlFor="email" className="text-sm font-semibold mb-3">
+            <label htmlFor="email" className="text-base font-semibold mb-3">
               Email
             </label>
             <input
@@ -108,7 +108,7 @@ const SignUpPage = () => {
           </div>
 
           <div className="mb-6 w-full">
-            <label htmlFor="password" className="text-sm font-semibold mb-3">
+            <label htmlFor="password" className="text-base font-semibold mb-3">
               Password
             </label>
             <input

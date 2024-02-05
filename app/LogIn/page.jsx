@@ -20,18 +20,21 @@ const SignInPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-primary">
-
       <div className="absolute top-10">
         <Logo />
       </div>
 
-      <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">Log In</h2>
+      <h2 className="text-xl lg:text-2xl font-bold mb-10 text-primary">
+        Log In
+      </h2>
 
-      <form onSubmit={handleSubmit} className="w-[80vw] max-w-[300px] sm:w-[300px]">
-
+      <form
+        onSubmit={handleSubmit}
+        className="w-[80vw] max-w-[300px] sm:w-[300px]"
+      >
         {/* Email */}
         <div className="mb-4 w-full">
-          <label htmlFor="email" className="text-sm font-semibold mb-3" >
+          <label htmlFor="email" className="text-base font-semibold mb-3">
             Calvin Email
           </label>
           <input
@@ -50,10 +53,7 @@ const SignInPage = () => {
 
         {/* Password  */}
         <div className="mb-6 w-full">
-          <label
-            htmlFor="password"
-            className="text-sm font-semibold mb-3"
-          >
+          <label htmlFor="password" className="text-base font-semibold mb-3">
             Password
           </label>
           <input
@@ -77,7 +77,12 @@ const SignInPage = () => {
           Log In
         </button>
       </form>
-      <Link href="/SignUp" className="w-[80vw] max-w-[300px] sm:w-[300px] text-left mt-5 text-neutral-500 hover:opacity-80" >Need to create an account?</Link>
+      <Link
+        href="/SignUp"
+        className="w-[80vw] max-w-[300px] sm:w-[300px] text-left mt-5 text-neutral-500 hover:opacity-80"
+      >
+        Need to create an account?
+      </Link>
     </div>
   );
 };

@@ -21,7 +21,7 @@ const HomeTopbar = () => {
               </div>
             </div>
 
-            <p className="text-sm mt-1">{filter.text.split(" ")[0]}</p>
+            <p className="text-base mt-1">{filter.text.split(" ")[0]}</p>
           </div>
         ))}
       </div>

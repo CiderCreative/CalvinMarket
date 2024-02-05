@@ -18,7 +18,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
 
   return (
     <div className="flex flex-col right-0 inset-y-0 w-full px-5 border-l-2 p-10 overflow-y-scroll">
-      <div className="flex items-center text-3xl font-bold space-x-5 w-full">
+      <div className="flex items-center text-xl font-bold space-x-5 w-full">
         {/* Title */}
         <input
           type="text"
@@ -58,7 +58,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
             return (
               <div className="flex space-x-10 my-5" key={index}>
                 {/* Tag title */}
-                <p className="text-md">{key}</p>
+                <p className="text-base">{key}</p>
 
                 <div className="flex space-x-5">
                   {value.options.map((option, index) => (
@@ -90,7 +90,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
                       {/* Description of option */}
                       <label
                         htmlFor={`${key}-option-${index}`}
-                        className="text-sm cursor-pointer"
+                        className="text-base cursor-pointer"
                       >
                         {option}
                       </label>
@@ -106,7 +106,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
             return (
               <div className="relative my-5">
                 <div className="flex items-center space-x-10">
-                  <label className="text-md">{key}</label>
+                  <label className="text-base">{key}</label>
 
                   <div className="relative click-away">
                     {/* Display Box */}
@@ -150,7 +150,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
           else if (value.type === "text") {
             return (
               <div>
-                <p className="text-md mb-3">{key}</p>
+                <p className="text-base mb-3">{key}</p>
                 <textarea
                   type="text"
                   placeholder={value.filler}
@@ -199,7 +199,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
                 </div>
 
                 {/* Description of option */}
-                <label className="text-sm cursor-pointer">{option}</label>
+                <label className="text-base cursor-pointer">{option}</label>
               </div>
             )
           )}

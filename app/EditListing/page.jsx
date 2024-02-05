@@ -74,10 +74,10 @@ const page = () => {
               />
             </Link>
             <button onClick={() => onDelete(items[index])}>Delete</button>
-            <p className="text-md leading-5 pt-1">
+            <p className="text-base leading-5 pt-1">
               {items[index].price > 0 ? `$${items[index].price}` : "Free"}
             </p>
-            <p className="text-md font-bold">{items[index].title}</p>
+            <p className="text-base font-bold">{items[index].title}</p>
             <p className="text-xs font-light">{items[index].detail}</p>
           </div>
         );

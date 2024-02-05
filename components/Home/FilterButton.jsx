@@ -9,7 +9,7 @@ const FilterButton = ({ text, icon }) => {
         </div>
       </div>
 
-      <p className="text-sm">{text}</p>
+      <p className="text-base">{text}</p>
     </div>
   );
 };

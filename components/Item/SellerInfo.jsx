@@ -29,7 +29,7 @@ const SellerInfo = ({ profileId }) => {
         </p>
 
         <div className="flex flex-col">
-          <p className="text-md font-bold">{profileId}</p>
+          <p className="text-base font-bold">{profileId}</p>
           <StarRating />
         </div>
       </div>

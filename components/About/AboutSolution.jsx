@@ -7,7 +7,7 @@ const AboutSolution = () => {
       {/* Header & divider */}
       <AboutHeader text="The Solution" />
 
-      <div className="flex max-xl:flex-col max-xl:items-center max-xl:space-y-8 justify-center xl:space-x-40 text-sm font-normal">
+      <div className="flex max-xl:flex-col max-xl:items-center max-xl:space-y-8 justify-center xl:space-x-40 text-base font-normal">
         <div className="space-y-8 xl:space-y-5 max-lg:w-[85vw] max-w-[500px]">
           <p>
             Calvin Market is a new web application we’re creating for Calvin

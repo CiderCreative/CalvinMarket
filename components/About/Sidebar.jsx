@@ -9,7 +9,7 @@ const Sidebar = () => {
       {/* Top bar // Small Screens */}
       <div className="xl:hidden pt-5 mb-3">
         <Logo />
-        <h5 className="text-sm text-center text-yellow">2023 Fall</h5>
+        <h5 className="text-base text-center text-yellow">2023 Fall</h5>
         <div className="bg-light/10 w-full h-[1px] my-3" />
 
         <Link
@@ -26,7 +26,7 @@ const Sidebar = () => {
         <Logo />
 
         <div>
-          <h5 className="text-sm text-center text-yellow">2023 Fall</h5>
+          <h5 className="text-base text-center text-yellow">2023 Fall</h5>
           <div className="bg-light/10 w-full h-[1px] my-3" />
 
           <Link

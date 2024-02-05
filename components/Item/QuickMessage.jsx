@@ -34,7 +34,7 @@ const QuickMessage = () => {
     <div className="lg:absolute left-0 bottom-3 w-full flex flex-col pt-10 lg:pt-5 bg-primary lg:px-5">
       <div className="flex items-center space-x-2">
         {messageIcon}
-        <p className="text-md font-regular">Send the seller a message</p>
+        <p className="text-base font-regular">Send the seller a message</p>
       </div>
 
       <input
@@ -45,7 +45,7 @@ const QuickMessage = () => {
         className="p-2 mt-1 mb-2 input-clear bg-opposite dark:bg-neutral-700 bg-opacity-10 border-2 border-opposite dark:border-light/30 border-opacity-50 rounded-lg dark:text-light"
       />
 
-      <button className="justify-center py-1 bg-yellow text-dark text-sm font-semibold rounded-lg hover:opacity-70 transition-opacity duration-100">
+      <button className="justify-center py-1 bg-yellow text-dark text-base font-semibold rounded-lg hover:opacity-70 transition-opacity duration-100">
         Send
       </button>
     </div>

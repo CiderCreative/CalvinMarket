@@ -35,10 +35,10 @@ const ItemHighlight = ({ item }) => {
         height={200}
       />
 
-      <p className="text-md leading-5 pt-1">
+      <p className="text-base leading-5 pt-1">
         {price > 0 ? `$${price}` : "Free"}
       </p>
-      <p className="text-md font-bold">{title}</p>
+      <p className="text-base font-bold">{title}</p>
       <p className="text-xs font-light">{detail}</p>
     </Link>
   );

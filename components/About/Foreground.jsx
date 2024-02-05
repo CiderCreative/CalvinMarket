@@ -14,7 +14,7 @@ const Foreground = () => {
       {/* Title of Page */}
       <div className="text-center space-y-1">
         <h1 className="text-3xl font-bold">Overview</h1>
-        <p className="text-sm font-normal">Calvin Market - 2023/2024</p>
+        <p className="text-base font-normal">Calvin Market - 2023/2024</p>
       </div>
 
       {/* Content Sections */}

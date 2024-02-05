@@ -23,7 +23,7 @@ const CarouselArrow = ({ direction, func }) => {
   return (
     <button
       onClick={func}
-      className={`flex items-center justify-center text-sm sm:text-lg lg:text-2xl aspect-square w-8 sm:w-12 rounded-full bg-gray-accent text-primary hover:border-2 border-opposite dark:border-light active:scale-90 ${styles}`}
+      className={`flex items-center justify-center text-base sm:text-lg lg:text-2xl aspect-square w-8 sm:w-12 rounded-full bg-gray-accent text-primary hover:border-2 border-opposite dark:border-light active:scale-90 ${styles}`}
     >
       {arrow}
     </button>

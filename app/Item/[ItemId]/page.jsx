@@ -53,11 +53,11 @@ const Page = ({ params: { ItemId } }) => {
       )}
       <div className="max-lg:flex-col mt-20">
         {/* Contains carousel & image container (for quick selection) */}
-        <div className="h-full flex-grow lg:max-w-[calc(100%-400px)]">
+        <div className="h-full flex-grow lg:w-1/2">
           <ItemCarousel imageKeys={item.imageKeys} />
         </div>
 
-        <div className="lg:fixed right-0 inset-y-0 lg:w-1/5 min-w-[400px]">
+        <div className="lg:fixed right-0 inset-y-0 w-1/2">
           {!isEditing ? (
             <SidebarMenu item={item} />
           ) : (

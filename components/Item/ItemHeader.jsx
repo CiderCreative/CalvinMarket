@@ -54,7 +54,7 @@ const ItemHeader = ({ title, price, dateAdded, preferredMeetup }) => {
       <p className="dark:text-light font-bold text-xl">
         {price > 0 ? `$${price}` : "Free"}
       </p>
-      <p className="text-sm font-normal">{timeAgo}</p>
+      <p className="text-base font-normal">{timeAgo}</p>
       <div className="flex items-center space-x-2 text-lg font-normal mt-3">
         {pickupIcon}
         <p>{preferredMeetup}</p>

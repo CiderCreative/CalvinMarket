@@ -13,7 +13,7 @@ const ItemDescription = ({ tags, description }) => {
   const [fullDesc, setFullDesc] = useState(false);
 
   return (
-    <div className="pt-10 md:pt-5 text-sm">
+    <div className="pt-10 md:pt-5 text-base">
       <h4 className="text-xl font-bold">Item Details</h4>
 
       <div className="grid grid-cols-2 mt-3 gap-y-2">
