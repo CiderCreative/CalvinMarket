@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { Carousel, ImageContainer } from "./index";
+import React, { useState, useEffect, useCallback } from "react";
+import { Carousel, ImageContainer, CarouselArrow } from "./index";
 import { apiLimiter } from "../../utils/rateLimiter";
 import loadingImg from "../../constants/loadingImage.png";
 
@@ -23,17 +23,52 @@ const ItemCarousel = ({ imageKeys }) => {
       fetchImageURLs();
     }
   }, [imageKeys]);
+
+  // Funcs to handle left & right arrow clicks -> sliding the carousel
+  const handleLeft = useCallback(() => {
+    setCarouselIndex((carouselIndex - 1 + urls.length) % urls.length);
+  }, [carouselIndex, urls, setCarouselIndex]);
+
+  const handleRight = useCallback(() => {
+    setCarouselIndex((carouselIndex + 1) % urls.length);
+  }, [carouselIndex, urls, setCarouselIndex]);
+
+  // Listen for ArrowLeft and ArrowRight key presses
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        handleLeft();
+      } else if (e.key === "ArrowRight") {
+        handleRight();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown); //Listen for key presses
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown); //Cleanup listener
+    };
+  }, [handleLeft, handleRight]);
+
   return (
     <div className="overflow-x-hidden w-full h-full">
       {/* Display a single image -- with cycling functionality */}
-      <Carousel index={carouselIndex} setIndex={setCarouselIndex} urls={urls} />
-
-      {/* Display small previews of images */}
-      <ImageContainer
+      <Carousel
         index={carouselIndex}
         setIndex={setCarouselIndex}
         urls={urls}
+        handleLeft={handleLeft}
+        handleRight={handleRight}
       />
+
+      <div className="flex items-center justify-center mt-10 space-x-20">
+        <CarouselArrow direction="left" func={handleLeft} />
+        {/* Display small previews of images */}
+        <ImageContainer
+          index={carouselIndex}
+          setIndex={setCarouselIndex}
+          urls={urls}
+        />
+        <CarouselArrow direction="right" func={handleRight} />
+      </div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 
 const ImageContainer = ({ urls, index, setIndex }) => {
   return (
-    <div className="flex space-x-2 md:space-x-5 justify-center mt-10">
+    <div className="flex space-x-2 md:space-x-5 justify-center">
       {urls.map((image, idx) => (
         <Image
           src={image}
