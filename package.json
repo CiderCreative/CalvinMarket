@@ -26,6 +26,7 @@
     "date-fns": "^2.30.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
+    "geist": "^1.2.2",
     "jsonwebtoken": "^9.0.2",
     "minimatch": "^9.0.3",
     "next": "^14.0.4",
@@ -42,6 +43,8 @@
     "@types/react": "18.2.33",
     "aws-cdk-lib": "2.110.1",
     "constructs": "10.3.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "sst": "^2.38.7"
   }
 }

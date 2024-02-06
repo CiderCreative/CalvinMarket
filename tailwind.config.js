@@ -11,10 +11,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        dark: "#202020",
-        light: "#EEEEEE",
-        primary: "#EEEEEE",
-        opposite: "#202020",
+        dark: "#151515",
+        light: "#FAFAFA",
+        gray: "#F5F5F5",
+        primary: "#FAFAFA",
+        opposite: "#151515",
         yellow: "#E8CC16",
       },
       backgroundColor: {
@@ -22,8 +23,8 @@ module.exports = {
         "gray-accent": "#D5D5D5",
       },
       textColor: {
-        primary: "#202020",
-        opposite: "#EEEEEE",
+        primary: "#151515",
+        opposite: "#FAFAFA",
         maroon: "#8C2232",
       },
     },

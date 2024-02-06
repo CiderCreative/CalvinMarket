@@ -46,18 +46,18 @@ const Page = ({ params: { ItemId } }) => {
       {session?.user?.email === item.profileId && (
         <button
           onClick={() => setIsEditing(!isEditing)}
-          className="bg-maroon text-white w-[200px] py-3 rounded-full "
+          className="w-[200px] rounded-full bg-maroon py-3 text-white "
         >
           {isEditing ? "Cancel" : "Edit"}
         </button>
       )}
-      <div className="max-lg:flex-col mt-20">
+      <div className="mt-20 max-lg:flex-col">
         {/* Contains carousel & image container (for quick selection) */}
         <div className="h-full flex-grow lg:w-1/2">
           <ItemCarousel imageKeys={item.imageKeys} />
         </div>
 
-        <div className="lg:fixed right-0 inset-y-0 w-1/2">
+        <div className="inset-y-0 right-0 w-1/2 lg:fixed">
           {!isEditing ? (
             <SidebarMenu item={item} />
           ) : (

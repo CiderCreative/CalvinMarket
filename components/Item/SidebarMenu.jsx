@@ -13,22 +13,20 @@ const SidebarMenu = ({ item }) => {
   } = item;
 
   return (
-    <div className="relative flex flex-col bg-primary px-5 pt-10 m-auto max-w-full h-full p-5">
-      {/* show item if not editing */}
-      <div className="overflow-y-auto w-full h-auto pb-[136px]">
-        <ItemHeader
-          title={title}
-          price={price}
-          dateAdded={itemId}
-          preferredMeetup={preferredMeetup}
-        />
+    <div className="h-full bg-gray px-20 pt-40">
+      <div className="flex max-w-4xl flex-col">
+        {/* Title & Price */}
+        <ItemHeader title={title} price={price} />
+
+        {/* Tags & Desc */}
         <ItemDescription tags={tags} description={description} />
+
+        {/*  */}
         <SellerInfo profileId={profileId} />
+
+        {/* Buttons */}
+        <></>
       </div>
-
-      {/* allow edits if user is editing */}
-
-      <QuickMessage />
     </div>
   );
 };
