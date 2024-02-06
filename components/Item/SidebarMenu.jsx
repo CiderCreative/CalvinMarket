@@ -1,5 +1,11 @@
 import React from "react";
-import { ItemHeader, ItemDescription, SellerInfo, QuickMessage } from "./index";
+import {
+  ItemHeader,
+  ItemTags,
+  ItemDescription,
+  SellerInfo,
+  ItemButtons,
+} from "./index";
 
 const SidebarMenu = ({ item }) => {
   const {
@@ -17,15 +23,18 @@ const SidebarMenu = ({ item }) => {
       <div className="flex max-w-4xl flex-col">
         {/* Title & Price */}
         <ItemHeader title={title} price={price} />
+        <div className="my-10 h-[1px] w-full bg-dark/10 dark:bg-light/10" />
 
         {/* Tags & Desc */}
-        <ItemDescription tags={tags} description={description} />
+        <ItemTags tags={tags} />
+        <ItemDescription description={description} />
+        <div className="my-10 h-[1px] w-full bg-dark/10 dark:bg-light/10" />
 
-        {/*  */}
-        <SellerInfo profileId={profileId} />
-
-        {/* Buttons */}
-        <></>
+        {/* Seller Info & Buttons */}
+        <div className="flex items-center justify-between">
+          <SellerInfo profileId={profileId} />
+          <ItemButtons />
+        </div>
       </div>
     </div>
   );
