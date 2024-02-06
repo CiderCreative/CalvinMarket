@@ -2,6 +2,7 @@ import loadingImg from '../constants/loadingImage.png';
 
 export const getImageURL = async (keyNames) => {
   const keyNamesList = typeof keyNames === 'string' ? [keyNames] : keyNames;
+  console.log("FILESSSS", keyNamesList)
   try {
     const imgUrlPromise = keyNamesList.map(async (keyName) => {
       const response = await fetch("/api/imageURL", {

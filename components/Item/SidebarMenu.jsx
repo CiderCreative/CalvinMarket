@@ -7,7 +7,7 @@ import {
   ItemButtons,
 } from "./index";
 
-const SidebarMenu = ({ item }) => {
+const SidebarMenu = ({ item, setIsEditing }) => {
   const {
     title,
     price,
@@ -19,7 +19,7 @@ const SidebarMenu = ({ item }) => {
   } = item;
 
   return (
-    <div className="h-full bg-gray px-20 pt-40">
+    <div className="h-full overflow-y-auto bg-gray px-20 pb-24 pt-40">
       <div className="flex max-w-4xl flex-col">
         {/* Title & Price */}
         <ItemHeader title={title} price={price} />
@@ -33,7 +33,7 @@ const SidebarMenu = ({ item }) => {
         {/* Seller Info & Buttons */}
         <div className="flex items-center justify-between">
           <SellerInfo profileId={profileId} />
-          <ItemButtons />
+          <ItemButtons setIsEditing={setIsEditing} item={item} />
         </div>
       </div>
     </div>

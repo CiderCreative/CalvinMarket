@@ -6,7 +6,7 @@ import Image from "next/image";
 import loadingImg from "../../constants/loadingImage.png";
 import { apiLimiter } from "../../utils/rateLimiter";
 
-const page = () => {
+const Page = () => {
   const [items, setItems] = useState([]); //your items
   const { data: session, status } = useSession(); // Get the session
   const [urls, setUrls] = useState([loadingImg]);
@@ -31,7 +31,7 @@ const page = () => {
   useEffect(() => {
     setUrls(items.map((item) => loadingImg));
     const imageKeyList = items.map(
-      (item) => item.imageKeys.slice(1, -1).split(",")[0] //takes away quotes and splits the string
+      (item) => item.imageKeys.slice(1, -1).split(",")[0], //takes away quotes and splits the string
     );
     const fetchImageURLs = async () => {
       try {
@@ -53,28 +53,28 @@ const page = () => {
           return (
             <Image
               src={url}
-              className="object-cover aspect-square w-full flex-shrink-0 rounded-md"
+              className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
               alt="placeholder image"
               width={200}
               height={200}
             />
           );
         return (
-          <div className="flex flex-col w-40">
+          <div className="flex w-40 flex-col" key={index}>
             <Link
               href={`/Item/${items[index].itemId || ""}`}
-              className="w-40 h-40"
+              className="h-40 w-40"
             >
               <Image
                 src={url}
-                className="object-cover aspect-square w-full flex-shrink-0 rounded-md"
+                className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
                 alt=""
                 width={100}
                 height={100}
               />
             </Link>
             <button onClick={() => onDelete(items[index])}>Delete</button>
-            <p className="text-base leading-5 pt-1">
+            <p className="pt-1 text-base leading-5">
               {items[index].price > 0 ? `$${items[index].price}` : "Free"}
             </p>
             <p className="text-base font-bold">{items[index].title}</p>
@@ -93,4 +93,4 @@ function onDelete(item) {
   }).then((res) => res.json());
 }
 
-export default page;
+export default Page;

@@ -1,14 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const ItemTags = () => {
+const ItemTags = ({ tags }) => {
   // Parse the tags string into an object
-  let properties = {};
-  try {
-    const parsedTags = JSON.parse(tags);
-    properties = parsedTags.properties || {};
-  } catch (e) {
-    console.error("Failed to parse tags", e);
-  }
+  const [properties, setProperties] = useState(JSON.parse(tags) || {});
+
+  useEffect(() => setProperties(JSON.parse(tags) || {}), [tags]);
 
   return (
     <div className="mt-3 grid grid-cols-2 gap-x-10 gap-y-5">
