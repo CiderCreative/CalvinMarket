@@ -1,11 +1,30 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { format } from "date-fns";
 
-const ItemSubmit = ({ formValues, imgKeysToDelete }) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const ItemSubmit = ({
+  formValues,
+  imgKeysToDelete,
+  imgFilesToAdd,
+  files,
+  item,
+}) => {
+  const [status, setStatus] = useState(false);
 
   return (
     <button
-      onClick={(e) => {}}
+      onClick={(e) =>
+        onSubmit(
+          e,
+          formValues,
+          status,
+          setStatus,
+          imgKeysToDelete,
+          imgFilesToAdd,
+          files,
+          item,
+        )
+      }
       className="rounded-md bg-maroon px-8 py-2 text-light shadow-sm transition-colors duration-100 ease-in-out hover:bg-opacity-70"
     >
       Submit
@@ -13,67 +32,140 @@ const ItemSubmit = ({ formValues, imgKeysToDelete }) => {
   );
 };
 
-function deleteFile(imgKeysToDelete) {
-  imgKeysToDelete.forEach((key) => {
-    fetch("/api/deleteImg", {
-      method: "DELETE",
-      body: JSON.stringify({
-        file_key: key,
-      }),
-    });
-  });
-}
-
-async function onSubmit(e, formValues, files, setStatus, imgKeysToDelete) {
+async function onSubmit(
+  e,
+  formValues,
+  status,
+  setStatus,
+  imgKeysToDelete,
+  imgFilesToAdd,
+  files,
+  item,
+) {
   e.preventDefault();
-  var date = new Date();
-  var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");
-  var fileNames = "";
 
   try {
-    // Create an array of promises for the file uploads
-    let uploadPromises = imgKeysToDelete.map((key) => {
-      fetch("/api/deleteImg", {
-        method: "DELETE",
-        body: JSON.stringify({
-          file_key: key,
-        }),
-      });
-    });
-    const responses = await Promise.all(uploadPromises);
-    var imagesProcessed = true;
-    responses.forEach((response) => {
-      if (response.status !== 200) {
-        imagesProcessed = false;
-      }
-    });
-    // Check if the upload was successful
-    if (imagesProcessed) {
-      const resp = await fetch("/api/items/put", {
-        method: "POST",
-        body: JSON.stringify({
-          title: formValues.title,
-          price: formValues.price,
-          description: formValues.Description,
-          type: formValues.type,
-          preferredMeetup: formValues.meetup,
-          tags: JSON.stringify(formValues),
-          status: "for_sale",
-          dateSold: "",
-          imageKeys: `[${fileNames}]`,
-        }),
-      });
-      const data = await resp.json();
-    } else {
-      throw new Error("Unable to upload images");
-    }
+    // Create an array of promises for the file deletions
+    // let deletionPromises = imgKeysToDelete.map((key) => {
+    //   console.log("KEY: ", key);
+    //   return fetch("/api/deleteImg", {
+    //     method: "DELETE",
+    //     body: JSON.stringify({
+    //       file_key: key.trim(),
+    //     }),
+    //   }).then((res) => res.json());
+    // });
 
-    // Once all uploads are done, set the status
-    setStatus("sent");
+    // Create array of promises for uploading the added files
+    let imagesSuccessfullyDeleted = await deleteImages(imgKeysToDelete);
+    let imagesSuccessfullyUploaded = await uploadImages(imgFilesToAdd);
+
+    let finalFiles = files.filter(
+      (file) => !imagesSuccessfullyDeleted.includes(file),
+    );
+    finalFiles = finalFiles.concat(imagesSuccessfullyUploaded);
+    var fileNames = finalFiles.join(", ");
+
+    // const responses = await Promise.all(deletionPromises);
+    // var imagesProcessed = true;
+    // console.log("RESPONSES: ", responses);
+    // responses.forEach((response) => {
+    //   if (response.success === "true") {
+    //     imagesProcessed = false;
+    //   }
+    // });
+    // Check if the upload was successful
+    const resp = await fetch("/api/items/update", {
+      method: "POST",
+      body: JSON.stringify({
+        itemId: item.itemId,
+        title: formValues.title,
+        price: formValues.price,
+        description: formValues.Description,
+        type: formValues.type,
+        preferredMeetup: formValues.meetup,
+        tags: JSON.stringify(formValues),
+        status: "for_sale",
+        dateSold: "",
+        profileId: item.profileId,
+        imageKeys: `[${fileNames}]`,
+      }),
+    });
+    const data = await resp.json();
+    if (data.success === true) {
+      setStatus("sent");
+    } else {
+      setStatus("error");
+      console.log("ERROR uploading from edit: ", data);
+    }
   } catch (error) {
-    console.log(error);
+    console.error(error);
     setStatus("error"); // You can set an error status if there's an exception
   }
+}
+
+//takes in a list of files and returns a list of image keys that were successfully uploaded
+async function uploadImages(imageFiles) {
+  var date = new Date();
+  var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");
+  let keysSuccessfullyUploaded = [];
+  let imageKeys = [];
+  let uploadPromises = [];
+  try {
+    uploadPromises = imageFiles.map(async (file) => {
+      var fileKey = `${formattedDate}+${formatString(file.name)}`;
+      imageKeys.push(fileKey);
+      var fileType = file.type;
+      let { data } = await axios.post("/api/postImgUrl", {
+        file_key: fileKey,
+        type: fileType,
+      });
+
+      const uploadUrl = await data.url;
+
+      const response = await axios.put(uploadUrl, file, {
+        headers: {
+          "Content-type": fileType,
+          "Access-Control-Allow-Origin": "*",
+        },
+      });
+      return response;
+    });
+  } catch (error) {
+    console.error("failed to upload images", error);
+  }
+  const responses = await Promise.all(uploadPromises);
+  responses.forEach((response, index) => {
+    if (response.status === 200) {
+      keysSuccessfullyUploaded.push(imageKeys[index]);
+    }
+  });
+  return keysSuccessfullyUploaded;
+}
+
+//takes in a list of image keys and deletes the images from AWS S3, returning a list of image keys that were successfully deleted
+async function deleteImages(imageKeys) {
+  let keysSuccessfullyDeleted = [];
+  let deletionPromises = [];
+  try {
+    deletionPromises = imageKeys.map((key) => {
+      return fetch("/api/deleteImg", {
+        method: "DELETE",
+        body: JSON.stringify({
+          file_key: key.trim(),
+        }),
+      }).then((res) => res.json());
+    });
+  } catch (error) {
+    console.error("failed to delete images", error);
+  }
+  const responses = await Promise.all(deletionPromises);
+  responses.forEach((response, index) => {
+    if (response.success === true) {
+      keysSuccessfullyDeleted.push(imageKeys[index]);
+    }
+  });
+  return keysSuccessfullyDeleted;
 }
 
 function formatString(text) {

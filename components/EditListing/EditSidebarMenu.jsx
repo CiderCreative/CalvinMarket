@@ -3,12 +3,7 @@ import { apparelType } from "./ItemTypes/apparel.jsx";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { ItemSubmit, ItemCancelEdit } from "../../components/EditListing";
 
-const EditSidebarMenu = ({
-  formValues,
-  setFormValues,
-  isEditing,
-  setIsEditing,
-}) => {
+const EditSidebarMenu = ({ formValues, setFormValues }) => {
   // State to manage form values
   const [dropdown, setDropdown] = useState();
   // Close Dropdown on click away (outside of menu)
@@ -210,13 +205,6 @@ const EditSidebarMenu = ({
             ),
           )}
         </div>
-        {/* Submit */}
-        {/* {isEditing && (
-          <div className="mt-16 flex space-x-5">
-            <ItemCancelEdit setIsEditing={setIsEditing} />
-            <ItemSubmit formValues={formValues} />
-          </div>
-        )} */}
       </div>
     </div>
   );

@@ -15,7 +15,8 @@ const Page = ({ params: { ItemId } }) => {
   });
   const [files, setFiles] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
-  const imgsToDelete = useRef([]);
+  const imgKeysToDelete = useRef([]);
+  const imgFilesToAdd = useRef([]);
   const [formValues, setFormValues] = useState({});
   const { data: session, status } = useSession();
 
@@ -42,7 +43,7 @@ const Page = ({ params: { ItemId } }) => {
 
   useEffect(() => {
     setFormValues(JSON.parse(item.tags));
-    setFiles(item.imageKeys);
+    setFiles(item.imageKeys.slice(1, -1).split(","));
   }, [item]);
 
   return (
@@ -58,7 +59,8 @@ const Page = ({ params: { ItemId } }) => {
             <EditFileInput
               files={files}
               setFiles={setFiles}
-              imgsToDelete={imgsToDelete.current}
+              imgKeysToDelete={imgKeysToDelete}
+              imgFilesToAdd={imgFilesToAdd}
             />
           )}
         </div>
@@ -71,15 +73,16 @@ const Page = ({ params: { ItemId } }) => {
               <EditSidebarMenu
                 formValues={formValues}
                 setFormValues={setFormValues}
-                isEditing={isEditing}
-                setIsEditing={setIsEditing}
               />
 
-              <div className="mt-16 flex space-x-5">
+              <div className="flex space-x-5">
                 <ItemCancelEdit setIsEditing={setIsEditing} />
                 <ItemSubmit
+                  item={item}
+                  files={files}
                   formValues={formValues}
-                  imgKeysToDelete={imgKeysToDelete}
+                  imgKeysToDelete={imgKeysToDelete.current}
+                  imgFilesToAdd={imgFilesToAdd.current}
                 />
               </div>
             </>

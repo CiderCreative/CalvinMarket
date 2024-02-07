@@ -4,7 +4,6 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 export default async function handler(req, res) {
   const { file_key, type } = req.body;
-
   switch (req.method) {
     case "POST":
       try {
@@ -18,7 +17,7 @@ export default async function handler(req, res) {
         const url = await getSignedUrl(
           new S3Client({ region: "us-east-1" }),
           command,
-          { expiresIn: 3600 }
+          { expiresIn: 3600 },
         );
 
         res.status(200).json({ url });

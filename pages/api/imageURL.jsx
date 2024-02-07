@@ -16,13 +16,13 @@ export default async function handler(req, res) {
         const url = await getSignedUrl(
           new S3Client({ region: "us-east-1" }),
           command,
-          { expiresIn: 3600 }
+          { expiresIn: 3600 },
         );
 
         res.status(200).json({ url });
       } catch (error) {
         res.status(400).json({ success: false });
-        console.error("AWS S3 API - upload_file.tsx - POST Error:", error);
+        console.error("AWS S3 API - imageUrl - POST Error:", error);
       }
       break;
 

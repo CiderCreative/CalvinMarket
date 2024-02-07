@@ -1,5 +1,5 @@
 //the main difference between this and FileInput is that this uses AWS
-//files in this file represent itemKeys
+//files in this file represent itemKeys, NOT actual files
 
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
@@ -9,36 +9,35 @@ import { ItemSubmit, ItemCancelEdit } from "../../components/EditListing";
 export default function FileInput({
   files,
   setFiles,
-  imgsToDelete,
-  imgsToAdd,
+  imgKeysToDelete,
+  imgFilesToAdd,
 }) {
   const [dragActive, setDragActive] = useState(false);
   const [urls, setUrls] = useState([]);
+  const [addedFiles, setAddedFiles] = useState([]); //just used to show local images
   const inputRef = useRef(null);
 
   useEffect(() => {
     const fetchImageURLs = async () => {
       try {
-        const imgPromises = await apiLimiter.getImage(
-          files.slice(1, -1).split(","),
-        );
+        const imgPromises = await apiLimiter.getImage(files);
         const imageURLs = await Promise.all(imgPromises);
         setUrls(imageURLs);
       } catch (error) {
         console.error("Failed to fetch image URL:", error);
       }
     };
-    console.log("FILES", files);
     if (files[0] !== "") {
       fetchImageURLs();
     }
-  }, [files]);
+  }, []);
 
   function handleChange(e) {
     e.preventDefault();
-    if (e.target.urls && e.target.urls[0]) {
-      for (let i = 0; i < e.target.urls.length; i++) {
-        setUrls((prevState) => [...prevState, e.target.urls[i]]);
+    if (e.target.files && e.target.files[0]) {
+      for (let i = 0; i < e.target.files.length; i++) {
+        setAddedFiles((prevState) => [...prevState, e.target.files[i]]);
+        imgFilesToAdd.current = [...imgFilesToAdd.current, e.target.files[i]];
       }
     }
   }
@@ -47,9 +46,10 @@ export default function FileInput({
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
-    if (e.dataTransfer.urls && e.dataTransfer.urls[0]) {
-      for (let i = 0; i < e.dataTransfer.urls.length; i++) {
-        setUrls((prevState) => [...prevState, e.dataTransfer.urls[i]]);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      for (let i = 0; i < e.dataTransfer.files.length; i++) {
+        setAddedFiles((prevState) => [...prevState, e.dataTransfer.files[i]]);
+        imgFilesToAdd.current = [...imgFilesToAdd.current, e.target.files[i]];
       }
     }
   }
@@ -57,9 +57,9 @@ export default function FileInput({
   const removeFile = (idx) => {
     const newArr = [...urls];
     const newFiles = [...files];
-    imgsToDelete.append(files[idx]);
-    files.splice(idx, 1);
+    imgKeysToDelete.current.push(files[idx]);
     newArr.splice(idx, 1);
+    newFiles.splice(idx, 1);
     setUrls(newArr);
     setFiles(newFiles);
   };
@@ -133,6 +133,7 @@ export default function FileInput({
 
         {/* Image Thumbnails & Remove Functionality */}
         <div className="m-auto flex w-4/5 items-center justify-center">
+          {/* Images from AWS */}
           {urls.map((url, idx) => (
             <div
               key={idx}
@@ -142,6 +143,36 @@ export default function FileInput({
                 <Image
                   src={url}
                   alt={url}
+                  className="aspect-square w-28 object-cover"
+                  width={500}
+                  height={500}
+                />
+              ) : (
+                <span>PDF Thumbnail</span>
+              )}
+              {/* Delete Icon (X Out) */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  removeFile(idx);
+                }}
+                className="absolute hidden bg-red-500 p-1 text-white group-hover:block"
+              >
+                {XIcon}
+              </button>
+            </div>
+          ))}
+
+          {/* Show images from local */}
+          {addedFiles.map((file, idx) => (
+            <div
+              key={idx}
+              className="hover:group-hover group flex cursor-pointer flex-row justify-end p-2"
+            >
+              {file.type.startsWith("image/") ? (
+                <Image
+                  src={URL.createObjectURL(file)}
+                  alt={file.name}
                   className="aspect-square w-28 object-cover"
                   width={500}
                   height={500}

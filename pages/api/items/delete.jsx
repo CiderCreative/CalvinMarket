@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       },
     });
 
-    await db.send(deleteCommand);
+    const resp = await db.send(deleteCommand);
 
     res.status(200).json({ success: true });
   } catch (error) {

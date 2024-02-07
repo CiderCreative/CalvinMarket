@@ -1,9 +1,6 @@
 import { Table } from "sst/node/table";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import {
-  UpdateItemCommand,
-  DynamoDBDocumentClient,
-} from "@aws-sdk/lib-dynamodb";
+import { UpdateCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]";
 
@@ -16,26 +13,26 @@ export default async function handler(req, res) {
 
   const db = DynamoDBDocumentClient.from(new DynamoDBClient({}));
   const body = JSON.parse(req.body);
-
   try {
-    const update = new UpdateItemCommand({
+    const update = new UpdateCommand({
       TableName: Table.ItemsTable.tableName,
       Key: {
         itemId: body.itemId,
+        title: body.title,
       },
       UpdateExpression:
-        "set title = :t, price = :p, dateSold = :ds, status = :s, description = :d, preferredMeetup = :pm, profileId = :pi, type = :ty, imageKeys = :ik, tags = :tg",
+        "set price = :p, dateSold = :ds, #status = :s, description = :d, profileId = :pi, imageKeys = :ik, tags = :tg",
       ExpressionAttributeValues: {
-        ":t": body.title,
-        ":p": body.price,
+        ":p": body.price || 0,
         ":ds": body.dateSold,
         ":s": body.status,
         ":d": body.description,
-        ":pm": body.preferredMeetup,
         ":pi": body.profileId,
-        ":ty": body.type,
         ":ik": body.imageKeys,
         ":tg": body.tags,
+      },
+      ExpressionAttributeNames: {
+        "#status": "status",
       },
     });
 
