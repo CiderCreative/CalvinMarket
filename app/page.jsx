@@ -34,12 +34,12 @@ function Home() {
   if (session?.user?.email) {
     return (
       <div
-        className={`transition-all duration-100 overflow-x-hidden flex flex-col items-center ${
+        className={`flex flex-col items-center overflow-x-hidden transition-all duration-100 ${
           sidebarClosed ? "lg:pl-[50px]" : "lg:pl-[300px]"
         }`}
       >
         {/* Top Bar */}
-        <div className="flex w-full items-center justify-between px-3 lg:px-10 mt-5">
+        <div className="mt-5 flex w-full items-center justify-between px-3 lg:px-10">
           <Searchbar />
           <div className="flex space-x-5">
             <AccountIndication userName={session?.user?.email.split("@")[0]} />

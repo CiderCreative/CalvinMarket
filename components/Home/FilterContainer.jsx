@@ -4,14 +4,12 @@ import { FilterButton } from "./index";
 
 const FilterContainer = () => {
   return (
-    <div className="space-y-5 py-10 px-5">
+    <div>
       {filterButtonInfo.map((filter, key) => (
         <div key={key}>
           <div
-            className={`h-[1px] w-5/6 rounded-full bg-dark/50 dark:bg-light/30 m-auto ${
-              filter.text === "School Supplies" || filter.text === "New"
-                ? ""
-                : "hidden"
+            className={`m-auto my-10 h-[1px] rounded-full bg-dark/10 dark:bg-light/10 ${
+              filter.text === "School" || filter.text === "New" ? "" : "hidden"
             } `}
           />
           <FilterButton key={key} text={filter.text} icon={filter.icon} />
