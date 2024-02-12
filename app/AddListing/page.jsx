@@ -6,13 +6,16 @@ import { FileInput } from "../../components/EditListing/index.js";
 import { ExitButton } from "../../components/Global/index.js";
 import axios from "axios";
 import { format } from "date-fns";
+import { useRouter } from "next/navigation";
 
 const Page = ({ params: { ItemId } }) => {
   const [files, setFiles] = useState([]);
   const [formValues, setFormValues] = useState({});
   const [status, setStatus] = useState("unsent");
+  const router = useRouter();
+
   return (
-    <div className="flex max-lg:flex-col items-center">
+    <div className="flex items-center max-lg:flex-col">
       <div className="lg:w-1/2">
         <ExitButton />
         <FileInput files={files} setFiles={setFiles} />
@@ -27,29 +30,29 @@ const Page = ({ params: { ItemId } }) => {
         {/* Submit button */}
         <button
           onClick={(e) => {
-            submit(e, formValues, files, setStatus);
+            submit(e, formValues, files, setStatus, router);
             setStatus("sending");
           }}
-          className={` mt-10 w-[200px] py-3 rounded-full text-white transition-colors duration-500 ${
+          className={` mt-10 w-[200px] rounded-full py-3 text-white transition-colors duration-500 ${
             status === "sending"
-              ? "bg-yellow-500"
+              ? "bg-yellow"
               : status === "sent"
-              ? "bg-neutral-700 cursor-not-allowed"
-              : "bg-maroon hover:opacity-80"
+                ? "cursor-not-allowed bg-neutral-700"
+                : "bg-maroon hover:opacity-80"
           }`}
         >
           {status === "sending"
             ? "Sending..."
             : status === "sent"
-            ? "Sent"
-            : "Submit"}
+              ? "Sent"
+              : "Submit"}
         </button>
       </div>
     </div>
   );
 };
 
-async function submit(e, formValues, files, setStatus) {
+async function submit(e, formValues, files, setStatus, router) {
   e.preventDefault();
   var date = new Date();
   var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");
@@ -107,6 +110,7 @@ async function submit(e, formValues, files, setStatus) {
 
     // Once all uploads are done, set the status
     setStatus("sent");
+    router.push("/");
   } catch (error) {
     console.log(error);
     setStatus("error"); // You can set an error status if there's an exception

@@ -55,8 +55,7 @@ export default function FileInput({ files, setFiles }) {
   );
 
   return (
-    <div className="">
-      {/* <div className="flex items-center justify-center hover:cursor-pointer hover:bg-[#555555] active:bg-[#333333] transition-colors duration-300 w-4/5 m-auto my-20"> */}
+    <div>
       <form onSubmit={(e) => e.preventDefault()}>
         {/* hidden file input */}
         <input
@@ -86,9 +85,9 @@ export default function FileInput({ files, setFiles }) {
             setDragActive(true);
           }}
           className={`
-            m-auto my-20 flex aspect-square w-3/5 border-separate cursor-pointer
-           flex-col items-center justify-center rounded-xl border-4
-           border-dashed border-opposite py-10 text-center transition-colors duration-200 hover:bg-yellow/50
+           m-auto my-20 flex aspect-square w-[50vw] max-w-[500px] border-separate cursor-pointer
+           flex-col items-center justify-center rounded-xl border-4 border-dashed
+           border-opposite py-10 text-center transition-colors duration-200 hover:bg-yellow/50 lg:w-3/5
            ${dragActive ? "bg-[#333333]" : ""}
            `}
         >
