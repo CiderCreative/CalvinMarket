@@ -1,19 +1,22 @@
 import React from "react";
-import { ButtonLink } from "./index";
+import Link from "next/link";
+import { PlusIcon, PencilSquareIcon } from "@heroicons/react/24/outline";
 
 const ListingButtons = () => {
   return (
-    <div className="flex lg:flex-col justify-around lg:justify-center max-lg:mb-5 lg:ml-[10%] lg:w-[80%] lg:space-y-3">
-      <ButtonLink
-        text="Create a listing"
-        link="/AddListing"
-        styles="bg-opposite dark:bg-neutral-700 text-light dark:text-neutral-300 font-semibold max-lg:w-2/5"
-      />
-      <ButtonLink
-        text="Edit listings"
-        link="/EditListing"
-        styles="border-2 border-dark dark:border-light/20 max-lg:w-2/5"
-      />
+    <div className="flex h-20 w-full space-x-1 text-sm">
+      <Link
+        className="flex w-3/5 flex-col items-center justify-center rounded-md bg-yellow shadow-sm transition-colors duration-75 hover:bg-opacity-80"
+        href="/AddListing"
+      >
+        <PlusIcon className="mb-2 size-4" /> Create Listing
+      </Link>
+      <Link
+        className="flex w-2/5 flex-col items-center justify-center rounded-md bg-light shadow-sm transition-colors duration-75 hover:bg-opacity-50"
+        href="/EditListing"
+      >
+        <PencilSquareIcon className="mb-2 size-4" /> Edit Listing
+      </Link>
     </div>
   );
 };
