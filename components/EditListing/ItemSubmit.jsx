@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { format } from "date-fns";
+import { useSession } from "next-auth/react";
 
 const ItemSubmit = ({
   formValues,
@@ -10,7 +11,7 @@ const ItemSubmit = ({
   item,
 }) => {
   const [status, setStatus] = useState(false);
-
+  const { data: session } = useSession();
   return (
     <button
       onClick={(e) =>
@@ -23,6 +24,7 @@ const ItemSubmit = ({
           imgFilesToAdd,
           files,
           item,
+          session,
         )
       }
       className="rounded-md bg-maroon px-8 py-2 text-light shadow-sm transition-colors duration-100 ease-in-out hover:bg-opacity-70"
@@ -41,21 +43,11 @@ async function onSubmit(
   imgFilesToAdd,
   files,
   item,
+  session,
 ) {
   e.preventDefault();
 
   try {
-    // Create an array of promises for the file deletions
-    // let deletionPromises = imgKeysToDelete.map((key) => {
-    //   console.log("KEY: ", key);
-    //   return fetch("/api/deleteImg", {
-    //     method: "DELETE",
-    //     body: JSON.stringify({
-    //       file_key: key.trim(),
-    //     }),
-    //   }).then((res) => res.json());
-    // });
-
     // Create array of promises for uploading the added files
     let imagesSuccessfullyDeleted = await deleteImages(imgKeysToDelete);
     let imagesSuccessfullyUploaded = await uploadImages(imgFilesToAdd);
@@ -66,14 +58,6 @@ async function onSubmit(
     finalFiles = finalFiles.concat(imagesSuccessfullyUploaded);
     var fileNames = finalFiles.join(", ");
 
-    // const responses = await Promise.all(deletionPromises);
-    // var imagesProcessed = true;
-    // console.log("RESPONSES: ", responses);
-    // responses.forEach((response) => {
-    //   if (response.success === "true") {
-    //     imagesProcessed = false;
-    //   }
-    // });
     // Check if the upload was successful
     const resp = await fetch("/api/items/update", {
       method: "POST",
@@ -153,6 +137,7 @@ async function deleteImages(imageKeys) {
         method: "DELETE",
         body: JSON.stringify({
           file_key: key.trim(),
+          user: session?.user?.email || "no_user_email",
         }),
       }).then((res) => res.json());
     });

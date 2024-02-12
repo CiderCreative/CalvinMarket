@@ -2,7 +2,7 @@
 
 import { Amplify } from "@aws-amplify/core";
 import * as gen from "../../constants/backend/generated";
-import React, { useState, useEffect, useRef, use } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   CurrentConversationContainer,
   CurrentConversationHeader,
@@ -12,12 +12,17 @@ import {
 import wayfinder from "../../public/wayfinder.svg";
 import { MessageHandler } from "../../utils/MessageHandler";
 import { useSession } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 Amplify.configure(gen.config);
 
 const Messages = () => {
   const { data: session, status } = useSession();
-  const [activePerson, setActivePerson] = useState(null);
+  const searchParams = useSearchParams();
+  const user = searchParams.get("user");
+  const [activePerson, setActivePerson] = useState(
+    user ? { name: user, image: wayfinder } : null,
+  );
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [messages, setMessages] = useState({});
   const [peopleList, setPeopleList] = useState([]);
@@ -25,6 +30,7 @@ const Messages = () => {
   const isFirstRender = useRef(true);
   let messageHandler = useRef(null);
 
+  //initialize the messageHandler if user is logged in
   useEffect(() => {
     if (
       status !== "loading" &&
@@ -35,11 +41,12 @@ const Messages = () => {
         session?.user.email,
         (msg) => {
           setNewMessage(msg);
-        }
+        },
       );
     }
   }, [status]);
 
+  //publish a new message
   async function handleSubmit(e, msg) {
     e.preventDefault();
     e.stopPropagation();
@@ -47,11 +54,11 @@ const Messages = () => {
       Math.round((Date.now() - 1700179470000) / 100),
       session?.user.email,
       msg,
-      activePerson.name
+      activePerson.name,
     );
   }
 
-  //whenever there's a new message, update the messages array
+  //whenever there's a new message (from anyone), update the messages array
   useEffect(() => {
     if (messageHandler.current) {
       setMessages(messageHandler.current.getMessages());
@@ -59,7 +66,7 @@ const Messages = () => {
         .getContacts()
         .map((person) => ({ name: person, image: wayfinder }));
       if (isFirstRender.current) {
-        setActivePerson(newPeopleList[0]);
+        setActivePerson(activePerson ? activePerson : newPeopleList[0]);
         isFirstRender.current = false;
       }
       setPeopleList(newPeopleList);

@@ -33,7 +33,11 @@ const SidebarMenu = ({ item, setIsEditing }) => {
         {/* Seller Info & Buttons */}
         <div className="flex items-center justify-between">
           <SellerInfo profileId={profileId} />
-          <ItemButtons setIsEditing={setIsEditing} item={item} />
+          <ItemButtons
+            setIsEditing={setIsEditing}
+            item={item}
+            profileId={profileId}
+          />
         </div>
       </div>
     </div>

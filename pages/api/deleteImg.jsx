@@ -1,9 +1,15 @@
 import { Bucket } from "sst/node/bucket";
 import { DeleteObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "./auth/[...nextauth]";
 
 export default async function handler(req, res) {
-  const { file_key } = JSON.parse(req.body);
-  console.log("LOOK HERE", req.method, file_key);
+  const session = await getServerSession(req, res, authOptions);
+  const { file_key, user } = JSON.parse(req.body);
+  if (session.user.email !== user) {
+    res.status(401).json({ success: "ERROR unauthorized" });
+    return;
+  }
   switch (req.method) {
     case "DELETE":
       try {
