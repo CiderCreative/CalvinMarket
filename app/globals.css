@@ -14,6 +14,7 @@ body {
 .dark .bg-opposite        { background-color: #FAFAFA; }
 .dark .bg-gray-accent     { background-color: #464646; }
 .dark .text-primary       { color: #FAFAFA; }
+.dark .text-subtle        { color: #AAAAAA; }
 .dark .text-opposite      { color: #151515; }
 
 ::selection{
