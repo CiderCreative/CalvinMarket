@@ -6,9 +6,9 @@ const MessageButton = ({ messageRecipient }) => {
   return (
     <Link
       href={`/Messages?user=${messageRecipient}`}
-      className="flex items-center space-x-4 rounded-lg bg-yellow px-8 py-3 shadow-sm transition-opacity duration-100 hover:cursor-pointer hover:opacity-70 dark:bg-neutral-700"
+      className="flex items-center space-x-4 rounded-lg bg-yellow px-8 py-3 shadow-sm transition-opacity duration-100 hover:cursor-pointer hover:opacity-70 dark:bg-neutral-700 hover:dark:bg-neutral-800"
     >
-      <ChatBubbleLeftEllipsisIcon className="size-5 text-dark" />
+      <ChatBubbleLeftEllipsisIcon className="size-5 text-primary" />
       <p>Message Seller</p>
     </Link>
   );

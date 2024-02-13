@@ -65,7 +65,7 @@ const Page = ({ params: { ItemId } }) => {
           )}
         </div>
 
-        <div className="inset-y-0 right-0 w-1/2 lg:fixed">
+        <div className="inset-y-0 right-0 lg:fixed lg:w-1/2">
           {!isEditing ? (
             <SidebarMenu item={item} setIsEditing={setIsEditing} />
           ) : (

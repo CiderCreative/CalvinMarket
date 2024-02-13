@@ -19,7 +19,7 @@ const SidebarMenu = ({ item, setIsEditing }) => {
   } = item;
 
   return (
-    <div className="h-full overflow-y-auto bg-gray px-20 pb-24 pt-40">
+    <div className="h-full overflow-y-auto bg-gray px-5 py-10 dark:bg-darkGray lg:px-20 lg:py-20">
       <div className="flex max-w-4xl flex-col">
         {/* Title & Price */}
         <ItemHeader title={title} price={price} />
@@ -31,7 +31,7 @@ const SidebarMenu = ({ item, setIsEditing }) => {
         <div className="my-10 h-[1px] w-full bg-dark/10 dark:bg-light/10" />
 
         {/* Seller Info & Buttons */}
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between max-2xl:flex-col max-2xl:space-y-10 2xl:items-center">
           <SellerInfo profileId={profileId} />
           <ItemButtons
             setIsEditing={setIsEditing}

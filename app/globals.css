@@ -21,6 +21,10 @@ body {
   @apply bg-[#30303050];
 }
 
+.dark ::selection{
+  @apply bg-[#AAAAAA50];
+}
+
 .input-clear {
   outline: none;
   box-shadow: none;

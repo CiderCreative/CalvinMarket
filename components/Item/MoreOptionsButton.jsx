@@ -17,23 +17,23 @@ const MoreOptionsButton = ({ setIsEditing, item }) => {
 
   return (
     <div
-      className="click-away relative flex items-center rounded-lg bg-light px-5 shadow-sm transition-opacity duration-100 hover:cursor-pointer hover:bg-neutral-100 dark:bg-neutral-700"
+      className="click-away relative flex items-center rounded-lg bg-light px-5 shadow-sm transition-opacity duration-75 hover:cursor-pointer hover:bg-neutral-100 dark:bg-neutral-700 hover:dark:bg-neutral-800"
       onClick={() => setDropdown(!dropdown)}
     >
       {/* More Options Box */}
-      <EllipsisHorizontalIcon className="size-5 text-dark" />
+      <EllipsisHorizontalIcon className="size-5 text-primary" />
 
       {/* Dropdown options */}
       {dropdown && (
-        <div className="absolute left-0 top-10 z-10 flex max-h-80 flex-col overflow-y-auto rounded-xl bg-primary">
+        <div className="absolute left-0 top-10 z-10 flex max-h-80 flex-col overflow-y-auto rounded-md bg-primary">
           <button
-            className="p-3 hover:bg-neutral-200"
+            className="p-3 hover:bg-neutral-200 hover:dark:bg-neutral-800"
             onClick={() => setIsEditing(true)}
           >
             Edit
           </button>
           <button
-            className="p-3 hover:bg-neutral-200"
+            className="p-3 hover:bg-neutral-200 hover:dark:bg-neutral-800"
             onClick={() => onDelete(item)}
           >
             Delete

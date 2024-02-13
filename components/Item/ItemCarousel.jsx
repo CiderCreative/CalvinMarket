@@ -49,7 +49,7 @@ const ItemCarousel = ({ imageKeys }) => {
   }, [handleLeft, handleRight]);
 
   return (
-    <div className="overflow-x-hidden w-full h-full">
+    <div className="h-full w-full overflow-x-hidden">
       {/* Display a single image -- with cycling functionality */}
       <Carousel
         index={carouselIndex}
@@ -59,7 +59,7 @@ const ItemCarousel = ({ imageKeys }) => {
         handleRight={handleRight}
       />
 
-      <div className="flex items-center justify-center mt-10 space-x-20">
+      <div className="mx-5 mb-20 mt-10 flex items-center justify-center space-x-20">
         <CarouselArrow direction="left" func={handleLeft} />
         {/* Display small previews of images */}
         <ImageContainer

@@ -22,10 +22,10 @@ const Carousel = ({ index, urls, handleLeft, handleRight }) => {
   }, [index]);
 
   return (
-    <div className="lg:w-full lg:h-[30vw] max-h-[1200px] flex justify-between max-w-screen overflow-x-hidden">
+    <div className="max-w-screen mx-3 flex max-h-[1200px] justify-between overflow-x-hidden max-lg:max-h-[400px] lg:h-[30vw] lg:w-full">
       {/* The Carousel */}
       <div
-        className="flex overflow-visible [&>*]:flex-shrink-0 relative right-0"
+        className="relative right-0 flex overflow-visible [&>*]:flex-shrink-0"
         style={{ right: distanceRight }}
       >
         {/* Create block for each photo */}
@@ -33,7 +33,7 @@ const Carousel = ({ index, urls, handleLeft, handleRight }) => {
           return (
             <div
               key={idx}
-              className={`flex item-center justify-center w-full`}
+              className={`item-center flex w-full justify-center`}
               {...handlers} //Swipe handlers
             >
               <Image
