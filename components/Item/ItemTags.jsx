@@ -4,7 +4,15 @@ const ItemTags = ({ tags }) => {
   // Parse the tags string into an object
   const [properties, setProperties] = useState(JSON.parse(tags) || {});
 
-  useEffect(() => setProperties(JSON.parse(tags) || {}), [tags]);
+  useEffect(() => {
+    const filteredTags = JSON.parse(tags) || {};
+    const filteredProperties = Object.fromEntries(
+      Object.entries(filteredTags).filter(
+        ([key]) => !["Description", "title", "price"].includes(key),
+      ),
+    );
+    setProperties(filteredProperties);
+  }, [tags]);
 
   return (
     <div className="mt-3 grid grid-cols-2 gap-x-10 gap-y-5 xl:grid-cols-4">
