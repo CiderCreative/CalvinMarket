@@ -107,7 +107,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
           // ------------- Drop Down Tags ------------- //
           else if (value.type === "drop-down") {
             return (
-              <div className="relative my-5">
+              <div className="relative my-5" key={index}>
                 <div className="flex items-center space-x-10 text-xs lg:text-sm">
                   <label className="text-sm lg:text-base">{key}</label>
 
@@ -152,7 +152,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
           // ------------- Text Input Tags ------------- //
           else if (value.type === "text") {
             return (
-              <div>
+              <div key={index}>
                 <p className="mb-3 text-sm lg:text-base">{key}</p>
                 <textarea
                   type="text"

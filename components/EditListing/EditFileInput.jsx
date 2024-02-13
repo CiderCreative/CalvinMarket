@@ -132,7 +132,7 @@ export default function FileInput({
         </div>
 
         {/* Image Thumbnails & Remove Functionality */}
-        <div className="m-auto flex w-4/5 items-center justify-center">
+        <div className="m-auto mb-12 flex w-4/5 items-center justify-center">
           {/* Images from AWS */}
           {urls.map((url, idx) => (
             <div

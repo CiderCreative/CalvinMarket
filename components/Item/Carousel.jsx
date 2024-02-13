@@ -39,6 +39,7 @@ const Carousel = ({ index, urls, handleLeft, handleRight }) => {
               <Image
                 className="h-full w-auto object-cover"
                 loading="eager"
+                priority
                 src={image}
                 draggable="false"
                 alt=""
