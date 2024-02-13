@@ -21,7 +21,8 @@ const ExitItem = () => {
   return (
     <div
       onClick={() => router.back()}
-      className="absolute top-5 left-5 z-10 flex items-center justify-center aspect-square w-11 bg-gray-accent rounded-full hover:border-2 border-opposite dark:border-light hover:cursor-pointer"
+      className="absolute left-5 top-5 z-10 flex aspect-square w-11 items-center justify-center
+      rounded-full border-opposite bg-gray hover:cursor-pointer hover:border-2 dark:border-light dark:bg-darkGray"
     >
       <XMarkIcon className="h-7 w-7" aria-hidden="true" />
     </div>

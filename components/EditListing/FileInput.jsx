@@ -85,9 +85,9 @@ export default function FileInput({ files, setFiles }) {
             setDragActive(true);
           }}
           className={`
-           m-auto my-20 flex aspect-square w-[50vw] max-w-[500px] border-separate cursor-pointer
-           flex-col items-center justify-center rounded-xl border-4 border-dashed
-           border-opposite py-10 text-center transition-colors duration-200 hover:bg-yellow/50 lg:w-3/5
+           m-auto my-20 flex aspect-square w-[50vw] max-w-[400px] border-separate cursor-pointer flex-col
+           items-center justify-center rounded-xl border-2 border-dashed border-dark/50
+           py-10 text-center transition-colors duration-75 hover:bg-yellow/50 dark:border-light/50 lg:w-3/5
            ${dragActive ? "bg-[#333333]" : ""}
            `}
         >

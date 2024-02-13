@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 const Searchbar = () => {
   return (
     <div className="flex w-[500px] items-center space-x-3 rounded-md border-[1px] border-dark/30 px-5 py-2 dark:border-light/30">
-      <MagnifyingGlassIcon className="text-subtle size-4" />
+      <MagnifyingGlassIcon className="size-4 text-subtle" />
       <input
         type="text"
         autoComplete="off"

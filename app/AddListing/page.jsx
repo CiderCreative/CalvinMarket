@@ -21,7 +21,7 @@ const Page = ({ params: { ItemId } }) => {
         <FileInput files={files} setFiles={setFiles} />
       </div>
 
-      <div className="lg:w-1/2">
+      <div className="min-h-screen w-full bg-gray dark:bg-darkGray lg:w-1/2">
         <EditSidebarMenu
           formValues={formValues}
           setFormValues={setFormValues}
@@ -33,7 +33,7 @@ const Page = ({ params: { ItemId } }) => {
             submit(e, formValues, files, setStatus, router);
             setStatus("sending");
           }}
-          className={` mt-10 w-[200px] rounded-full py-3 text-white transition-colors duration-500 ${
+          className={` mx-5 mb-10 mt-10 w-[200px] rounded-full py-3 text-white transition-colors duration-500 ${
             status === "sending"
               ? "bg-yellow"
               : status === "sent"
