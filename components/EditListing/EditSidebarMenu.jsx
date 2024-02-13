@@ -18,21 +18,22 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
   }, [dropdown]);
 
   return (
-    <div className="inset-y-0 right-0 flex w-full flex-col overflow-y-scroll p-10 px-5">
-      <div className="mb-12 flex w-full items-center space-x-5 text-lg font-bold md:text-xl">
+    <div className="inset-y-0 right-0 flex w-full flex-col overflow-y-auto p-10 px-5">
+      <div className="mb-12 flex w-full text-lg font-bold max-lg:space-y-5 max-sm:flex-col md:text-xl lg:items-center lg:space-x-5">
         {/* Title */}
         <input
           type="text"
+          disabled
           placeholder="Item Title"
           value={formValues.title}
           onChange={(e) =>
             setFormValues({ ...formValues, title: e.target.value })
           }
-          className="input-clear w-3/5 border-b-[1px] border-dark/30 bg-transparent px-2 py-3 dark:border-light/30 sm:px-5"
+          className="input-clear w-full border-b-[1px] border-dark/30 bg-transparent px-2 py-3 dark:border-light/30 sm:w-3/5 sm:px-5"
         />
 
         {/* Price */}
-        <div className="relative flex w-2/5 items-center">
+        <div className="relative flex w-2/3 items-center sm:w-2/5">
           <span className="absolute left-4 opacity-50">$</span>
           <input
             type="number"
@@ -41,7 +42,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
             onChange={(e) =>
               setFormValues({ ...formValues, price: e.target.value })
             }
-            className="input-clear w-full border-b-[1px] border-dark/30 bg-transparent px-2 py-3 text-center dark:border-light/30 sm:px-5"
+            className="input-clear w-full border-b-[1px] border-dark/30 bg-transparent px-2 py-3 text-center text-lg dark:border-light/30 sm:px-5"
           />
         </div>
       </div>

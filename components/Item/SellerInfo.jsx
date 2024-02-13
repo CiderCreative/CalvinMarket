@@ -7,7 +7,7 @@ const SellerInfo = ({ profileId }) => {
     <div>
       <div className="mt-3 flex space-x-5">
         {/* User Icon */}
-        <div className="flex aspect-square size-16 items-center justify-center rounded-full bg-light shadow-sm dark:bg-darkGray">
+        <div className="flex aspect-square size-16 items-center justify-center rounded-full bg-light shadow-sm dark:bg-dark">
           <UserIcon className="size-5 rounded-full text-dark dark:text-light" />
         </div>
 

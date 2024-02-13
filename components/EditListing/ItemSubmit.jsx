@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const ItemSubmit = ({
   formValues,
@@ -10,8 +11,9 @@ const ItemSubmit = ({
   files,
   item,
 }) => {
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState("send");
   const { data: session } = useSession();
+  const router = useRouter();
   return (
     <button
       onClick={(e) =>
@@ -25,11 +27,14 @@ const ItemSubmit = ({
           files,
           item,
           session,
+          router,
         )
       }
       className="rounded-md bg-maroon px-8 py-2 text-light shadow-sm transition-colors duration-100 ease-in-out hover:bg-opacity-70"
     >
-      Submit
+      {status === "send" && "Update Listing"}
+      {status === "sending" && "Updating..."}
+      {status === "sent" && "Done"}
     </button>
   );
 };
@@ -44,9 +49,10 @@ async function onSubmit(
   files,
   item,
   session,
+  router,
 ) {
   e.preventDefault();
-
+  setStatus("sending");
   try {
     // Create array of promises for uploading the added files
     let imagesSuccessfullyDeleted = await deleteImages(imgKeysToDelete);
@@ -78,6 +84,7 @@ async function onSubmit(
     const data = await resp.json();
     if (data.success === true) {
       setStatus("sent");
+      router.push("/");
     } else {
       setStatus("error");
       console.log("ERROR uploading from edit: ", data);

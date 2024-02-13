@@ -65,7 +65,7 @@ const Page = ({ params: { ItemId } }) => {
           )}
         </div>
 
-        <div className="inset-y-0 right-0 lg:fixed lg:w-1/2">
+        <div className="inset-y-0 right-0 overflow-y-auto bg-gray dark:bg-darkGray lg:fixed lg:w-1/2">
           {!isEditing ? (
             <SidebarMenu item={item} setIsEditing={setIsEditing} />
           ) : (
@@ -75,7 +75,7 @@ const Page = ({ params: { ItemId } }) => {
                 setFormValues={setFormValues}
               />
 
-              <div className="flex space-x-5">
+              <div className="mx-5 my-10 flex space-x-5 max-sm:justify-between">
                 <ItemCancelEdit setIsEditing={setIsEditing} />
                 <ItemSubmit
                   item={item}
