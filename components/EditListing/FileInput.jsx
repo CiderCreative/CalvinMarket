@@ -9,6 +9,9 @@ export default function FileInput({ files, setFiles }) {
     e.preventDefault();
     if (e.target.files && e.target.files[0]) {
       for (let i = 0; i < e.target.files.length; i++) {
+        // Prevent duplicate files
+        if (files.map((file) => file.name).includes(e.target.files[i].name))
+          return;
         setFiles((prevState) => [...prevState, e.target.files[i]]);
       }
     }
@@ -20,6 +23,11 @@ export default function FileInput({ files, setFiles }) {
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       for (let i = 0; i < e.dataTransfer.files.length; i++) {
+        // Prevent duplicate files
+        if (
+          files.map((file) => file.name).includes(e.dataTransfer.files[i].name)
+        )
+          return;
         setFiles((prevState) => [...prevState, e.dataTransfer.files[i]]);
       }
     }

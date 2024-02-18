@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { apparelType } from "./ItemTypes/apparel.jsx";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import types from "../../constants/ItemTypes/itemTypes.jsx";
 import { ItemSubmit, ItemCancelEdit } from "../../components/EditListing";
+import DropDownField from "./DropdownField.jsx";
 
 const EditSidebarMenu = ({ formValues, setFormValues }) => {
   // State to manage form values
@@ -9,7 +9,8 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
   // Close Dropdown on click away (outside of menu)
   useEffect(() => {
     const clickAway = (event) => {
-      if (dropdown && !event.target.closest(".click-away")) setDropdown(false);
+      if (dropdown !== false && !event.target.closest(".click-away"))
+        setDropdown(false);
     };
     document.addEventListener("mousedown", clickAway);
     return () => {
@@ -49,15 +50,26 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
       <hr className="m-auto my-8 h-[2px] w-11/12 bg-opposite/5" />
 
       <h3 className="text-xl font-black">Item Details</h3>
+
+      {/* item type drop-down */}
+      <DropDownField
+        dropdown={dropdown}
+        setDropdown={setDropdown}
+        label={"type"}
+        index={0}
+        value={{ options: Object.keys(types) }}
+        formValues={formValues}
+        setFormValues={setFormValues}
+      />
       {/* mapping specific tag questions for each item */}
-      {Object.keys(apparelType).map((key, index) => {
-        let value = apparelType[key];
+      {Object.keys(types[formValues["type"]]).map((key, index) => {
+        let value = types[formValues["type"]][key];
 
         {
           // ------------- Radio Button Tags ------------- //
           if (value.type === "button") {
             return (
-              <div className="my-5 flex space-x-10" key={index}>
+              <div className="my-5 flex space-x-10" key={index} id={key}>
                 {/* Tag title */}
                 <p className="text-base">{key}</p>
 
@@ -105,52 +117,22 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
           // ------------- Drop Down Tags ------------- //
           else if (value.type === "drop-down") {
             return (
-              <div className="relative my-5">
-                <div className="flex items-center space-x-10">
-                  <label className="text-base">{key}</label>
-
-                  <div className="click-away relative">
-                    {/* Display Box */}
-                    <div
-                      onClick={() =>
-                        dropdown === index
-                          ? setDropdown(null)
-                          : setDropdown(index)
-                      }
-                      className="flex cursor-pointer items-center justify-between rounded-xl border-[1px] border-opposite/30 px-5 py-2 hover:bg-opposite/10"
-                    >
-                      {formValues[key] || "Select an option"}
-                      <ChevronDownIcon className="pointer-events-none inset-y-0 right-0 ml-3 aspect-square w-6" />
-                    </div>
-
-                    {/* Dropdown option selection */}
-                    {dropdown === index && (
-                      <div className="absolute left-0  z-10 flex max-h-80 flex-col overflow-y-auto rounded-xl border-2 border-opposite/30 bg-primary">
-                        {value.options.map((option, index) => (
-                          <div
-                            key={index}
-                            value={option}
-                            className="cursor-pointer border-y border-opposite/10 px-10 py-3 text-center hover:bg-yellow"
-                            onClick={() => {
-                              setFormValues({ ...formValues, [key]: option }),
-                                setDropdown(false);
-                            }}
-                          >
-                            {option}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+              <DropDownField
+                dropdown={dropdown}
+                setDropdown={setDropdown}
+                label={key}
+                index={index + 1}
+                value={value}
+                formValues={formValues}
+                setFormValues={setFormValues}
+              />
             );
           }
 
           // ------------- Text Input Tags ------------- //
           else if (value.type === "text") {
             return (
-              <div>
+              <div id={key}>
                 <p className="mb-3 text-base">{key}</p>
                 <textarea
                   type="text"

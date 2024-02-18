@@ -9,10 +9,10 @@ import { format } from "date-fns";
 
 const Page = ({ params: { ItemId } }) => {
   const [files, setFiles] = useState([]);
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({ type: "other" });
   const [status, setStatus] = useState("unsent");
   return (
-    <div className="flex max-lg:flex-col items-center">
+    <div className="flex items-center max-lg:flex-col">
       <div className="lg:w-1/2">
         <ExitButton />
         <FileInput files={files} setFiles={setFiles} />
@@ -30,23 +30,37 @@ const Page = ({ params: { ItemId } }) => {
             submit(e, formValues, files, setStatus);
             setStatus("sending");
           }}
-          className={` mt-10 w-[200px] py-3 rounded-full text-white transition-colors duration-500 ${
+          className={` mt-10 w-[200px] rounded-full py-3 text-white transition-colors duration-500 ${
             status === "sending"
               ? "bg-yellow-500"
-              : status === "sent"
-              ? "bg-neutral-700 cursor-not-allowed"
-              : "bg-maroon hover:opacity-80"
+              : status === "Sent"
+                ? "cursor-not-allowed bg-neutral-700"
+                : "bg-maroon hover:opacity-80"
           }`}
         >
-          {status === "sending"
+          {getButtonText(status)}
+          {/* {status === "sending"
             ? "Sending..."
-            : status === "sent"
-            ? "Sent"
-            : "Submit"}
+            : status === "Sent"
+              ? "Sent"
+              : "Submit"} */}
         </button>
       </div>
     </div>
   );
+};
+
+const getButtonText = (status) => {
+  switch (status) {
+    case "sending":
+      return "Sending...";
+    case "Sent":
+      return "Sent";
+    case "Error":
+      return "Error";
+    default:
+      return "Submit";
+  }
 };
 
 async function submit(e, formValues, files, setStatus) {
@@ -54,7 +68,7 @@ async function submit(e, formValues, files, setStatus) {
   var date = new Date();
   var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");
   var fileNames = "";
-
+  setStatus("sending");
   try {
     // Create an array of promises for the file uploads
     const uploadPromises = files.map(async (file) => {
@@ -101,15 +115,20 @@ async function submit(e, formValues, files, setStatus) {
         }),
       });
       const data = await resp.json();
+      if (data.success === true) {
+        setStatus("Sent");
+      } else {
+        setStatus("Error");
+      }
     } else {
+      setStatus("Error");
       throw new Error("Unable to upload images");
     }
 
     // Once all uploads are done, set the status
-    setStatus("sent");
   } catch (error) {
     console.log(error);
-    setStatus("error"); // You can set an error status if there's an exception
+    setStatus("Error"); // You can set an error status if there's an exception
   }
 }
 

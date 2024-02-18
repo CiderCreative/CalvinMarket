@@ -4,7 +4,11 @@ import { MoreOptionsButton, FavoriteButton, MessageButton } from "./index";
 const ItemButtons = ({ setIsEditing, item, profileId }) => {
   return (
     <div className="flex space-x-3">
-      <MoreOptionsButton setIsEditing={setIsEditing} item={item} />
+      <MoreOptionsButton
+        setIsEditing={setIsEditing}
+        item={item}
+        sellerId={profileId}
+      />
       <FavoriteButton />
       <MessageButton messageRecipient={profileId} />
     </div>

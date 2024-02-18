@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
+import { useSession } from "next-auth/react";
 
-const MoreOptionsButton = ({ setIsEditing, item }) => {
+const MoreOptionsButton = ({ setIsEditing, item, sellerId }) => {
   const [dropdown, setDropdown] = useState(false);
+
+  const { data: session, status } = useSession();
 
   // Close Dropdown on click away (outside of menu)
   useEffect(() => {
@@ -14,7 +17,6 @@ const MoreOptionsButton = ({ setIsEditing, item }) => {
       document.removeEventListener("mousedown", clickAway);
     };
   }, [dropdown]);
-
   return (
     <div
       className="click-away relative flex items-center rounded-lg bg-light px-5 shadow-sm transition-opacity duration-100 hover:cursor-pointer hover:bg-neutral-100 dark:bg-neutral-700"
@@ -26,12 +28,14 @@ const MoreOptionsButton = ({ setIsEditing, item }) => {
       {/* Dropdown options */}
       {dropdown && (
         <div className="absolute left-0 top-10 z-10 flex max-h-80 flex-col overflow-y-auto rounded-xl bg-primary">
-          <button
-            className="p-3 hover:bg-neutral-200"
-            onClick={() => setIsEditing(true)}
-          >
-            Edit
-          </button>
+          {sellerId === session?.user?.email && status === "authenticated" && (
+            <button
+              className="p-3 hover:bg-neutral-200"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit
+            </button>
+          )}
           <button
             className="p-3 hover:bg-neutral-200"
             onClick={() => onDelete(item)}
