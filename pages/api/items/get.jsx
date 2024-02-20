@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     return;
   }
   const { ExpressionAttributeValues, FilterExpression } = toScanCommand(
-    JSON.parse(req.body).filter
+    JSON.parse(req.body).filter,
   );
 
   const ExpressionAttributeNames = FilterExpression.includes("#STATUS")
@@ -27,7 +27,6 @@ export default async function handler(req, res) {
   const input = {
     TableName: Table.ItemsTable.tableName,
     ExpressionAttributeNames,
-    //ExpressionAttributeNames: {"#STATUS": "status"}, //status is a reserved word for dynamodb
     ExpressionAttributeValues,
     FilterExpression,
   };

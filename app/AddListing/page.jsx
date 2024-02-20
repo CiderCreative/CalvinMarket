@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 
 const Page = ({ params: { ItemId } }) => {
   const [files, setFiles] = useState([]);
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState({ type: "other" });
   const [status, setStatus] = useState("unsent");
   const router = useRouter();
 
@@ -41,6 +41,7 @@ const Page = ({ params: { ItemId } }) => {
                 : "bg-maroon hover:opacity-80"
           }`}
         >
+          {getButtonText(status)}
           {status === "sending"
             ? "Sending..."
             : status === "sent"
@@ -52,12 +53,25 @@ const Page = ({ params: { ItemId } }) => {
   );
 };
 
-async function submit(e, formValues, files, setStatus, router) {
+const getButtonText = (status) => {
+  switch (status) {
+    case "sending":
+      return "Sending...";
+    case "Sent":
+      return "Sent";
+    case "Error":
+      return "Error";
+    default:
+      return "Submit";
+  }
+};
+
+async function submit(e, formValues, files, setStatus) {
   e.preventDefault();
   var date = new Date();
   var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");
   var fileNames = "";
-
+  setStatus("sending");
   try {
     // Create an array of promises for the file uploads
     const uploadPromises = files.map(async (file) => {
@@ -104,7 +118,13 @@ async function submit(e, formValues, files, setStatus, router) {
         }),
       });
       const data = await resp.json();
+      if (data.success === true) {
+        setStatus("Sent");
+      } else {
+        setStatus("Error");
+      }
     } else {
+      setStatus("Error");
       throw new Error("Unable to upload images");
     }
 
@@ -113,7 +133,7 @@ async function submit(e, formValues, files, setStatus, router) {
     router.push("/");
   } catch (error) {
     console.log(error);
-    setStatus("error"); // You can set an error status if there's an exception
+    setStatus("Error"); // You can set an error status if there's an exception
   }
 }
 

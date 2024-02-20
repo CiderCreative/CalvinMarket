@@ -56,9 +56,9 @@ function Home() {
         <HomeTopbar />
 
         {/* Featured Item Categories */}
-        <HighlightContainer text="Newly Added" data={items} />
-        <HighlightContainer text="Textbooks" data={items} />
-        <HighlightContainer text="Free Items" data={items} />
+        <HighlightContainer text="Newly Added" data={items.slice(0, 5)} />
+        <HighlightContainer text="Textbooks" data={items.slice(0, 5)} />
+        <HighlightContainer text="Free Items" data={items.slice(0, 5)} />
       </div>
     );
   } else if (status === "loading") {

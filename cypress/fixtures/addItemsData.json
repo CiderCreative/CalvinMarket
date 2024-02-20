@@ -1,0 +1,46 @@
+{
+    "apparel": {
+        "titles": ["clothes", "garments", "attire", "outfit", "wardrobe", "threads", "ensemble", "costume", "gear", "getup", "raiment", "vesture", "habiliment", "raiment", "togs", "frock", "duds", "clobber", "rags", "tatters", "togs", "togas", "togae"],
+        "Description": ["stylish dress for special occasions", "casual t-shirt for everyday wear", "cozy sweater for chilly days", "formal suit for business meetings", "comfortable pajamas for a good night's sleep", "fancy vintage shirt, mom gave it to me and I love it but grew out of it", "I bought this dress for a wedding and never wore it again"]
+    },
+    "textbook":{
+        "titles": ["chem 101 textbook", "ind 231 textbook", "math 101 textbook", "history 101 textbook", "textbook for science 101", "textbook for english 101", "textbook for art 101 ", "music 101 textbook", "computer science 101 textbook", "physical education 101 textbook", "foreign language 101 textbook", "business 101 textbook", "psychology 101 textbook", "sociology 101 textbook", "philosophy 101 textbook", "economics 101 textbook", "political science 101 textbook", "anthropology 101 textbook", "textbook for geography 101", "environmental science 101 textbook"],
+        "ISBN": [
+            "978-0-13-516615-7",
+            "223-2-29-127456-7",
+            "978-0-13-516615-7",
+            "377-0-13-510615-4",
+            "972-0-03-516345-3",
+            "978-0-13-516615-7",
+            "919-0-13-512345-4",
+            "219-2-21-127346-0",
+            "919-0-93-512345-4",
+            "719-0-73-912345-7",
+            "319-0-13-512345-7",
+            "919-0-09-912345-3",
+            "836-4-28-342934-2",
+            "919-0-13-512345-4",
+            "119-0-13-912245-0",
+            "419-0-13-512445-4",
+            "214-0-23-612345-2",
+            "619-0-13-542342-4"
+        ],
+        "Description": ["textbook for math class", "textbook for history class", "textbook for science class", "textbook for english class", "textbook for art class", "textbook for music class", "textbook for computer science class", "textbook for physical education class", "textbook for foreign language class", "textbook for business class", "textbook for psychology class", "textbook for sociology class", "textbook for philosophy class", "textbook for economics class", "textbook for political science class", "textbook for anthropology class", "textbook for geography class", "textbook for environmental science class"]
+    },
+    "other":{
+        "titles": ["random car", "I just found this somewhere", "garage sale stuff", "stuff for your dorm", "graduating, everything must go", "duster", "random stuff"],
+        "Description": ["I found this in the attic", "I bought this at a garage sale", "I got this as a gift"]
+    },
+    "shirt": {
+        "titles": ["t-shirt", "blouse", "button-up", "polo", "sweatshirt", "sweater", "tank top", "halter top", "crop top", "tunic", "peasant top", "turtleneck", "camisole", "tube top", "off-the-shoulder top", "wrap top", "kimono", "jersey", "hoodie", "cardigan", "vest", "blazer", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero", "tunic", "peplum", "corset", "bodysuit", "shrug", "bolero"],
+        "Description": ["stylish dress for special occasions", "casual t-shirt for everyday wear", "cozy sweater for chilly days", "formal suit for business meetings", "comfortable pajamas for a good night's sleep", "fancy vintage shirt, mom gave it to me and I love it but grew out of it", "I bought this dress for a wedding and never wore it again"]
+    },
+    "pants": {
+        "titles": ["jeans", "khakis", "shorts", "sweatpants", "leggings", "chinos", "cargo pants", "slacks", "capris", "culottes", "joggers", "corduroys", "trousers", "palazzo pants", "harem pants", "yoga pants", "bootcut pants", "wide-leg pants", "skinny pants", "cropped pants", "paperbag pants", "high-waisted pants", "pleated pants", "linen pants", "flared pants", "track pants", "pinstripe pants", "velvet pants", "leather pants", "denim pants"],
+        "Description": ["stylish dress for special occasions", "casual pants for everyday wear", "cozy pants for chilly days", "formal pants for business meetings", "comfortable pajamas for a good night's sleep", "fancy vintage pants, mom gave it to me and I love it but grew out of it", "I bought these pants for a wedding and never wore it again"]
+    },
+    "furniture": {
+        "titles": ["couch", "sofa", "loveseat", "sectional", "recliner", "chair", "ottoman", "chaise", "bench", "daybed", "futon", "divan", "settee", "chesterfield", "canapé", "davenport", "tuffet", "pouf"],
+        "Description": ["dorm table", "dorm chair", "dorm bed", "dorm dresser", "dorm desk", "dorm lamp", "dorm rug", "dorm mirror", "dorm bookshelf", "dorm nightstand", "dorm closet", "dorm trash can", "dorm laundry basket", "dorm curtains", "dorm wall art", "dorm wall decor", "dorm wall shelves", "dorm wall hooks", "dorm wall clock", "dorm wall mirror", "dorm wall tapestry", "dorm wall decals", "dorm wall sconces", "dorm wall lights", "dorm wall planters", "dorm wall vases", "dorm wall sculptures", "dorm wall baskets", "dorm wall hooks", "dorm wall shelves", "dorm wall clock", "dorm wall mirror", "dorm wall tapestry", "dorm wall decals", "dorm wall sconces", "dorm wall lights", "dorm wall planters", "dorm wall vases", "dorm wall sculptures", "dorm wall baskets", "dorm wall hooks", "dorm wall shelves", "dorm wall clock", "dorm wall mirror", "dorm wall tapestry", "dorm wall decals", "dorm wall sconces", "dorm wall lights", "dorm wall planters", "dorm wall vases", "dorm wall sculptures", "dorm wall baskets", "dorm wall hooks", "dorm wall shelves", "dorm wall clock", "dorm wall mirror", "dorm wall tapestry", "dorm wall decals", "dorm wall sconces", "dorm wall lights", "dorm wall planters", "dorm wall vases", "dorm wall sculptures", "dorm wall baskets", "dorm wall hooks", "dorm wall shelves", "dorm wall clock", "dorm wall mirror", "dorm wall tapestry", "dorm wall decals", "dorm wall sconces", "dorm wall lights", "dorm wall planters", "dorm wall vases", "dorm wall sculptures", "dorm wall baskets", "dorm wall hooks", "dorm wall shelves", "dorm wall clock", "dorm wall mirror", "dorm wall tapestry"]
+    }
+}
