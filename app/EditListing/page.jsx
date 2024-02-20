@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import loadingImg from "../../constants/loadingImage.png";
 import { apiLimiter } from "../../utils/rateLimiter";
+import { ExitButton } from "../../components/Global";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 const Page = () => {
   const [items, setItems] = useState([]); //your items
@@ -47,41 +49,59 @@ const Page = () => {
   }, [items]);
 
   return (
-    <div className="flex flex-row">
-      {urls.map((url, index) => {
-        if (!items[index] || !items[index].itemId)
-          return (
-            <Image
-              src={url}
-              className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
-              alt="placeholder image"
-              width={200}
-              height={200}
-            />
-          );
-        return (
-          <div className="flex w-40 flex-col" key={index}>
-            <Link
-              href={`/Item/${items[index].itemId || ""}`}
-              className="h-40 w-40"
-            >
+    <div className="m-auto max-w-[1500px] px-2 py-10 sm:px-10">
+      <ExitButton />
+      <div className="my-10 text-center">
+        <h1 className="text-xl font-bold md:text-2xl xl:text-3xl">
+          Your items
+        </h1>
+        <p className="text-center text-base text-subtle md:text-base">
+          Tap on an item to edit
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-10 xl:grid-cols-5 2xl:grid-cols-6">
+        {urls.map((url, index) => {
+          if (!items[index] || !items[index].itemId)
+            return (
               <Image
                 src={url}
                 className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
-                alt=""
-                width={100}
-                height={100}
+                alt="placeholder image"
+                width={200}
+                height={200}
               />
-            </Link>
-            <button onClick={() => onDelete(items[index])}>Delete</button>
-            <p className="pt-1 text-base leading-5">
-              {items[index].price > 0 ? `$${items[index].price}` : "Free"}
-            </p>
-            <p className="text-base font-bold">{items[index].title}</p>
-            <p className="text-xs font-light">{items[index].detail}</p>
-          </div>
-        );
-      })}
+            );
+          return (
+            <div className="flex w-full flex-col" key={index}>
+              <Link
+                href={`/Item/${items[index].itemId || ""}`}
+                className="group/item relative mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:scale-[102%] hover:cursor-pointer lg:text-sm"
+              >
+                <Image
+                  src={url}
+                  className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
+                  alt=""
+                  width={100}
+                  height={100}
+                />
+                <div
+                  className="group absolute right-0 top-0 hidden bg-primary p-1 group-hover/item:block"
+                  onClick={() => onDelete(items[index])}
+                >
+                  <TrashIcon className="size-6 stroke-[1.2px] group-hover:text-red-500" />
+                </div>
+              </Link>
+              <div className="flex justify-between space-x-2 pt-2 text-subtle">
+                <p className="font-semibold">{items[index].title}</p>
+                <p>
+                  {items[index].price > 0 ? `$${items[index].price}` : "Free"}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

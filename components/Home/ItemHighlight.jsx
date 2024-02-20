@@ -35,7 +35,7 @@ const ItemHighlight = ({ item }) => {
         height={200}
       />
 
-      <div className="text-subtle flex justify-between space-x-2 pt-2">
+      <div className="flex justify-between space-x-2 pt-2 text-subtle">
         <p>{title}</p>
         <p className="font-semibold">{price > 0 ? `$${price}` : "Free"}</p>
       </div>

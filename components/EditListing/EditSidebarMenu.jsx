@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import types from "../../constants/ItemTypes/itemTypes.jsx";
-import { ItemSubmit, ItemCancelEdit } from "../../components/EditListing";
 import DropDownField from "./DropdownField.jsx";
 
-const EditSidebarMenu = ({ formValues, setFormValues }) => {
+const EditSidebarMenu = ({ formValues, setFormValues, isEditing }) => {
   // State to manage form values
   const [dropdown, setDropdown] = useState();
   // Close Dropdown on click away (outside of menu)
@@ -20,13 +19,13 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
 
   return (
     <div className="inset-y-0 right-0 flex w-full flex-col overflow-y-auto p-10 px-5">
-      <div className="mb-12 flex w-full text-lg font-bold max-lg:space-y-5 max-sm:flex-col md:text-xl lg:items-center lg:space-x-5">
+      <div className="mb-12 flex w-full text-lg font-bold max-sm:flex-col max-sm:space-y-5 md:text-xl lg:items-center lg:space-x-5">
         {/* Title */}
         <input
           type="text"
-          disabled
           placeholder="Item Title"
           value={formValues.title}
+          disabled={isEditing}
           onChange={(e) =>
             setFormValues({ ...formValues, title: e.target.value })
           }
@@ -48,9 +47,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
         </div>
       </div>
 
-      <hr className="m-auto my-8 h-[2px] w-11/12 bg-opposite/5" />
-
-      <h3 className="text-xl font-black">Item Details</h3>
+      <h3 className="text-base font-bold xl:text-lg">Item Details</h3>
 
       {/* item type drop-down */}
       <DropDownField
