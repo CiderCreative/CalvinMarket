@@ -89,7 +89,7 @@ const Page = () => {
                   className="group absolute right-0 top-0 hidden bg-primary p-1 group-hover/item:block"
                   onClick={() => onDelete(items[index])}
                 >
-                  <TrashIcon className="size-6 group-hover:text-red-500" />
+                  <TrashIcon className="size-6 stroke-[1.2px] group-hover:text-red-500" />
                 </div>
               </Link>
               <div className="flex justify-between space-x-2 pt-2 text-subtle">
