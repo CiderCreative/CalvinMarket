@@ -7,7 +7,7 @@ const AboutProblem = () => {
       {/* Header & divider */}
       <AboutHeader text="The Problem" />
 
-      <div className="flex max-xl:flex-col max-xl:space-y-8 max-xl:items-center justify-center xl:space-x-40 text-sm font-normal">
+      <div className="flex max-xl:flex-col max-xl:space-y-8 max-xl:items-center justify-center xl:space-x-40 text-base font-normal">
         <p className="max-lg:w-[85vw] max-w-[500px]">
           Attending college involves more than just tuition fees; students face
           various additional expenses like technology, textbooks, and dorm

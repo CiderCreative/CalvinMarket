@@ -24,22 +24,21 @@ const ItemHighlight = ({ item }) => {
 
   return (
     <Link
-      href={`/Item/${itemId}}`}
-      className="flex flex-col hover:scale-[102%] w-full flex-shrink-0 transition-transform duration-200 ease-in-out hover:cursor-pointer mb-5"
+      href={`/Item/${itemId}`}
+      className="mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:scale-[102%] hover:cursor-pointer lg:text-sm"
     >
       <Image
         src={urls[0]}
-        className="object-cover aspect-square w-full flex-shrink-0 rounded-md"
+        className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
         alt=""
         width={200}
         height={200}
       />
 
-      <p className="text-md leading-5 pt-1">
-        {price > 0 ? `$${price}` : "Free"}
-      </p>
-      <p className="text-md font-bold">{title}</p>
-      <p className="text-xs font-light">{detail}</p>
+      <div className="text-subtle flex justify-between space-x-2 pt-2">
+        <p>{title}</p>
+        <p className="font-semibold">{price > 0 ? `$${price}` : "Free"}</p>
+      </div>
     </Link>
   );
 };

@@ -4,24 +4,21 @@ import ListingButtons from "./ListingButtons";
 
 const HomeTopbar = () => {
   return (
-    <div className="lg:hidden mt-5">
-      {/* Create & Edit Listing */}
-      <ListingButtons />
+    <div className="mt-5 lg:hidden">
+      <div className="flex justify-center">
+        {/* Create & Edit Listing */}
+        <ListingButtons />
+      </div>
 
       {/* Filter Buttons - Small Screen */}
-      <div className="flex flex-wrap justify-center m-auto">
+      <div className="m-auto mt-5 flex flex-wrap justify-center">
         {filterButtonInfo.map((filter, idx) => (
           <div
             key={idx}
-            className="flex flex-col items-center w-[80px] sm:w-[100px] hover:bg-neutral-200 dark:hover:bg-neutral-800 p-2 rounded-xl cursor-pointer"
+            className="flex w-[80px] cursor-pointer flex-col items-center rounded-md p-2 hover:bg-neutral-200 dark:hover:bg-neutral-800 sm:w-[100px]"
           >
-            <div className="bg-yellow text-dark rounded-full p-1">
-              <div className="aspect-square w-5 flex items-center justify-center">
-                {filter.icon}
-              </div>
-            </div>
-
-            <p className="text-sm mt-1">{filter.text.split(" ")[0]}</p>
+            {filter.icon}
+            <p className="mt-1 text-xs">{filter.text}</p>
           </div>
         ))}
       </div>

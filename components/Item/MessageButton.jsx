@@ -1,31 +1,15 @@
 import React from "react";
 import Link from "next/link";
+import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/outline";
 
-const MessageButton = () => {
-  const messageIcon = (
-    <svg
-      className="w-4 h-4 text-gray-800 dark:text-white"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 20 18"
-    >
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M16 5h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-2v3l-4-3H8m4-13H2a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h2v3l4-3h4a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1Z"
-      />
-    </svg>
-  );
+const MessageButton = ({ messageRecipient }) => {
   return (
     <Link
-      href="/Messages"
-      className="bg-neutral-300 dark:bg-neutral-700 hover:opacity-70 transition-opacity duration-100 hover:cursor-pointer px-6 py-3 rounded-lg flex items-center space-x-2"
+      href={`/Messages?user=${messageRecipient}`}
+      className="flex items-center space-x-4 rounded-lg bg-yellow px-8 py-3 shadow-sm transition-opacity duration-100 hover:cursor-pointer hover:opacity-70 dark:bg-neutral-700 hover:dark:bg-neutral-800"
     >
-      {messageIcon}
-      <p>Messages</p>
+      <ChatBubbleLeftEllipsisIcon className="size-5 text-primary" />
+      <p>Message Seller</p>
     </Link>
   );
 };

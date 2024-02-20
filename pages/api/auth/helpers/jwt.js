@@ -3,7 +3,7 @@
  */
 import refreshAccessToken from "./refreshAccessToken";
 
-export default async function jwt( token, user, account ) {
+export default async function jwt(token, user, account) {
   // If account is not null, it's a sign-in event
   if (account && user) {
     token.AccessToken = user.AccessToken;
@@ -17,4 +17,4 @@ export default async function jwt( token, user, account ) {
   }
   // Access token has expired, try to update it
   return refreshAccessToken(token, user);
-  }
+}

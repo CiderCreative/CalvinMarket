@@ -8,7 +8,6 @@ import Searchbar from "./Searchbar";
 import Settings from "./Settings";
 import HomeSidebar from "./HomeSidebar";
 import HomeTopbar from "./HomeTopbar";
-import ButtonLink from "./ButtonLink";
 
 export {
   AccountIndication,
@@ -20,6 +19,5 @@ export {
   Searchbar,
   Settings,
   HomeSidebar,
-  ButtonLink,
   HomeTopbar,
 };

@@ -1,22 +1,28 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { CognitoIdentityProviderClient, InitiateAuthCommand, AuthFlowType } from '@aws-sdk/client-cognito-identity-provider';
-import { decode } from "jsonwebtoken"; 
+import {
+  CognitoIdentityProviderClient,
+  InitiateAuthCommand,
+  AuthFlowType,
+} from "@aws-sdk/client-cognito-identity-provider";
+import { decode } from "jsonwebtoken";
 import jwt from "./helpers/jwt";
+import { Config } from "sst/node/config";
 
 export const authOptions = {
+  site: process.env.NEXTAUTH_URL,
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     Credentials({
       name: "Credentials",
       credentials: {
         username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const crypto = require('crypto');
-
+        const crypto = require("crypto");
         const client = new CognitoIdentityProviderClient({
-          region: process.env.COGNITO_REGION,
+          region: Config.COGNITO_REGION,
         });
 
         // Check if credentials are defined
@@ -24,14 +30,14 @@ export const authOptions = {
           // Handle the case where credentials are not provided or incomplete
           return null;
         }
-        
-        const hmac = crypto.createHmac('sha256', process.env.COGNITO_CLIENT_SECRET);
-        hmac.update(credentials.username + process.env.COGNITO_CLIENT_ID);
-        const hmacDigest = hmac.digest('base64');
+
+        const hmac = crypto.createHmac("sha256", Config.COGNITO_CLIENT_SECRET);
+        hmac.update(credentials.username + Config.COGNITO_CLIENT_ID);
+        const hmacDigest = hmac.digest("base64");
 
         const signInParams = {
           AuthFlow: "USER_PASSWORD_AUTH" as AuthFlowType,
-          ClientId: process.env.COGNITO_CLIENT_ID,
+          ClientId: Config.COGNITO_CLIENT_ID,
           AuthParameters: {
             SECRET_HASH: hmacDigest,
             USERNAME: credentials.username,
@@ -66,7 +72,7 @@ export const authOptions = {
   callbacks: {
     //ensures all tokens are good and up to date
     //token includes email, sub, AccessToken, AccessTokenExpires, Refresh Token, iat, exp, and jti
-    async jwt({token, user, account}){
+    async jwt({ token, user, account }) {
       return jwt(token, user, account);
     },
     //basically just takes the token and adds it to the session objs (but doesn't add them 4 sum reason)
@@ -74,9 +80,9 @@ export const authOptions = {
       if (token) {
         session.user = {
           ...session.user,
-          ...token
+          ...token,
         };
-    
+
         if (token.error) {
           session.error = token.error;
         }
@@ -85,7 +91,7 @@ export const authOptions = {
     },
   },
   pages: {
-    signIn: '/SignUp',
+    signIn: "/SignUp",
   },
   // Add other NextAuth options as needed
 };

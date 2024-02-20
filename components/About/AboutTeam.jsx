@@ -19,7 +19,7 @@ const AboutTeam = () => {
             draggable={false}
           />
           <h3 className="text-2xl font-bold">Braden Lint</h3>
-          <p className="text-sm font-normal">
+          <p className="text-base font-normal">
             As the Backend Developer for the Calvin Market project, Lint took
             control of the technical infrastructure. He configured a robust
             serverless hosting solution, designed and managed sophisticated
@@ -37,7 +37,7 @@ const AboutTeam = () => {
             draggable={false}
           />
           <h3 className="text-2xl font-bold">Logan Humphrey</h3>
-          <p className="text-sm font-normal">
+          <p className="text-base font-normal">
             As Designer and Frontend Developer for the Calvin Market project,
             Humphrey took control over the visuals of the project. He crafted
             the full UI design in Figma, then translated design concepts into

@@ -1,38 +1,92 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ItemCarousel, SidebarMenu } from "../../../components/Item/index";
 import { ExitButton } from "../../../components/Global/index";
+import { useSession } from "next-auth/react";
+import { EditSidebarMenu } from "../../../components/EditListing";
+import EditFileInput from "../../../components/EditListing/EditFileInput";
+import { ItemSubmit, ItemCancelEdit } from "../../../components/EditListing";
 
 const Page = ({ params: { ItemId } }) => {
-  const [item, setItem] = useState([{ imageKeys: "[]" }]);
+  const [item, setItem] = useState({
+    imageKeys: "[]",
+    tags: JSON.stringify({}),
+    description: "",
+  });
+  const [files, setFiles] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
+  const imgKeysToDelete = useRef([]);
+  const imgFilesToAdd = useRef([]);
+  const [formValues, setFormValues] = useState({});
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     // Get item from DB
-    const getItems = async () => {
-      const response = await fetch(`/api/items/get`, {
-        method: "POST",
-        body: JSON.stringify({
-          filter: `itemId = ${ItemId.substring(0, ItemId.length - 3)}`,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => setItem(data.Items));
+    const getItem = async () => {
+      try {
+        const response = await fetch(`/api/items/get`, {
+          method: "POST",
+          body: JSON.stringify({
+            filter: `itemId = ${ItemId.substring(0, ItemId.length)}`,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setItem(data.Items[0]);
+          });
+      } catch (error) {
+        console.error("Failed to fetch item");
+      }
     };
-    getItems();
+    getItem();
   }, [ItemId]);
+
+  useEffect(() => {
+    setFormValues(JSON.parse(item.tags));
+    setFiles(item.imageKeys.slice(1, -1).split(","));
+  }, [item]);
 
   return (
     <div className="w-screen overflow-x-clip">
       <ExitButton />
 
-      <div className="max-lg:flex-col mt-20">
+      <div className="mt-20 max-lg:flex-col">
         {/* Contains carousel & image container (for quick selection) */}
-        <div className="h-full flex-grow lg:max-w-[calc(100%-400px)]">
-          <ItemCarousel imageKeys={item[0].imageKeys} />
+        <div className="h-full flex-grow lg:w-1/2">
+          {!isEditing ? (
+            <ItemCarousel imageKeys={item.imageKeys} />
+          ) : (
+            <EditFileInput
+              files={files}
+              setFiles={setFiles}
+              imgKeysToDelete={imgKeysToDelete}
+              imgFilesToAdd={imgFilesToAdd}
+            />
+          )}
         </div>
 
-        <div className="lg:fixed right-0 inset-y-0 lg:w-1/5 min-w-[400px]">
-          <SidebarMenu item={item[0]} />
+        <div className="inset-y-0 right-0 overflow-y-auto bg-gray dark:bg-darkGray lg:fixed lg:w-1/2">
+          {!isEditing ? (
+            <SidebarMenu item={item} setIsEditing={setIsEditing} />
+          ) : (
+            <>
+              <EditSidebarMenu
+                formValues={formValues}
+                setFormValues={setFormValues}
+              />
+
+              <div className="mx-5 my-10 flex space-x-5 max-sm:justify-between">
+                <ItemCancelEdit setIsEditing={setIsEditing} />
+                <ItemSubmit
+                  item={item}
+                  files={files}
+                  formValues={formValues}
+                  imgKeysToDelete={imgKeysToDelete.current}
+                  imgFilesToAdd={imgFilesToAdd.current}
+                />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

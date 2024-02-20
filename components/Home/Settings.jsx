@@ -27,12 +27,12 @@ const Settings = () => {
         }}
       >
         <Cog8ToothIcon
-          className="w-7 h-7 cursor-pointer hover:opacity-70"
+          className="text-subtle size-6 cursor-pointer stroke-[1.2px] hover:opacity-70"
           onClick={() => setSettingsOpen(!settingsOpen)}
         />
       </div>
       <div
-        className={`absolute space-y-5 p-5 top-10 right-20 border-2 bg-primary border-opposite rounded-xl ${
+        className={`absolute right-20 top-10 space-y-5 rounded-xl border-2 border-opposite bg-primary p-5 ${
           settingsOpen ? "visible" : "hidden"
         }`}
       >
@@ -40,7 +40,7 @@ const Settings = () => {
         {darkMode ? (
           <svg
             onClick={toggleDark}
-            className="w-6 h-6 text-primary hover:cursor-pointer hover:scale-105"
+            className="h-6 w-6 text-primary hover:scale-105 hover:cursor-pointer"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -57,7 +57,7 @@ const Settings = () => {
         ) : (
           <svg
             onClick={toggleDark}
-            className="w-6 h-6 text-primary hover:cursor-pointer hover:scale-105"
+            className="h-6 w-6 text-primary hover:scale-105 hover:cursor-pointer"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -73,7 +73,7 @@ const Settings = () => {
           </svg>
         )}
         <button
-          className="inline-block bg-maroon text-light px-5 py-2 rounded-md hover:cursor-pointer hover:scale-[102%] transition-transform duration-100"
+          className="inline-block rounded-md bg-maroon px-5 py-2 text-light transition-transform duration-100 hover:scale-[102%] hover:cursor-pointer"
           onClick={() => signOut()}
         >
           Log out
