@@ -41,7 +41,6 @@ const Page = ({ params: { ItemId } }) => {
                 : "bg-maroon hover:opacity-80"
           }`}
         >
-          {getButtonText(status)}
           {status === "sending"
             ? "Sending..."
             : status === "sent"
@@ -53,20 +52,7 @@ const Page = ({ params: { ItemId } }) => {
   );
 };
 
-const getButtonText = (status) => {
-  switch (status) {
-    case "sending":
-      return "Sending...";
-    case "Sent":
-      return "Sent";
-    case "Error":
-      return "Error";
-    default:
-      return "Submit";
-  }
-};
-
-async function submit(e, formValues, files, setStatus) {
+async function submit(e, formValues, files, setStatus, router) {
   e.preventDefault();
   var date = new Date();
   var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");

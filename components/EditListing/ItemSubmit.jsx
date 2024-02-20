@@ -30,7 +30,7 @@ const ItemSubmit = ({
           router,
         )
       }
-      className="rounded-md bg-maroon px-8 py-2 text-light shadow-sm transition-colors duration-100 ease-in-out hover:bg-opacity-70"
+      className="rounded-md bg-maroon px-8 py-2 text-light shadow-sm transition-colors duration-100 ease-in-out hover:bg-opacity-70 max-sm:order-1"
     >
       {status === "send" && "Update Listing"}
       {status === "sending" && "Updating..."}

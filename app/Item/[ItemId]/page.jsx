@@ -75,7 +75,7 @@ const Page = ({ params: { ItemId } }) => {
                 setFormValues={setFormValues}
               />
 
-              <div className="mx-5 my-10 flex space-x-5 max-sm:justify-between">
+              <div className="mx-5 my-10 flex max-sm:max-w-52 max-sm:flex-col sm:space-x-5">
                 <ItemCancelEdit setIsEditing={setIsEditing} />
                 <ItemSubmit
                   item={item}
