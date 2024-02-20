@@ -6,6 +6,7 @@ import Image from "next/image";
 import loadingImg from "../../constants/loadingImage.png";
 import { apiLimiter } from "../../utils/rateLimiter";
 import { ExitButton } from "../../components/Global";
+import { TrashIcon } from "@heroicons/react/24/outline";
 
 const Page = () => {
   const [items, setItems] = useState([]); //your items
@@ -75,7 +76,7 @@ const Page = () => {
             <div className="flex w-full flex-col" key={index}>
               <Link
                 href={`/Item/${items[index].itemId || ""}`}
-                className="mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:scale-[102%] hover:cursor-pointer lg:text-sm"
+                className="group/item relative mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:scale-[102%] hover:cursor-pointer lg:text-sm"
               >
                 <Image
                   src={url}
@@ -84,13 +85,13 @@ const Page = () => {
                   width={100}
                   height={100}
                 />
+                <div
+                  className="group absolute right-0 top-0 hidden bg-primary p-1 group-hover/item:block"
+                  onClick={() => onDelete(items[index])}
+                >
+                  <TrashIcon className="size-6 group-hover:text-red-500" />
+                </div>
               </Link>
-              <button
-                onClick={() => onDelete(items[index])}
-                className="rounded-md py-1 transition-colors duration-75 hover:bg-red-500/50"
-              >
-                Delete
-              </button>
               <div className="flex justify-between space-x-2 pt-2 text-subtle">
                 <p className="font-semibold">{items[index].title}</p>
                 <p>
