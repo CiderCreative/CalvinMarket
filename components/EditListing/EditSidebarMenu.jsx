@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import types from "../../constants/ItemTypes/itemTypes.jsx";
-import { ItemSubmit, ItemCancelEdit } from "../../components/EditListing";
 import DropDownField from "./DropdownField.jsx";
 
-const EditSidebarMenu = ({ formValues, setFormValues }) => {
+const EditSidebarMenu = ({ formValues, setFormValues, isEditing }) => {
   // State to manage form values
   const [dropdown, setDropdown] = useState();
   // Close Dropdown on click away (outside of menu)
@@ -26,6 +25,7 @@ const EditSidebarMenu = ({ formValues, setFormValues }) => {
           type="text"
           placeholder="Item Title"
           value={formValues.title}
+          disabled={isEditing}
           onChange={(e) =>
             setFormValues({ ...formValues, title: e.target.value })
           }

@@ -73,6 +73,7 @@ const Page = ({ params: { ItemId } }) => {
               <EditSidebarMenu
                 formValues={formValues}
                 setFormValues={setFormValues}
+                isEditing={isEditing}
               />
 
               <div className="mx-5 my-10 flex max-sm:max-w-52 max-sm:flex-col sm:space-x-5">
