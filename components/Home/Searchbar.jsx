@@ -1,9 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { useRouter, usePathname } from "next/navigation";
 
 const Searchbar = () => {
-  const [search, setSearch] = useState("");
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const [search, setSearch] = useState(""); //Hold query
   const fetchedData = useRef({
     titleMatches: [],
     tagMatches: [],
@@ -15,6 +19,29 @@ const Searchbar = () => {
     profileMatches: [],
   }); //stores items that match the search query
   const placeholder = "Search";
+
+  // Listen for enter key
+  const handleEnter = (event) => {
+    if (event.key === "Enter") {
+      // Put search results into session storage
+      const resultsString = JSON.stringify(searchResults);
+      sessionStorage.setItem("searchResults", resultsString);
+
+      if (
+        searchResults.titleMatches.length === 0 &&
+        searchResults.tagMatches.length === 0 &&
+        searchResults.profileMatches.length === 0
+      ) {
+        return;
+      } else if (pathname !== "/Search") {
+        // If not on the "/Search" page, navigate to it
+        router.push("/Search");
+      } else {
+        // If already on the "/Search" page, reload it
+        window.location.reload();
+      }
+    }
+  };
 
   // useEffect(() => console.log(searchResults), [searchResults]);
   async function handleChange(event) {
@@ -76,7 +103,7 @@ const Searchbar = () => {
   }
 
   return (
-    <div className="relative w-[500px]">
+    <div className="relative w-[500px]" onKeyDown={handleEnter}>
       {/* Searchbar */}
       <div className="z-20 flex w-full items-center space-x-3 rounded-md border-[1.5px] border-dark/30 border-opacity-50 px-5 py-2 dark:border-light/30">
         <MagnifyingGlassIcon className="size-4 text-subtle" />
@@ -93,13 +120,13 @@ const Searchbar = () => {
 
       {/* Search Results Drop Down */}
       <div
-        className={`absolute top-12 w-[500px] space-y-2 rounded-md border-dark/20 bg-primary shadow-sm ${searchResults.titleMatches.length > 0 ? "border-[1px]" : ""}`}
+        className={`absolute top-12 w-[500px] space-y-2 rounded-md border-dark/20 bg-primary shadow-sm dark:border-light/20 ${searchResults.titleMatches.length > 0 ? "border-[1px]" : ""}`}
       >
         {searchResults.titleMatches.map((item, index) => (
           <Link
             key={index}
             href={`/Item/${item.itemId}`}
-            className="block w-full rounded-md px-5 py-2 transition-colors duration-75 ease-in-out hover:bg-yellow"
+            className="block w-full rounded-md px-5 py-2 text-subtle transition-colors duration-75 ease-in-out hover:bg-yellow dark:hover:bg-maroon"
           >
             {item.title}
           </Link>
