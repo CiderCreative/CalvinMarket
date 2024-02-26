@@ -1,4 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const Searchbar = () => {
   const [search, setSearch] = useState("");
@@ -12,25 +14,9 @@ const Searchbar = () => {
     tagMatches: [],
     profileMatches: [],
   }); //stores items that match the search query
-  const searchIcon = (
-    <svg
-      className="w-4 bg-primary"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 20 20"
-    >
-      <path
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-      />
-    </svg>
-  );
   const placeholder = "Search";
 
+  // useEffect(() => console.log(searchResults), [searchResults]);
   async function handleChange(event) {
     let newVal = event.target.value;
     const wasDelete = newVal.length < search.length;
@@ -63,7 +49,7 @@ const Searchbar = () => {
         fetchedData.current = { titleMatches, tagMatches, profileMatches };
 
       } else {
-        console.log("fetchedData", searchResults);
+        // console.log("fetchedData", searchResults);
         //search through fetched data
         const newTitleMatches = searchResults.titleMatches.filter((item) => item.title.includes(newVal));
         const newTagMatches = searchResults.tagMatches.filter((item) =>item.tags.includes(newVal));
@@ -72,7 +58,6 @@ const Searchbar = () => {
         setSearchResults({profileMatches: newProfileMatches,titleMatches: newTitleMatches,tagMatches: newTagMatches });
       }
     } else {
-
       //if the user is deleting from the search query
       if (event.target.value.length === 0) {
         setSearchResults({
@@ -91,23 +76,41 @@ const Searchbar = () => {
   }
 
   return (
-    <div className="flex w-[500px] items-center space-x-3 rounded-md border-[1.5px] border-dark border-opacity-50 px-5 py-2 dark:border-light">
-      {searchIcon}
-      <input
-        type="text"
-        autoComplete="off"
-        id="name"
-        placeholder={placeholder}
-        className="w-full border-transparent bg-transparent focus:shadow-none focus:outline-none"
-        value={search}
-        onChange={handleChange}
-      />
+    <div className="relative w-[500px]">
+      {/* Searchbar */}
+      <div className="z-20 flex w-full items-center space-x-3 rounded-md border-[1.5px] border-dark/30 border-opacity-50 px-5 py-2 dark:border-light/30">
+        <MagnifyingGlassIcon className="size-4 text-subtle" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="name"
+          placeholder={placeholder}
+          className="w-full border-transparent bg-transparent focus:shadow-none focus:outline-none"
+          value={search}
+          onChange={handleChange}
+        />
+      </div>
+
+      {/* Search Results Drop Down */}
+      <div
+        className={`absolute top-12 w-[500px] space-y-2 rounded-md border-dark/20 bg-primary shadow-sm ${searchResults.titleMatches.length > 0 ? "border-[1px]" : ""}`}
+      >
+        {searchResults.titleMatches.map((item, index) => (
+          <Link
+            key={index}
+            href={`/Item/${item.itemId}`}
+            className="block w-full rounded-md px-5 py-2 transition-colors duration-75 ease-in-out hover:bg-yellow"
+          >
+            {item.title}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
 
 function splitMatches(response, val) {
-  console.log("split matches", response);
+  // console.log("split matches", response);
   const titleMatches = response.filter((item) => item.title.includes(val));
   const tagMatches = response.filter((item) => item.tags.includes(val));
   return { titleMatches, tagMatches };
