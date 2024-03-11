@@ -27,7 +27,7 @@ const Settings = () => {
         }}
       >
         <Cog8ToothIcon
-          className="text-subtle size-6 cursor-pointer stroke-[1.2px] hover:opacity-70"
+          className="size-6 cursor-pointer stroke-[1.2px] text-subtle hover:opacity-70"
           onClick={() => setSettingsOpen(!settingsOpen)}
         />
       </div>
