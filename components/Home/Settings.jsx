@@ -1,12 +1,20 @@
 import React, { useEffect } from "react";
-import { useState, useContext } from "react";
-import { Context } from "../../app/Context";
+import { useState } from "react";
 import { signOut } from "next-auth/react";
 import { SunIcon, MoonIcon, Cog8ToothIcon } from "@heroicons/react/24/outline";
+import { useTheme } from "next-themes";
 
 const Settings = () => {
+  const { resolvedTheme, setTheme } = useTheme();
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const { darkMode, toggleDark } = useContext(Context);
+
+  const toggleTheme = () => {
+    if (resolvedTheme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
+  };
 
   useEffect(() => {
     const clickAway = (event) => {
@@ -31,46 +39,24 @@ const Settings = () => {
           onClick={() => setSettingsOpen(!settingsOpen)}
         />
       </div>
+
+      {/* Setting Dropdown Menu */}
       <div
-        className={`absolute right-20 top-10 space-y-5 rounded-xl border-2 border-opposite bg-primary p-5 ${
+        className={`absolute right-20 top-10 flex items-center space-x-10 rounded-xl border-[1px] border-dark bg-light p-5 shadow-md backdrop-blur-md dark:border-light dark:bg-dark ${
           settingsOpen ? "visible" : "hidden"
         }`}
       >
         {/* Light Mode / Dark Mode Toggle */}
-        {darkMode ? (
-          <svg
-            onClick={toggleDark}
-            className="h-6 w-6 text-primary hover:scale-105 hover:cursor-pointer"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 18 20"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M8.509 5.75c0-1.493.394-2.96 1.144-4.25h-.081a8.5 8.5 0 1 0 7.356 12.746A8.5 8.5 0 0 1 8.509 5.75Z"
-            />
-          </svg>
+        {resolvedTheme === "dark" ? (
+          <MoonIcon
+            className="size-6 cursor-pointer text-subtle duration-75 ease-in-out hover:opacity-70"
+            onClick={toggleTheme}
+          />
         ) : (
-          <svg
-            onClick={toggleDark}
-            className="h-6 w-6 text-primary hover:scale-105 hover:cursor-pointer"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 20"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M10 3V1m0 18v-2M5.05 5.05 3.636 3.636m12.728 12.728L14.95 14.95M3 10H1m18 0h-2M5.05 14.95l-1.414 1.414M16.364 3.636 14.95 5.05M14 10a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
-            />
-          </svg>
+          <SunIcon
+            className="size-6 cursor-pointer text-subtle duration-75 ease-in-out hover:opacity-70"
+            onClick={toggleTheme}
+          />
         )}
         <button
           className="inline-block rounded-md bg-maroon px-5 py-2 text-light transition-transform duration-100 hover:scale-[102%] hover:cursor-pointer"
