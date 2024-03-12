@@ -7,6 +7,7 @@ import {
   Settings,
   HomeSidebar,
   HomeTopbar,
+  MessageButton,
 } from "../components/Home/index";
 import { useState, useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
@@ -15,6 +16,7 @@ function Home() {
   const [sidebarClosed, setSidebarClosed] = useState(false);
   const [items, setItems] = useState([]);
   const { data: session, status } = useSession();
+
   useEffect(() => {
     const getItems = () => {
       fetch("/api/items/get", {
@@ -39,9 +41,10 @@ function Home() {
         }`}
       >
         {/* Top Bar */}
-        <div className="mt-5 flex w-full items-center justify-between px-3 lg:px-10">
+        <div className="mt-5 flex w-full items-center justify-between space-x-3 px-3 lg:px-10">
           <Searchbar />
           <div className="flex space-x-5">
+            <MessageButton />
             <AccountIndication userName={session?.user?.email.split("@")[0]} />
             <Settings />
           </div>
@@ -53,6 +56,7 @@ function Home() {
           setSidebarClosed={setSidebarClosed}
         />
 
+        {/* Mobile top bar */}
         <HomeTopbar />
 
         {/* Featured Item Categories */}

@@ -36,12 +36,14 @@ const MoreOptionsButton = ({ setIsEditing, item, sellerId }) => {
               Edit
             </button>
           )}
-          <button
-            className="p-3 hover:bg-neutral-200 hover:dark:bg-neutral-800"
-            onClick={() => onDelete(item)}
-          >
-            Delete
-          </button>
+          {sellerId === session?.user?.email && status === "authenticated" && (
+            <button
+              className="p-3 hover:bg-neutral-200 hover:dark:bg-neutral-800"
+              onClick={() => onDelete(item)}
+            >
+              Delete
+            </button>
+          )}
         </div>
       )}
     </div>

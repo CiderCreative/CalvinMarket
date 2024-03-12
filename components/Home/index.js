@@ -8,6 +8,7 @@ import Searchbar from "./Searchbar";
 import Settings from "./Settings";
 import HomeSidebar from "./HomeSidebar";
 import HomeTopbar from "./HomeTopbar";
+import MessageButton from "./MessageButton";
 
 export {
   AccountIndication,
@@ -20,4 +21,5 @@ export {
   Settings,
   HomeSidebar,
   HomeTopbar,
+  MessageButton,
 };
