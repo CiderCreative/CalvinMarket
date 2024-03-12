@@ -22,7 +22,7 @@ function Home() {
       fetch("/api/items/get", {
         method: "POST",
         body: JSON.stringify({
-          filter: "status = for_sale",
+          filter: "type = textbook",
         }),
       })
         .then((res) => {
@@ -44,8 +44,8 @@ function Home() {
         <div className="mt-5 flex w-full items-center justify-between space-x-3 px-3 lg:px-10">
           <Searchbar />
           <div className="flex space-x-5">
-            <MessageButton />
             <AccountIndication userName={session?.user?.email.split("@")[0]} />
+            <MessageButton />
             <Settings />
           </div>
         </div>
