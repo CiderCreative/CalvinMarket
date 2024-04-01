@@ -19,7 +19,7 @@ const EditSidebarMenu = ({ formValues, setFormValues, isEditing }) => {
 
   return (
     <div className="inset-y-0 right-0 flex w-full flex-col overflow-y-auto p-10 px-5">
-      <div className="mb-12 flex w-full text-lg font-bold max-sm:flex-col max-sm:space-y-5 md:text-xl lg:items-center lg:space-x-5">
+      <div className="my-12 flex w-full text-lg font-bold max-sm:flex-col max-sm:space-y-5 md:text-xl lg:items-center lg:space-x-5">
         {/* Title */}
         <input
           type="text"
@@ -29,7 +29,7 @@ const EditSidebarMenu = ({ formValues, setFormValues, isEditing }) => {
           onChange={(e) =>
             setFormValues({ ...formValues, title: e.target.value })
           }
-          className="input-clear w-full border-b-[1px] border-dark/30 bg-transparent px-2 py-3 dark:border-light/30 sm:w-3/5 sm:px-5"
+          className="input-clear w-full rounded-md border-[1px] border-dark/30 bg-transparent px-2 py-3 dark:border-light/30 sm:w-3/5 sm:px-5"
         />
 
         {/* Price */}
@@ -42,7 +42,7 @@ const EditSidebarMenu = ({ formValues, setFormValues, isEditing }) => {
             onChange={(e) =>
               setFormValues({ ...formValues, price: e.target.value })
             }
-            className="input-clear w-full border-b-[1px] border-dark/30 bg-transparent px-2 py-3 text-center text-lg dark:border-light/30 sm:px-5"
+            className="input-clear w-full rounded-md border-[1px] border-dark/30 bg-transparent px-2 py-3 text-center text-lg dark:border-light/30 sm:px-5"
           />
         </div>
       </div>
@@ -59,6 +59,7 @@ const EditSidebarMenu = ({ formValues, setFormValues, isEditing }) => {
         formValues={formValues}
         setFormValues={setFormValues}
       />
+
       {/* mapping specific tag questions for each item */}
       {Object.keys(types[formValues["type"]]).map((key, index) => {
         let value = types[formValues["type"]][key];

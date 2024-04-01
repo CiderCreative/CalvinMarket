@@ -91,7 +91,7 @@ const SignUpPage = () => {
         >
           <div className="mb-4 w-full">
             <label htmlFor="email" className="mb-3 text-base font-semibold">
-              Email
+              Calvin Email
             </label>
             <input
               type="email"
@@ -124,17 +124,22 @@ const SignUpPage = () => {
               className="input-clear mb-2 w-full rounded-md border-[1px] border-opposite px-3 py-2"
             />
 
-            {/* Display comma-separated list of missing password requirements */}
-            <div className="text-red-500">
-              {passwordRequirements
-                .filter((requirement) => !requirement.test.test(psswd))
-                .map((requirement, index, array) => (
-                  <span key={index}>
-                    {requirement.message}
-                    {index < array.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-            </div>
+            {/* Display list of missing password requirements */}
+            {passwordRequirements.filter(
+              (requirement) => !requirement.test.test(psswd),
+            ).length > 0 && (
+              <div className="flex flex-col">
+                <p className="my-2 font-semibold">Password needs:</p>
+                {passwordRequirements
+                  .filter((requirement) => !requirement.test.test(psswd))
+                  .map((requirement, index, array) => (
+                    <span key={index} className="text-red-500">
+                      {requirement.message}
+                      {index < array.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+              </div>
+            )}
           </div>
           <button
             type="submit"
@@ -148,6 +153,9 @@ const SignUpPage = () => {
           onSubmit={handleConfirm}
           className="w-[80vw] max-w-[300px] sm:w-[300px]"
         >
+          <p className="mb-2 font-medium">
+            Enter the confirmation code sent to your Calvin email
+          </p>
           <input
             id="confirmationCode"
             name="confirmationCode"
@@ -160,9 +168,9 @@ const SignUpPage = () => {
           />
           <button
             type="submit"
-            className="w-full rounded-md bg-yellow py-2 text-dark transition-all duration-200 hover:scale-[102%] hover:opacity-80 active:scale-95"
+            className="w-full text-balance rounded-md bg-yellow px-2 py-2 font-semibold text-dark transition-all duration-200 hover:scale-[102%] hover:opacity-80 active:scale-95"
           >
-            Enter confirmation code
+            Submit code
           </button>
         </form>
       )}

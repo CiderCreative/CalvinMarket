@@ -62,16 +62,7 @@ const Page = () => {
 
       <div className="grid grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-10 xl:grid-cols-5 2xl:grid-cols-6">
         {urls.map((url, index) => {
-          if (!items[index] || !items[index].itemId)
-            return (
-              <Image
-                src={url}
-                className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
-                alt="placeholder image"
-                width={200}
-                height={200}
-              />
-            );
+          if (!items[index] || !items[index].itemId) return null;
           return (
             <div className="flex w-full flex-col" key={index}>
               <Link
@@ -91,13 +82,13 @@ const Page = () => {
                 >
                   <TrashIcon className="size-6 stroke-[1.2px] group-hover:text-red-500" />
                 </div>
+                <div className="flex justify-between space-x-2 pt-2 text-subtle">
+                  <p className="font-semibold">{items[index].title}</p>
+                  <p>
+                    {items[index].price > 0 ? `$${items[index].price}` : "Free"}
+                  </p>
+                </div>
               </Link>
-              <div className="flex justify-between space-x-2 pt-2 text-subtle">
-                <p className="font-semibold">{items[index].title}</p>
-                <p>
-                  {items[index].price > 0 ? `$${items[index].price}` : "Free"}
-                </p>
-              </div>
             </div>
           );
         })}

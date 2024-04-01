@@ -21,7 +21,7 @@ const DropdownField = ({
             onClick={() =>
               dropdown === index ? setDropdown(null) : setDropdown(index)
             }
-            className="flex cursor-pointer items-center justify-between rounded-xl border-[1px] border-opposite/30 px-5 py-2 hover:bg-opposite/10"
+            className="flex cursor-pointer items-center justify-between rounded-xl border-[1px] border-dark/30 px-5 py-2 hover:bg-opposite/10 dark:border-light/20"
           >
             {formValues[label] || "Select an option"}
             <ChevronDownIcon className="pointer-events-none inset-y-0 right-0 ml-3 aspect-square w-6" />
@@ -35,9 +35,10 @@ const DropdownField = ({
             >
               {value.options.map((option, index) => (
                 <div
+                  key={index}
                   label={index}
                   value={option}
-                  className="cursor-pointer border-y border-opposite/10 px-10 py-3 text-center hover:bg-yellow"
+                  className="cursor-pointer border-y border-opposite/10 px-10 py-3 text-center hover:bg-yellow hover:text-dark"
                   onClick={() => {
                     setFormValues({ ...formValues, [label]: option }),
                       setDropdown(false);
