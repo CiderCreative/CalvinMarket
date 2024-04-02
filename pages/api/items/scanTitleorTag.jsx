@@ -28,7 +28,7 @@ async function scanForTitlesOrTags(tableName, titleSearch, tagSearch) {
     FilterExpression:
       "contains(title, :titleValue) OR contains(tags, :tagValue)",
     ExpressionAttributeValues: {
-      ":titleValue": titleSearch,
+      ":titleValue": titleSearch.toLowerCase(),
       ":tagValue": tagSearch,
     },
   };

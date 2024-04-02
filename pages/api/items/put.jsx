@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       TableName: Table.ItemsTable.tableName,
       Item: {
         itemId: Date.now(), //UNIX timestamp
-        title: body.title, //title of item
+        title: body.title.toLowerCase(), //title of item
         price: body.price, //price of item (in dollars)
         dateSold: body.dateSold || "", //date sold (if sold, "" if not)
         status: body.status, //status of item (deleted, sold, not_shown, for_sale)
