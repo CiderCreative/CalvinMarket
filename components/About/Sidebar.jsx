@@ -7,14 +7,25 @@ const Sidebar = () => {
   return (
     <div>
       {/* Top bar // Small Screens */}
-      <div className="xl:hidden pt-5 mb-3">
+      <div className="mb-3 pt-5 xl:hidden">
         <Logo />
-        <h5 className="text-base text-center text-yellow">2023 Fall</h5>
-        <div className="bg-light/10 w-full h-[1px] my-3" />
+        <h5 className="text-center text-base text-yellow">2023 Fall</h5>
+        <div className="my-3 h-[1px] w-full bg-light/10" />
 
         <Link
           href="/About"
-          className="flex w-3/5 justify-center py-5 rounded-xl m-auto hover:bg-neutral-700/50"
+          className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
+        >
+          <EyeIcon className="h-6 w-6" />
+          <p className="px-5">Overview</p>
+        </Link>
+
+        <h5 className="mt-10 text-center text-base text-yellow">2024 Spring</h5>
+        <div className="my-3 h-[1px] w-full bg-light/10" />
+
+        <Link
+          href="/About"
+          className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
         >
           <EyeIcon className="h-6 w-6" />
           <p className="px-5">Overview</p>
@@ -22,16 +33,29 @@ const Sidebar = () => {
       </div>
 
       {/* Fixed Sidebar // Large Screens */}
-      <div className="max-xl:hidden fixed left-0 inset-y-0 w-[250px] 2xl:w-[400px] antialiased">
+      <div className="fixed inset-y-0 left-0 w-[250px] antialiased max-xl:hidden 2xl:w-[400px]">
         <Logo />
 
         <div>
-          <h5 className="text-base text-center text-yellow">2023 Fall</h5>
-          <div className="bg-light/10 w-full h-[1px] my-3" />
+          <h5 className="text-center text-base text-yellow">2023 Fall</h5>
+          <div className="my-3 h-[1px] w-full bg-light/10" />
 
           <Link
             href="/About"
-            className="flex w-3/5 justify-center py-5 rounded-xl m-auto hover:bg-neutral-700/50"
+            className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
+          >
+            <EyeIcon className="h-6 w-6" />
+            <p className="px-5">Overview</p>
+          </Link>
+        </div>
+
+        <div className="mt-10">
+          <h5 className="text-center text-base text-yellow">2024 Spring</h5>
+          <div className="my-3 h-[1px] w-full bg-light/10" />
+
+          <Link
+            href="/About/2024Spring"
+            className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
           >
             <EyeIcon className="h-6 w-6" />
             <p className="px-5">Overview</p>

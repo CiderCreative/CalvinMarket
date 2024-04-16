@@ -1,5 +1,4 @@
 import Foreground from "./Foreground";
-import Sidebar from "./Sidebar";
 import AboutHeader from "./AboutHeader";
 import AboutTeam from "./AboutTeam";
 import AboutVision from "./AboutVision";
@@ -10,7 +9,6 @@ import AboutQualifications from "./AboutQualifications";
 
 export {
   Foreground,
-  Sidebar,
   AboutHeader,
   AboutTeam,
   AboutVision,

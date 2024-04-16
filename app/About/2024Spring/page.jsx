@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import Sidebar from "../../components/About/Sidebar";
-import { Foreground } from "../../components/About/Fall2023";
+import Sidebar from "../../../components/About/Sidebar";
+import { Foreground } from "../../../components/About/Spring2024";
 
-const Page = () => {
+const page = () => {
   return (
     <div className="relative overflow-x-hidden bg-dark text-light">
       <Sidebar />
@@ -12,4 +12,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default page;

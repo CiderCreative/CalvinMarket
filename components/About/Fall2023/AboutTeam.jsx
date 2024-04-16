@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { AboutHeader } from "./index";
-import { BradenIcon, LoganIcon } from "../../public/About/index.js";
+import { BradenIcon, LoganIcon } from "../../../public/About/index.js";
 
 const AboutTeam = () => {
   return (
@@ -9,9 +9,9 @@ const AboutTeam = () => {
       {/* Header & divider */}
       <AboutHeader text="Team" />
 
-      <div className="flex max-xl:flex-col items-center max-xl:space-y-20 xl:space-x-10 2xl:space-x-40">
+      <div className="flex items-center max-xl:flex-col max-xl:space-y-20 xl:space-x-10 2xl:space-x-40">
         {/* Braden's Description */}
-        <div className="space-y-5 max-lg:w-[85vw] max-w-[500px]">
+        <div className="max-w-[500px] space-y-5 max-lg:w-[85vw]">
           <Image
             src={BradenIcon}
             alt=""
@@ -29,7 +29,7 @@ const AboutTeam = () => {
         </div>
 
         {/* Logan's Description */}
-        <div className="space-y-5 max-lg:w-[85vw] max-w-[500px]">
+        <div className="max-w-[500px] space-y-5 max-lg:w-[85vw]">
           <Image
             src={LoganIcon}
             alt=""

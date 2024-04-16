@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   AboutTeam,
   AboutVision,
@@ -10,15 +10,15 @@ import {
 
 const Foreground = () => {
   return (
-    <div className="bg-light text-dark overflow-clip flex flex-col items-center ml-4 xl:ml-[250px] 2xl:ml-[400px] h-auto top-4 bottom-4 rounded-l-xl pt-12 pb-40 mb-4">
+    <div className="bottom-4 top-4 mb-4 ml-4 flex h-auto flex-col items-center overflow-clip rounded-l-xl bg-light pb-40 pt-12 text-dark xl:ml-[250px] 2xl:ml-[400px]">
       {/* Title of Page */}
-      <div className="text-center space-y-1">
-        <h1 className="text-3xl font-bold">Overview</h1>
+      <div className="space-y-1 text-center">
+        <h1 className="text-3xl font-bold">Overview of Fall 2023</h1>
         <p className="text-base font-normal">Calvin Market - 2023/2024</p>
       </div>
 
       {/* Content Sections */}
-      <div className="space-y-20 xl:space-y-40 w-[800px] 2xl:w-[1100px]">
+      <div className="w-[800px] space-y-20 xl:space-y-40 2xl:w-[1100px]">
         <AboutTeam />
         <AboutVision />
         <AboutCode />
