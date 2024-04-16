@@ -18,7 +18,6 @@ const Page = ({ params: { ItemId } }) => {
   const imgKeysToDelete = useRef([]);
   const imgFilesToAdd = useRef([]);
   const [formValues, setFormValues] = useState({});
-  const { data: session, status } = useSession();
 
   useEffect(() => {
     // Get item from DB
@@ -82,8 +81,8 @@ const Page = ({ params: { ItemId } }) => {
                   item={item}
                   files={files}
                   formValues={formValues}
-                  imgKeysToDelete={imgKeysToDelete.current}
-                  imgFilesToAdd={imgFilesToAdd.current}
+                  imgKeysToDelete={imgKeysToDelete}
+                  imgFilesToAdd={imgFilesToAdd}
                 />
               </div>
             </>

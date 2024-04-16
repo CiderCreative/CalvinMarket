@@ -45,15 +45,18 @@ const Page = () => {
           <h3 className="mb-8 text-lg font-bold text-subtle md:text-xl xl:text-2xl">
             Profile Matches
           </h3>
-          {searchResults.profileMatches.map((item, index) => (
-            <Link
-              key={index}
-              href="/"
-              className="rounded-md border-[1px] border-dark/20 px-12 py-4 transition-colors duration-75 hover:bg-neutral-200 dark:border-light/20 dark:hover:bg-neutral-800"
-            >
-              {item.email}
-            </Link>
-          ))}
+
+          <div className="space-x-2">
+            {searchResults.profileMatches.map((item, index) => (
+              <Link
+                key={index}
+                href="/"
+                className="rounded-md border-[1px] border-dark/20 px-12 py-4 transition-colors duration-75 hover:bg-neutral-200 dark:border-light/20 dark:hover:bg-neutral-800"
+              >
+                {item.email}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>

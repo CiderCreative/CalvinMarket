@@ -4,7 +4,6 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { apiLimiter } from "../../utils/rateLimiter";
-import { ItemSubmit, ItemCancelEdit } from "../../components/EditListing";
 
 export default function FileInput({
   files,
@@ -49,7 +48,10 @@ export default function FileInput({
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       for (let i = 0; i < e.dataTransfer.files.length; i++) {
         setAddedFiles((prevState) => [...prevState, e.dataTransfer.files[i]]);
-        imgFilesToAdd.current = [...imgFilesToAdd.current, e.target.files[i]];
+        imgFilesToAdd.current = [
+          ...imgFilesToAdd.current,
+          e.dataTransfer.files[i],
+        ];
       }
     }
   }

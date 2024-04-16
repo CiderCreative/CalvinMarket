@@ -62,41 +62,38 @@ const Page = () => {
 
       <div className="grid grid-cols-2 justify-items-center gap-4 sm:grid-cols-3 md:grid-cols-4 lg:gap-10 xl:grid-cols-5 2xl:grid-cols-6">
         {urls.map((url, index) => {
-          if (!items[index] || !items[index].itemId)
-            return (
-              <Image
-                src={url}
-                className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
-                alt="placeholder image"
-                width={200}
-                height={200}
-              />
-            );
+          if (!items[index] || !items[index].itemId) return null;
           return (
             <div className="flex w-full flex-col" key={index}>
-              <Link
-                href={`/Item/${items[index].itemId || ""}`}
-                className="group/item relative mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:scale-[102%] hover:cursor-pointer lg:text-sm"
-              >
-                <Image
-                  src={url}
-                  className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
-                  alt=""
-                  width={100}
-                  height={100}
-                />
+              <div className="group/item relative">
                 <div
                   className="group absolute right-0 top-0 hidden bg-primary p-1 group-hover/item:block"
-                  onClick={() => onDelete(items[index])}
+                  onClick={(e) => {
+                    onDelete(items[index]);
+                  }}
                 >
                   <TrashIcon className="size-6 stroke-[1.2px] group-hover:text-red-500" />
                 </div>
-              </Link>
-              <div className="flex justify-between space-x-2 pt-2 text-subtle">
-                <p className="font-semibold">{items[index].title}</p>
-                <p>
-                  {items[index].price > 0 ? `$${items[index].price}` : "Free"}
-                </p>
+                <Link
+                  href={`/Item/${items[index].itemId || ""}`}
+                  className="mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:cursor-pointer lg:text-sm"
+                >
+                  <Image
+                    src={url}
+                    className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
+                    alt=""
+                    width={100}
+                    height={100}
+                  />
+                  <div className="flex justify-between space-x-2 pt-2 text-subtle">
+                    <p className="font-semibold">{items[index].title}</p>
+                    <p>
+                      {items[index].price > 0
+                        ? `$${items[index].price}`
+                        : "Free"}
+                    </p>
+                  </div>
+                </Link>
               </div>
             </div>
           );

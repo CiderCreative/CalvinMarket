@@ -1,18 +1,31 @@
-import React from 'react'
-import { useRouter } from 'next/navigation';
-import { ChevronLeftIcon, XMarkIcon } from '@heroicons/react/20/solid'
-import Image from 'next/image'
+import React from "react";
+import { useRouter } from "next/navigation";
+import { ChevronLeftIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import Image from "next/image";
 
-  const MessagesSidebar = ({activePerson, setActivePerson, peopleList, sidebarOpen, setSidebarOpen}) => {
+const MessagesSidebar = ({
+  activePerson,
+  setActivePerson,
+  peopleList,
+  sidebarOpen,
+  setSidebarOpen,
+}) => {
   const Router = useRouter(); //Router objec
 
   return (
-    <div className={`fixed left-0 top-0 h-screen py-5 shadow-xl transition-all duration-200 text-primary ${sidebarOpen ? "w-[300px]" : "w-[100px]"}`}>
-
+    <div
+      className={`fixed left-0 top-0 h-screen py-5 text-primary shadow-xl transition-all duration-200 ${sidebarOpen ? "w-[300px]" : "w-[100px]"}`}
+    >
       {/* Button menu -- top  */}
-      <div className="flex justify-between mb-10 px-5">
-        <XMarkIcon onClick={() => Router.back()} className="aspect-square h-8 hover:cursor-pointer"/>
-        <ChevronLeftIcon className={`aspect-square h-8 hover:cursor-pointer transition-transform duration-200 ${sidebarOpen ? "rotate-0" : "rotate-180" }`} onClick={() => setSidebarOpen(!sidebarOpen)}/>
+      <div className="mb-10 flex justify-between px-5">
+        <XMarkIcon
+          onClick={() => Router.back()}
+          className="aspect-square h-8 hover:cursor-pointer"
+        />
+        <ChevronLeftIcon
+          className={`aspect-square h-8 transition-transform duration-200 hover:cursor-pointer ${sidebarOpen ? "rotate-0" : "rotate-180"}`}
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        />
       </div>
 
       <div className="w-full space-y-2 px-5">
@@ -20,17 +33,25 @@ import Image from 'next/image'
         {peopleList.map((person, idx) => (
           <div
             key={idx}
-            className="w-full flex items-center space-x-8 py-4 px-5 hover:bg-neutral-200 dark:hover:bg-neutral-700 border-[1px] border-transparent hover:border-opposite/20 rounded-xl hover:cursor-pointer"
+            className="flex w-full items-center space-x-8 rounded-xl border-[1px] border-transparent px-5 py-4 hover:cursor-pointer hover:border-opposite/20 hover:bg-neutral-200 dark:hover:bg-neutral-700"
             onClick={() => setActivePerson(person)}
           >
-            <Image src={person.image} alt={`Profile picture of ${person.name}`} className="aspect-square w-6 h-6" draggable={false} />
-            {sidebarOpen && <p className="text-lg overflow-hidden whitespace-nowrap overflow-ellipsis">{person.name}</p>}
+            <Image
+              src={person.image}
+              alt={`Profile picture of ${person.name}`}
+              className="aspect-square h-6 w-6"
+              draggable={false}
+            />
+            {sidebarOpen && (
+              <p className="overflow-hidden overflow-ellipsis whitespace-nowrap text-lg">
+                {person.name}
+              </p>
+            )}
           </div>
         ))}
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default MessagesSidebar
+export default MessagesSidebar;

@@ -22,7 +22,7 @@ const Carousel = ({ index, urls, handleLeft, handleRight }) => {
   }, [index]);
 
   return (
-    <div className="max-w-screen mx-3 flex max-h-[1200px] justify-between overflow-x-hidden max-lg:max-h-[400px] lg:h-[30vw] lg:w-full">
+    <div className="max-w-screen mx-3 flex max-h-[1200px] justify-center overflow-x-hidden max-lg:max-h-[400px] lg:h-[30vw] lg:w-full">
       {/* The Carousel */}
       <div
         className="relative right-0 flex overflow-visible [&>*]:flex-shrink-0"

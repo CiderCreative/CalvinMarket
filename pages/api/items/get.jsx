@@ -21,8 +21,8 @@ export default async function handler(req, res) {
     JSON.parse(req.body).filter,
   );
 
-  const ExpressionAttributeNames = FilterExpression.includes("#STATUS")
-    ? { "#STATUS": "status" }
+  const ExpressionAttributeNames = FilterExpression.includes("#TYPE")
+    ? { "#TYPE": "type" }
     : null;
   const input = {
     TableName: Table.ItemsTable.tableName,
@@ -61,8 +61,7 @@ function toScanCommand(expression) {
       //add the variable for the item back into the filter expression
       FilterExpression += `:var${attributeLength} `;
     } else if (cutExpression[index + 1] === "=") {
-      FilterExpression +=
-        item.toLowerCase() === "status" ? "#STATUS " : item + " ";
+      FilterExpression += item.toLowerCase() === "type" ? "#TYPE " : item + " ";
     } else {
       FilterExpression += item + " ";
     }

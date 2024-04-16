@@ -11,6 +11,7 @@ const ItemSubmit = ({
   files,
   item,
 }) => {
+  console.log("IMGs to add ", imgFilesToAdd.current);
   const [status, setStatus] = useState("send");
   const { data: session } = useSession();
   const router = useRouter();
@@ -22,8 +23,8 @@ const ItemSubmit = ({
           formValues,
           status,
           setStatus,
-          imgKeysToDelete,
-          imgFilesToAdd,
+          imgKeysToDelete.current,
+          imgFilesToAdd.current,
           files,
           item,
           session,
@@ -97,6 +98,7 @@ async function onSubmit(
 
 //takes in a list of files and returns a list of image keys that were successfully uploaded
 async function uploadImages(imageFiles) {
+  console.log("uploading images", imageFiles);
   var date = new Date();
   var formattedDate = format(date, "yyyy-M-dd-HH-mm-ss");
   let keysSuccessfullyUploaded = [];
