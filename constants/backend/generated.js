@@ -1,13 +1,6 @@
 ﻿import { graphqlOperation, API } from "aws-amplify";
-import next from "next";
-
-export const config = {
-  aws_appsync_graphqlEndpoint:
-    "https://cznd6iwygzdi7e4pkgwxteppfq.appsync-api.us-east-1.amazonaws.com/graphql",
-  aws_appsync_region: "us-east-1",
-  aws_appsync_authenticationType: "API_KEY",
-  aws_appsync_apiKey: "da2-iyq6gxzjivhcdjpx27xr7wer6i",
-};
+import { generateClient } from "aws-amplify/api";
+import config from "./aws-exports";
 
 export const publishMessage =
   /* GraphQL */
@@ -80,16 +73,17 @@ export const listMessageRec = /* GraphQL */ `
 `;
 
 export async function listSender(userId) {
+  const client = generateClient(config);
   let nextToken = null;
   let messages = [];
   try {
     do {
-      let result = await API.graphql({
+      let result = await client.graphql({
         query: listMessageSend,
         variables: { userId, nextToken },
       });
       messages = messages.concat(
-        result.data.listBlintCalvinmarketMessages.items
+        result.data.listBlintCalvinmarketMessages.items,
       );
       nextToken = result.data.listBlintCalvinmarketMessages.nextToken;
     } while (nextToken);
@@ -100,15 +94,18 @@ export async function listSender(userId) {
 }
 
 export async function listReceiver(userId) {
+  const client = generateClient(config);
+
   let nextToken = null;
   let messages = [];
   try {
     do {
-      let result = await API.graphql(
-        graphqlOperation(listMessageRec, { userId, nextToken })
-      );
+      let result = await client.graphql({
+        query: listMessageRec,
+        variables: { userId, nextToken },
+      });
       messages = messages.concat(
-        result.data.listBlintCalvinmarketMessages.items
+        result.data.listBlintCalvinmarketMessages.items,
       );
       nextToken = result.data.listBlintCalvinmarketMessages.nextToken;
     } while (nextToken);
@@ -122,15 +119,21 @@ export async function listReceiver(userId) {
 }
 
 export async function publish(dateSent, senderId, message, receiverId) {
+  const client = generateClient(config);
+
   const variables = { dateSent, senderId, message, receiverId };
-  return await API.graphql(graphqlOperation(publishMessage, variables));
+  return await client.graphql({ query: publishMessage, variables });
 }
 
 export function subscribe(userId, next, error) {
-  return API.graphql(graphqlOperation(subscribeMessage, { userId })).subscribe({
-    next: ({ provider, value }) => {
-      next(value.data.onCreateBlintCalvinmarketMessages);
-    },
-    error: error || console.log,
-  });
+  const client = generateClient(config);
+
+  return client
+    .graphql({ query: subscribeMessage, variables: { userId } })
+    .subscribe({
+      next: (data) => {
+        next(data.data.onCreateBlintCalvinmarketMessages);
+      },
+      error: error || console.log,
+    });
 }

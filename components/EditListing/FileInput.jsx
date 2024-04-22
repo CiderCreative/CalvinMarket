@@ -1,4 +1,4 @@
-import Image from "next/image";
+import AdvancedImage from "../AdvancedImage";
 import { useRef, useState } from "react";
 
 export default function FileInput({ files, setFiles }) {
@@ -113,7 +113,7 @@ export default function FileInput({ files, setFiles }) {
               className="hover:group-hover group flex cursor-pointer flex-row justify-end p-2"
             >
               {file.type.startsWith("image/") ? (
-                <Image
+                <AdvancedImage
                   src={URL.createObjectURL(file)}
                   alt={file.name}
                   className="aspect-square w-28 object-cover"

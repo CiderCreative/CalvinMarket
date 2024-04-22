@@ -16,16 +16,16 @@ export default {
       // const imagesBucket = new Bucket(stack, "itemImgs");
 
       // const profileTable = new Table(stack, "profiles", {
-      //   fields: {
-      //     email: "string", //email of user
-      //     firstName: "string", //first name of user
-      //     lastName: "string", //last name of user
-      //     rating: "number", //profile id of user
-      //     dateJoined: "string", //date user joined
-      //     profileImg: "string", //profile image of user
-      //     favoriteItems: "string", //stringified list of item ids eg "[1, 2, 3]"
-      //   },
-      //   primaryIndex: { partitionKey: "email" },
+      // fields: {
+      //   email: "string", //email of user
+      //   firstName: "string", //first name of user
+      //   lastName: "string", //last name of user
+      //   rating: "number", //profile id of user
+      //   dateJoined: "string", //date user joined
+      //   profileImg: "string", //profile image of user
+      //   favoriteItems: "string", //stringified list of item ids eg "[1, 2, 3]"
+      // },
+      // primaryIndex: { partitionKey: "email" },
       // });
 
       // const itemsTable = new Table(stack, "items", {
@@ -59,13 +59,13 @@ export default {
       const COGNITO_CLIENT_ID = new Config.Secret(stack, "COGNITO_CLIENT_ID");
       const COGNITO_CLIENT_SECRET = new Config.Secret(
         stack,
-        "COGNITO_CLIENT_SECRET"
+        "COGNITO_CLIENT_SECRET",
       );
       const COGNITO_ISSUER = new Config.Secret(stack, "COGNITO_ISSUER");
       const COGNITO_REGION = new Config.Secret(stack, "COGNITO_REGION");
       const COGNITO_USER_POOL_ID = new Config.Secret(
         stack,
-        "COGNITO_USER_POOL_ID"
+        "COGNITO_USER_POOL_ID",
       );
 
       const imagesBucket = new Bucket(stack, "ItemImages", {
@@ -73,7 +73,7 @@ export default {
           bucket: s3.Bucket.fromBucketArn(
             stack,
             "ItemImages1",
-            "arn:aws:s3:::blint-calvinmarket-site-itemimgsbucket19c4dc57-kafbox1v5lux"
+            "arn:aws:s3:::blint-calvinmarket-site-itemimgsbucket19c4dc57-kafbox1v5lux",
           ),
         },
       });
@@ -83,7 +83,7 @@ export default {
           table: dynamodb.Table.fromTableArn(
             stack,
             "ProfileTable1",
-            "arn:aws:dynamodb:us-east-1:857197001789:table/blint-calvinmarket-profiles"
+            "arn:aws:dynamodb:us-east-1:857197001789:table/blint-calvinmarket-profiles",
           ),
         },
       });
@@ -93,7 +93,7 @@ export default {
           table: dynamodb.Table.fromTableArn(
             stack,
             "ItemsTable1",
-            "arn:aws:dynamodb:us-east-1:857197001789:table/blint-calvinmarket-items"
+            "arn:aws:dynamodb:us-east-1:857197001789:table/blint-calvinmarket-items",
           ),
         },
       });
@@ -103,7 +103,7 @@ export default {
           table: dynamodb.Table.fromTableArn(
             stack,
             "MessagesTable1",
-            "arn:aws:dynamodb:us-east-1:857197001789:table/blint-calvinmarket-messages"
+            "arn:aws:dynamodb:us-east-1:857197001789:table/blint-calvinmarket-messages",
           ),
         },
       });

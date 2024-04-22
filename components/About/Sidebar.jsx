@@ -13,7 +13,7 @@ const Sidebar = () => {
         <div className="my-3 h-[1px] w-full bg-light/10" />
 
         <Link
-          href="/About"
+          href="/about"
           className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
         >
           <EyeIcon className="h-6 w-6" />
@@ -24,7 +24,7 @@ const Sidebar = () => {
         <div className="my-3 h-[1px] w-full bg-light/10" />
 
         <Link
-          href="/About"
+          href="/about"
           className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
         >
           <EyeIcon className="h-6 w-6" />
@@ -41,7 +41,7 @@ const Sidebar = () => {
           <div className="my-3 h-[1px] w-full bg-light/10" />
 
           <Link
-            href="/About"
+            href="/about"
             className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
           >
             <EyeIcon className="h-6 w-6" />
@@ -54,7 +54,7 @@ const Sidebar = () => {
           <div className="my-3 h-[1px] w-full bg-light/10" />
 
           <Link
-            href="/About/2024Spring"
+            href="/about/spring"
             className="m-auto flex w-3/5 justify-center rounded-xl py-5 hover:bg-neutral-700/50"
           >
             <EyeIcon className="h-6 w-6" />

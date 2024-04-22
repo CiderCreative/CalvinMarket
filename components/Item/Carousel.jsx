@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import AdvancedImage from "../AdvancedImage";
 import { useSwipeable } from "react-swipeable";
 
 const Carousel = ({ index, urls, handleLeft, handleRight }) => {
@@ -36,7 +36,7 @@ const Carousel = ({ index, urls, handleLeft, handleRight }) => {
               className={`item-center flex w-full justify-center`}
               {...handlers} //Swipe handlers
             >
-              <Image
+              <AdvancedImage
                 className="h-full w-auto object-cover"
                 loading="eager"
                 priority

@@ -10,8 +10,8 @@ import jwt from "./helpers/jwt";
 import { Config } from "sst/node/config";
 
 export const authOptions = {
-  site: process.env.NEXTAUTH_URL,
-  secret: process.env.NEXTAUTH_SECRET,
+  site: Config.NEXTAUTH_URL,
+  secret: Config.NEXTAUTH_SECRET,
   providers: [
     Credentials({
       name: "Credentials",
@@ -80,7 +80,7 @@ export const authOptions = {
       if (token) {
         session.user = {
           ...session.user,
-          ...token,
+          accessToken: token.accessToken,
         };
 
         if (token.error) {
@@ -88,6 +88,11 @@ export const authOptions = {
         }
       }
       return session;
+    },
+    async redirect({ url, baseUrl }) {
+      return Config.STAGE === "blint"
+        ? "http://localhost:3000"
+        : "https://d3ke7g6e0nv5jt.cloudfront.net";
     },
   },
   pages: {

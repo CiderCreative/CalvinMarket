@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Sidebar from "../../../components/About/Sidebar";
 import { Foreground } from "../../../components/About/Spring2024";

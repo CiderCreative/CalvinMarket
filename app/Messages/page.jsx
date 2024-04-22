@@ -2,7 +2,8 @@
 
 import { Amplify } from "@aws-amplify/core";
 import * as gen from "../../constants/backend/generated";
-import React, { useState, useEffect, useRef } from "react";
+import config from "../../constants/backend/aws-exports";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import {
   CurrentConversationContainer,
   CurrentConversationHeader,
@@ -14,7 +15,7 @@ import { MessageHandler } from "../../utils/MessageHandler";
 import { useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
 
-Amplify.configure(gen.config);
+Amplify.configure(config);
 
 const Messages = () => {
   const { data: session, status } = useSession();

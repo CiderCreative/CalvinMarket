@@ -1,7 +1,8 @@
 //the main difference between this and FileInput is that this uses AWS
 //files in this file represent itemKeys, NOT actual files
 
-import Image from "next/image";
+import AdvancedImage from "../AdvancedImage";
+
 import { useRef, useState, useEffect } from "react";
 import { apiLimiter } from "../../utils/rateLimiter";
 
@@ -142,7 +143,7 @@ export default function FileInput({
               className="hover:group-hover group flex cursor-pointer flex-row justify-end p-2"
             >
               {url ? (
-                <Image
+                <AdvancedImage
                   src={url}
                   alt={url}
                   className="aspect-square w-28 object-cover"
@@ -172,7 +173,7 @@ export default function FileInput({
               className="hover:group-hover group flex cursor-pointer flex-row justify-end p-2"
             >
               {file.type.startsWith("image/") ? (
-                <Image
+                <AdvancedImage
                   src={URL.createObjectURL(file)}
                   alt={file.name}
                   className="aspect-square w-28 object-cover"

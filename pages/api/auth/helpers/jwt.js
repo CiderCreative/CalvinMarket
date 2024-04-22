@@ -9,6 +9,7 @@ export default async function jwt(token, user, account) {
     token.AccessToken = user.AccessToken;
     token.AccessTokenExpires = Date.now() + user.ExpiresIn * 1000;
     token.RefreshToken = user.RefreshToken;
+    console.log("JWT TOKEN: ", token);
     return token;
   }
   // Return previous token if the access token has not expired yet
@@ -16,5 +17,6 @@ export default async function jwt(token, user, account) {
     return token;
   }
   // Access token has expired, try to update it
+
   return refreshAccessToken(token, user);
 }

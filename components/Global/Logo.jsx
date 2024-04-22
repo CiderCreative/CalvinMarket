@@ -1,10 +1,10 @@
 import wayfinder from "../../public/wayfinder.svg";
-import Image from "next/image";
+import AdvancedImage from "../AdvancedImage";
 
 const Logo = () => {
   return (
     <div className="flex flex-col items-center pb-10 pt-5">
-      <Image
+      <AdvancedImage
         src={wayfinder}
         className="aspect-square w-8"
         alt="Calvin University Wayfinder Logo"

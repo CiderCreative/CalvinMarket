@@ -1,7 +1,7 @@
 import { Amplify } from "@aws-amplify/core";
 import * as gen from "../constants/backend/generated";
-
-Amplify.configure(gen.config);
+import config from "../constants/backend/aws-exports";
+Amplify.configure(config);
 
 export class MessageHandler {
   constructor(userId, onMessageReceived) {
@@ -67,8 +67,8 @@ export class MessageHandler {
     this.uniquePersons.forEach(
       (person) =>
         (this.peopleMessage[person] = peopleMessageHold[person].sort(
-          (a, b) => a.dateSent - b.dateSent
-        ))
+          (a, b) => a.dateSent - b.dateSent,
+        )),
     );
 
     this.sortPeopleList();
