@@ -10,10 +10,10 @@ const AboutCode = () => {
       buttonLink: "https://github.com/CiderCreative/CalvinMarket",
     },
     {
-      text: "Our designs can be found in our Figma file:",
-      buttonText: "Figma",
+      text: "Our designs can be found in our Google Drive file:",
+      buttonText: "UI Design",
       buttonLink:
-        "https://www.figma.com/file/BWSnNtOdaqMQM4U53r7Vbu/Calvin-Market?type=design&node-id=0%3A1&mode=design&t=QCtIWxFyXAZIvDkL-1",
+        "https://drive.google.com/file/d/1bAnmr92CrjltbzHZ4T63IpFllxGu8z78/view?usp=sharing",
     },
     {
       text: "Our 2024 Spring slides can be found here:",
@@ -27,11 +27,17 @@ const AboutCode = () => {
       buttonLink: "https://computing.calvin.edu",
       buttonColor: "bg-maroon",
     },
+    {
+      text: "The project's final report can be found here:",
+      buttonText: "Final Report",
+      buttonLink:
+        "https://docs.google.com/document/d/18s_XBDrpcnrR3SQqJRcySLu2v36jTRdBpS2YRp0Mf4o/edit",
+    },
   ];
 
   return (
     <div>
-      <AboutHeader text="Code" />
+      <AboutHeader text="Resources & Report" />
 
       {/* Necessary Buttons */}
       <div className="space-y-5">
