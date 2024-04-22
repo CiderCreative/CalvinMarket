@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeftIcon, XMarkIcon } from "@heroicons/react/20/solid";
-import Image from "next/image";
+import AdvancedImage from "../AdvancedImage";
 
 const MessagesSidebar = ({
   activePerson,
@@ -36,7 +36,7 @@ const MessagesSidebar = ({
             className="flex w-full items-center space-x-8 rounded-xl border-[1px] border-transparent px-5 py-4 hover:cursor-pointer hover:border-opposite/20 hover:bg-neutral-200 dark:hover:bg-neutral-700"
             onClick={() => setActivePerson(person)}
           >
-            <Image
+            <AdvancedImage
               src={person.image}
               alt={`Profile picture of ${person.name}`}
               className="aspect-square h-6 w-6"

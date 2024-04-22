@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
+import AdvancedImage from "../../components/AdvancedImage";
 import loadingImg from "../../constants/loadingImage.png";
 import { apiLimiter } from "../../utils/rateLimiter";
 import { ExitButton } from "../../components/Global";
@@ -11,7 +11,7 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 const Page = () => {
   const [items, setItems] = useState([]); //your items
   const { data: session, status } = useSession(); // Get the session
-  const [urls, setUrls] = useState([loadingImg]);
+  const [urls, setUrls] = useState(["https://picsum.photos/id/0/5000/3333"]);
 
   useEffect(() => {
     if (status === "loading") return; // If it's loading, don't do anything
@@ -78,7 +78,7 @@ const Page = () => {
                   href={`/Item/${items[index].itemId || ""}`}
                   className="mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:cursor-pointer lg:text-sm"
                 >
-                  <Image
+                  <AdvancedImage
                     src={url}
                     className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
                     alt=""
@@ -105,7 +105,7 @@ const Page = () => {
 
 function onDelete(item) {
   fetch("/api/items/delete", {
-    method: "DELETE",
+    method: "POST",
     body: JSON.stringify({ item }),
   }).then((res) => res.json());
 }

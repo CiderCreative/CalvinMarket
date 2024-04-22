@@ -13,7 +13,7 @@ const AboutCode = () => {
       text: "Our designs can be found in our Figma file:",
       buttonText: "Figma",
       buttonLink:
-        "https://www.figma.com/file/BWSnNtOdaqMQM4U53r7Vbu/Calvin-Market?type=design&node-id=0%3A1&mode=design&t=QCtIWxFyXAZIvDkL-1",
+        "https://drive.google.com/file/d/1bAnmr92CrjltbzHZ4T63IpFllxGu8z78/view?usp=sharing",
     },
     {
       text: "This project is a part of Calvin University’s Computer Science program:",
@@ -32,14 +32,14 @@ const AboutCode = () => {
         {linkArray.map((item, idx) => (
           <div
             key={idx}
-            className="flex max-2xl:flex-col lg:justify-between w-[80vw] max-w-[1000px] m-auto"
+            className="m-auto flex w-[80vw] max-w-[1000px] max-2xl:flex-col lg:justify-between"
           >
             <p className="text-base">{item.text}</p>
             <div className="my-5">
               <Link
                 href={item.buttonLink}
                 target="_blank"
-                className={`px-4 sm:px-10 py-3 rounded-xl text-light hover:opacity-70 text-base font-medium duration-100 ${
+                className={`rounded-xl px-4 py-3 text-base font-medium text-light duration-100 hover:opacity-70 sm:px-10 ${
                   item.buttonColor ? "bg-maroon" : "bg-dark"
                 }`}
               >

@@ -1,5 +1,4 @@
 ﻿import { graphqlOperation, API } from "aws-amplify";
-import next from "next";
 
 export const config = {
   aws_appsync_graphqlEndpoint:
@@ -45,6 +44,7 @@ export const subscribeMessage = /* GraphQL */ `
   }
 `;
 
+//gets all messages that a user sent
 export const listMessageSend = /* GraphQL */ `
   query MyQuery($userId: String!, $nextToken: String) {
     listBlintCalvinmarketMessages(
@@ -62,6 +62,7 @@ export const listMessageSend = /* GraphQL */ `
   }
 `;
 //only dif between ^ & v is senderId & recieverId
+//gets all messages that a user received
 export const listMessageRec = /* GraphQL */ `
   query MyQuery($userId: String!, $nextToken: String) {
     listBlintCalvinmarketMessages(
@@ -89,7 +90,7 @@ export async function listSender(userId) {
         variables: { userId, nextToken },
       });
       messages = messages.concat(
-        result.data.listBlintCalvinmarketMessages.items
+        result.data.listBlintCalvinmarketMessages.items,
       );
       nextToken = result.data.listBlintCalvinmarketMessages.nextToken;
     } while (nextToken);
@@ -105,10 +106,10 @@ export async function listReceiver(userId) {
   try {
     do {
       let result = await API.graphql(
-        graphqlOperation(listMessageRec, { userId, nextToken })
+        graphqlOperation(listMessageRec, { userId, nextToken }),
       );
       messages = messages.concat(
-        result.data.listBlintCalvinmarketMessages.items
+        result.data.listBlintCalvinmarketMessages.items,
       );
       nextToken = result.data.listBlintCalvinmarketMessages.nextToken;
     } while (nextToken);

@@ -6,7 +6,7 @@ import loadingImg from "../../constants/loadingImage.png";
 
 const ItemCarousel = ({ imageKeys }) => {
   const [carouselIndex, setCarouselIndex] = useState(0); // Controls which primary image to display
-  const [urls, setUrls] = useState([loadingImg]); // List of urls for images
+  const [urls, setUrls] = useState(["https://picsum.photos/id/0/5000/3333"]); // List of urls for images
   const imageKeyList = imageKeys.slice(1, -1).split(","); // Image key list is the names of the images
 
   useEffect(() => {

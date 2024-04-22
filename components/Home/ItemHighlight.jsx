@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import AdvancedImage from "../AdvancedImage";
 import loadingImg from "../../constants/loadingImage.png";
 import { apiLimiter } from "../../utils/rateLimiter";
 
 const ItemHighlight = ({ item }) => {
   const { price, title, detail, itemId, imageKeys: imageKeysString } = item;
-  const [urls, setUrls] = useState([loadingImg]); //list of urls for images
+  const [urls, setUrls] = useState(["https://picsum.photos/id/0/5000/3333"]); //list of urls for images
   let imageKeyList = imageKeysString.slice(1, -1).split(",");
   useEffect(() => {
     const fetchImageURLs = async () => {
@@ -27,7 +27,7 @@ const ItemHighlight = ({ item }) => {
       href={`/Item/${itemId}`}
       className="mb-5 flex w-full flex-shrink-0 flex-col text-xs transition-transform duration-75 ease-in-out hover:scale-[102%] hover:cursor-pointer lg:text-sm"
     >
-      <Image
+      <AdvancedImage
         src={urls[0]}
         className="aspect-square w-full flex-shrink-0 rounded-md object-cover"
         alt=""

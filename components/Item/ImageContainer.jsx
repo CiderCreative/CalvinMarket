@@ -1,11 +1,11 @@
-import Image from "next/image";
+import AdvancedImage from "../AdvancedImage";
 import React from "react";
 
 const ImageContainer = ({ urls, index, setIndex }) => {
   return (
     <div className="flex justify-center space-x-2 md:space-x-5">
       {urls.map((image, idx) => (
-        <Image
+        <AdvancedImage
           src={image}
           key={idx}
           draggable="false"
